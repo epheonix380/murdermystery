@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hollowpine Case Hub</title>
+<meta name="theme-color" content="#121016">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg: #121016; --card: #1d1924; --card2: #26212f; --line: #3a3344;
+    --text: #ece6f2; --muted: #a89cb8; --accent: #f07a2e; --accent2: #9a7bff;
+    --ok: #4fbf7a; --bad: #e0565b; --tint: #2c2636;
+    --nav-h: 64px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.5 Inter, system-ui, -apple-system, Segoe UI, sans-serif; -webkit-text-size-adjust: 100%; }
+  body { padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom)); }
+  button, input { font: inherit; color: inherit; }
+  header.top { position: sticky; top: 0; z-index: 5; background: rgba(18,16,22,.94); backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line); padding: 10px 16px; display: flex; align-items: center; gap: 10px; }
+  header.top h1 { font: 400 22px/1.1 Creepster, Inter, sans-serif; letter-spacing: .5px; margin: 0; color: var(--accent); flex: 1; }
+  .badge { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: var(--card2); color: var(--muted); border: 1px solid var(--line); white-space: nowrap; }
+  .badge.r2 { color: #fff; background: var(--accent2); border-color: var(--accent2); }
+  main { max-width: 720px; margin: 0 auto; padding: 16px; }
+  section.view { display: none; }
+  section.view.active { display: block; }
+  h2 { font-size: 20px; margin: 4px 0 12px; }
+  h3 { font-size: 15px; margin: 18px 0 8px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  p { margin: 0 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; margin-bottom: 12px; }
+  .muted { color: var(--muted); }
+  .small { font-size: 13px; }
+  ul.clean { margin: 0; padding-left: 18px; }
+  ul.clean li { margin-bottom: 6px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 0 16px;
+    border-radius: 10px; border: 1px solid var(--line); background: var(--card2); cursor: pointer; font-weight: 600; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #1a0f08; }
+  .btn.ghost { background: transparent; }
+  .btn.small { min-height: 36px; padding: 0 12px; font-size: 14px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  input.code { flex: 1; min-width: 0; min-height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line);
+    background: var(--bg); text-transform: uppercase; letter-spacing: .08em; font-size: 16px; }
+  input.code:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .msg { min-height: 22px; font-size: 14px; margin-top: 8px; }
+  .msg.ok { color: var(--ok); } .msg.bad { color: var(--bad); }
+  .unlock { background: rgba(79,191,122,.12); border: 1px solid var(--ok); border-radius: 12px; padding: 12px 14px; margin-top: 10px; }
+  .unlock strong { color: var(--ok); }
+
+  /* bottom nav */
+  nav.tabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: 6; height: calc(var(--nav-h) + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom); display: flex; background: rgba(18,16,22,.97); border-top: 1px solid var(--line); }
+  nav.tabs button { flex: 1; background: none; border: 0; color: var(--muted); display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 2px; font-size: 12px; font-weight: 600; cursor: pointer; }
+  nav.tabs button svg { width: 22px; height: 22px; }
+  nav.tabs button.active { color: var(--accent); }
+
+  /* map */
+  .mapscroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -8px; padding: 0 8px; }
+  .map svg { width: 100%; min-width: 680px; height: auto; display: block; }
+  .swipe { display: none; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  @media (max-width: 700px) { .swipe { display: block; } }
+  .map .room { fill: var(--card); stroke: #5b5168; stroke-width: 1.5; cursor: pointer; transition: fill .15s; }
+  .map .room.out { fill: var(--tint); }
+  .map .room.up { stroke-dasharray: 6 4; }
+  .map .room.sel { fill: rgba(240,122,46,.25); stroke: var(--accent); }
+  .map .room.path { fill: rgba(154,123,255,.28); stroke: var(--accent2); }
+  .map .room.start { fill: rgba(79,191,122,.2); stroke: var(--ok); }
+  .map .wall { fill: none; stroke: #7a6f88; stroke-width: 2.5; pointer-events: none; }
+  .map .door { stroke: var(--accent); stroke-width: 5; stroke-linecap: round; pointer-events: none; }
+  .map text { fill: var(--text); font-size: 13px; pointer-events: none; }
+  .map text.nm { font-weight: 700; font-size: 14px; }
+  .map text.q { fill: var(--muted); font-size: 11.5px; }
+  .map .seal { fill: var(--accent2); pointer-events: none; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .legend i { display: inline-block; vertical-align: middle; margin-right: 6px; }
+
+  /* body */
+  #bodyWrap { position: relative; width: 100%; height: min(60vh, 420px); border-radius: 14px; overflow: hidden;
+    border: 1px solid var(--line); background: radial-gradient(ellipse at 50% 40%, #2a2130, #0d0b10); }
+  #bodyWrap canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+  #bodyHint { position: absolute; left: 10px; top: 10px; font-size: 12px; color: var(--muted); background: rgba(0,0,0,.45); padding: 4px 8px; border-radius: 8px; pointer-events: none; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .chip { min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--card2); cursor: pointer; font-size: 14px; font-weight: 600; }
+  .chip .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-right: 6px; vertical-align: middle; }
+  .chip.r2 .dot { background: var(--accent2); }
+  .chip.on { border-color: var(--accent); color: var(--accent); }
+  .detail { min-height: 70px; }
+  .detail .lbl { font-weight: 700; margin-bottom: 4px; }
+
+  /* puzzles */
+  .cipher { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 14px; background: var(--bg); border: 1px dashed var(--line);
+    border-radius: 10px; padding: 10px 12px; word-spacing: 4px; letter-spacing: .04em; line-height: 1.7; }
+  .pathchips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; font-size: 14px; }
+  .pathchips span { background: var(--card2); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; }
+  details.hint summary { cursor: pointer; color: var(--muted); font-size: 14px; margin-top: 8px; }
+
+  /* sheet */
+  .hero { background: linear-gradient(160deg, #2a1e2e, var(--card)); }
+  .hero .nm { font-size: 24px; font-weight: 700; line-height: 1.2; }
+  .hero .cos { color: var(--accent); font-weight: 600; font-size: 14px; margin: 2px 0 8px; }
+  .say { border-left: 3px solid var(--accent); padding: 6px 10px; background: var(--bg); border-radius: 0 8px 8px 0; font-style: italic; }
+  .secretbox { border: 1px dashed var(--accent2); background: rgba(154,123,255,.08); }
+  .secretbox .reveal { display: none; }
+  .secretbox.open .reveal { display: block; }
+  .secretbox.open .cover { display: none; }
+  .killer { color: var(--bad); font-weight: 800; letter-spacing: .06em; }
+  .subtabs { display: flex; gap: 6px; overflow-x: auto; margin: 4px 0 10px; padding-bottom: 2px; }
+  .subtabs button { flex: 0 0 auto; min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--card2); font-weight: 600; font-size: 14px; cursor: pointer; }
+  .subtabs button.on { background: var(--accent); color: #1a0f08; border-color: var(--accent); }
+  .tl { list-style: none; margin: 0; padding: 0; }
+  .tl li { display: grid; grid-template-columns: 74px 1fr; gap: 2px 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .tl li:last-child { border-bottom: 0; }
+  .tl .t { font-weight: 700; font-variant-numeric: tabular-nums; font-size: 14px; }
+  .tl .w { font-size: 12px; color: var(--muted); grid-column: 2; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+  .tl .d { grid-column: 2; font-size: 15px; }
+  .tl li.hide .d::before { content: "Keep quiet"; display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+    background: rgba(224,86,91,.18); color: #ff9a9e; border-radius: 6px; padding: 1px 6px; margin-right: 6px; vertical-align: 1px; }
+  .kv { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .kv div b { display: block; }
+
+  /* gm */
+  table.gm { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.gm td, table.gm th { text-align: left; padding: 7px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.gm th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+  label.chk { display: flex; align-items: center; gap: 10px; min-height: 40px; }
+  label.chk input { width: 20px; height: 20px; accent-color: var(--accent); }
+  blockquote { margin: 0; padding: 10px 12px; border-left: 3px solid var(--accent2); background: var(--bg); border-radius: 0 8px 8px 0; }
+
+  #printArea { display: none; }
+  @media print {
+    @page { margin: 10mm; }
+    body { background: #fff; color: #000; padding: 0; font-size: 11pt; }
+    header.top, main, nav.tabs { display: none !important; }
+    #printArea { display: block; }
+    .pgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+    .pcard { border: 1.5px dashed #444; border-radius: 3mm; padding: 4mm 5mm; break-inside: avoid; min-height: 42mm; }
+    .pcard .ph { font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: #555; margin-bottom: 2mm; display: flex; justify-content: space-between; }
+    .pcard .pt { font-size: 11pt; line-height: 1.35; }
+    .pcard .pc { font-family: "Courier New", monospace; font-size: 10.5pt; margin-top: 2mm; letter-spacing: .05em; }
+    .pcard.item { border-style: solid; border-width: 2.5px; }
+    .pcard .itemtag { font-size: 8.5pt; font-weight: 700; margin-top: 2mm; }
+    .plabel { border: 2px solid #000; border-radius: 3mm; padding: 8mm 6mm; text-align: center; break-inside: avoid; }
+    .plabel .big { font-size: 22pt; font-weight: 800; letter-spacing: .04em; }
+    .plabel .sm { font-size: 10pt; margin-top: 3mm; }
+    .plabel.sealed { border-style: dashed; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>Hollowpine Lodge</h1>
+  <span class="badge" id="roundBadge">Round 1</span>
+</header>
+
+<main>
+  <!-- CASE -->
+  <section class="view active" id="v-case">
+    <div class="card">
+      <h2>The Last Chapter</h2>
+      <div id="premise"></div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">How to play</h3>
+      <ul class="clean" id="rules"></ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">The guests</h3>
+      <div id="castList" class="kv"></div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Using this hub</h3>
+      <ul class="clean small">
+        <li><b>Me</b>: enter the code your GM gives you to open your character sheet. Keep it to yourself.</li>
+        <li><b>Map</b>: the lodge floor plan. Tap a room for details.</li>
+        <li><b>Body</b>: drag to turn, pinch to zoom, tap a glowing spot to inspect.</li>
+        <li><b>Puzzles</b>: solve them to unlock sealed envelopes in Round 2.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="view" id="v-map">
+    <h2>Lodge map</h2>
+    <div class="card map" id="mapMain"></div>
+    <div class="card" id="roomInfo"><span class="muted">Tap a room to see what's there.</span></div>
+  </section>
+
+  <!-- BODY -->
+  <section class="view" id="v-body">
+    <h2>The body</h2>
+    <div id="bodyWrap"><span id="bodyHint">Drag to turn · Pinch to zoom · Tap a glowing spot</span></div>
+    <div class="chips" id="hotChips"></div>
+    <div class="card detail" id="hotDetail"><span class="muted">Tap a glowing spot or a button above to inspect it.</span></div>
+    <div class="card" id="r2box">
+      <div class="small muted" style="margin-bottom:6px">The Deputy will give you a Round 2 code to re-examine the body.</div>
+      <div class="row"><input class="code" id="r2input" placeholder="Round 2 code" autocomplete="off"><button class="btn" id="r2btn">Unlock</button></div>
+      <div class="msg" id="r2msg"></div>
+    </div>
+  </section>
+
+  <!-- PUZZLES -->
+  <section class="view" id="v-puzzles">
+    <h2>Puzzles</h2>
+    <p class="muted small">Each puzzle unlocks a sealed envelope. Show the GM the green message, then open it.</p>
+    <div id="puzzleList"></div>
+  </section>
+
+  <!-- ME -->
+  <section class="view" id="v-me">
+    <div id="meLogin">
+      <h2>Your character</h2>
+      <div class="card">
+        <p class="muted small">Enter the code from your GM. Don't let anyone see your screen.</p>
+        <div class="row"><input class="code" id="roleInput" placeholder="Your code" autocomplete="off"><button class="btn primary" id="roleBtn">Open</button></div>
+        <div class="msg" id="roleMsg"></div>
+      </div>
+    </div>
+    <div id="meSheet" style="display:none"></div>
+    <div id="gmPage" style="display:none"></div>
+  </section>
+</main>
+
+<nav class="tabs" id="tabs">
+  <button data-v="case" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h12l4 4v12H4z"/><path d="M8 11h8M8 15h6"/></svg>Case</button>
+  <button data-v="map"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg>Map</button>
+  <button data-v="body"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v7M8 11l4-2 4 2M9 21l3-6 3 6"/></svg>Body</button>
+  <button data-v="puzzles"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Puzzles</button>
+  <button data-v="me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Me</button>
+</nav>
+
+<div id="printArea"></div>
+
+<script src="data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script>
+(function () {
+  var C = window.CASE;
+  var $ = function (s) { return document.querySelector(s); };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var store = {
+    get: function (k) { try { return localStorage.getItem("hp_" + k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem("hp_" + k, v); } catch (e) {} },
+    del: function (k) { try { localStorage.removeItem("hp_" + k); } catch (e) {} }
+  };
+  var norm = function (s) { return String(s || "").trim().toUpperCase().replace(/\s+/g, ""); };
+
+  /* ---------- NAV ---------- */
+  var current = "case";
+  function show(v) {
+    current = v;
+    document.querySelectorAll("section.view").forEach(function (s) { s.classList.toggle("active", s.id === "v-" + v); });
+    document.querySelectorAll("#tabs button").forEach(function (b) { b.classList.toggle("active", b.dataset.v === v); });
+    window.scrollTo(0, 0);
+    if (v === "body") initBody();
+  }
+  document.querySelectorAll("#tabs button").forEach(function (b) { b.addEventListener("click", function () { show(b.dataset.v); }); });
+
+  /* ---------- ROUND ---------- */
+  function isR2() { return store.get("round2") === "1"; }
+  function refreshRound() {
+    var b = $("#roundBadge");
+    b.textContent = isR2() ? "Round 2" : "Round 1";
+    b.classList.toggle("r2", isR2());
+    $("#r2box").style.display = isR2() ? "none" : "";
+    renderChips();
+    if (body3d) body3d.refresh();
+  }
+
+  /* ---------- CASE ---------- */
+  $("#premise").innerHTML = C.premise.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("");
+  $("#rules").innerHTML = C.rules.map(function (r) { return "<li>" + esc(r) + "</li>"; }).join("");
+  $("#castList").innerHTML = Object.keys(C.roles).map(function (k) {
+    var r = C.roles[k];
+    return "<div><b>" + esc(r.name) + (r.core ? "" : ' <span class="muted small">(if playing)</span>') + "</b><span class='muted small'>" + esc(r.costume) + " · " + esc(r.who) + "</span></div>";
+  }).join("") + "<div><b>Edgar Thorne</b><span class='muted small'>The victim. Famous horror novelist, host of the party.</span></div>";
+
+  /* ---------- MAP ---------- */
+  var ROOMS = [
+    { id: "cabin", n: "Ruth's Cabin", x: 24, y: 64, w: 132, h: 72, k: "out", l: ["Separate building"], seal: "Cabin search", info: "Ruth the caretaker's own little cabin, a short walk from the lodge. Searchable in Round 2." },
+    { id: "generator", n: "Generator", x: 24, y: 156, w: 132, h: 36, k: "out", l: [], info: "The backup generator, just outside the mudroom." },
+    { id: "porch", n: "Back Porch (covered)", x: 180, y: 64, w: 556, h: 44, k: "out", l: [], center: true, info: "A covered porch along the back of the lodge. The mudroom's back door and the study's French doors both open onto it." },
+    { id: "mudroom", n: "Mudroom", x: 180, y: 116, w: 130, h: 120, l: ["Breaker box"], seal: "Umbrella stand", info: "Boots, coats and the breaker box. The back door leads out to the porch. The umbrella stand is sealed until Puzzle 3 is solved." },
+    { id: "kitchen", n: "Kitchen", x: 310, y: 116, w: 150, h: 120, l: ["Back stairs up", "Window onto porch"], info: "Connects to the mudroom, the Great Room and the back stairs up to the guest rooms. A window looks out toward the back door." },
+    { id: "hallway", n: "Hallway", x: 460, y: 116, w: 96, h: 120, l: ["Coat closet"], info: "The only inside way to the study. It opens straight off the Great Room. There's a coat closet here." },
+    { id: "study", n: "Study", x: 556, y: 116, w: 180, h: 180, l: ["Edgar's body", "Desk, fireplace"], seal: "Edgar's safe", info: "Edgar's private study, where he was found. One door to the hallway, and French doors out to the back porch. His safe is sealed until Puzzle 1 is solved." },
+    { id: "dining", n: "Dining Room", x: 180, y: 236, w: 130, h: 216, l: ["Seance table"], info: "Where dinner was served at 8:30. Opens onto the Great Room." },
+    { id: "great", n: "Great Room", x: 310, y: 236, w: 246, h: 140, l: ["Fireplace, photo booth", "Party guests all night"], info: "The heart of the party. Somebody was in here all night." },
+    { id: "guest", n: "Guest Rooms", x: 556, y: 296, w: 180, h: 156, k: "up", l: ["Upstairs, via the", "kitchen back stairs"], seal: "Luggage", info: "Upstairs, reached by the back stairs in the kitchen. Everyone's luggage is here, sealed until Puzzle 2 is solved." },
+    { id: "foyer", n: "Foyer", x: 310, y: 376, w: 246, h: 76, l: ["Front door"], info: "The front entrance, off the Great Room." },
+    { id: "frontporch", n: "Front Porch", x: 310, y: 460, w: 246, h: 40, k: "out", l: [], center: true, info: "Outside the front door. Exposed to the storm." }
+  ];
+  var DOORS = [[220,116,250,116],[620,116,680,116],[310,186,310,214],[340,236,372,236],[310,304,310,334],[492,236,526,236],[556,196,556,226],[404,376,462,376],[412,452,454,452]];
+  function mapSVG(prefix) {
+    var s = '<div class="swipe">Swipe sideways to see the whole lodge →</div><div class="mapscroll"><svg viewBox="0 56 760 456" width="760" height="456" role="img" aria-label="Floor plan of Hollowpine Lodge">';
+    ROOMS.forEach(function (r) {
+      s += '<rect class="room ' + (r.k || "") + '" data-room="' + r.id + '" id="' + prefix + r.id + '" x="' + r.x + '" y="' + r.y + '" width="' + r.w + '" height="' + r.h + '" rx="' + (r.k === "out" ? 8 : 0) + '"/>';
+    });
+    s += '<rect class="wall" x="180" y="116" width="556" height="336"/>';
+    DOORS.forEach(function (d) { s += '<line class="door" x1="' + d[0] + '" y1="' + d[1] + '" x2="' + d[2] + '" y2="' + d[3] + '"/>'; });
+    ROOMS.forEach(function (r) {
+      if (r.center) { s += '<text class="nm" x="' + (r.x + r.w / 2) + '" y="' + (r.y + r.h / 2 + 5) + '" text-anchor="middle">' + esc(r.n) + '</text>'; return; }
+      var y = r.y + 22;
+      s += '<text class="nm" x="' + (r.x + 12) + '" y="' + y + '">' + esc(r.n) + '</text>';
+      r.l.forEach(function (line) { y += 18; s += '<text class="q" x="' + (r.x + 12) + '" y="' + y + '">' + esc(line) + '</text>'; });
+      if (r.seal) { y += 18; s += '<circle class="seal" cx="' + (r.x + 16) + '" cy="' + (y - 4) + '" r="5"/><text class="q" x="' + (r.x + 26) + '" y="' + y + '">' + esc(r.seal) + '</text>'; }
+    });
+    s += '<text class="q" x="235" y="102" text-anchor="middle">Back door</text><text class="q" x="650" y="102" text-anchor="middle">French doors</text>';
+    s += '</svg></div>';
+    s += '<div class="legend"><span><i style="width:18px;height:4px;background:var(--accent);border-radius:2px"></i>Door</span>' +
+      '<span><i style="width:10px;height:10px;border-radius:50%;background:var(--accent2)"></i>Sealed until Round 2</span>' +
+      '<span><i style="width:16px;height:12px;background:var(--tint);border:1px solid #5b5168;border-radius:3px"></i>Outdoors</span>' +
+      '<span><i style="width:16px;height:12px;border:1px dashed #5b5168"></i>Upstairs</span></div>';
+    return s;
+  }
+  $("#mapMain").innerHTML = mapSVG("m-");
+  $("#mapMain").addEventListener("click", function (e) {
+    var id = e.target.getAttribute && e.target.getAttribute("data-room");
+    if (!id) return;
+    var r = ROOMS.filter(function (x) { return x.id === id; })[0];
+    document.querySelectorAll("#mapMain .room").forEach(function (el) { el.classList.toggle("sel", el.getAttribute("data-room") === id); });
+    $("#roomInfo").innerHTML = "<b>" + esc(r.n) + "</b><p class='small' style='margin:4px 0 0'>" + esc(r.info) + "</p>";
+  });
+
+  /* ---------- PUZZLES ---------- */
+  var routeSel = [];
+  function solved(id) { return store.get("pz_" + id) === "1"; }
+  function unlockHTML(p) { return '<div class="unlock"><strong>Solved!</strong> The Deputy authorizes a search. Open the envelope: <b>' + esc(p.unlocks) + '</b></div>'; }
+  function renderPuzzles() {
+    $("#puzzleList").innerHTML = C.puzzles.map(function (p, i) {
+      var h = '<div class="card" id="pz-' + p.id + '"><h3 style="margin-top:0">Puzzle ' + (i + 1) + ' · ' + esc(p.title) + '</h3><p>' + esc(p.prompt) + '</p>';
+      if (p.id === "page") h += '<div class="cipher">' + esc(C.cipher) + '</div><p class="small muted" style="margin-top:6px">This text is also on the burnt page card in the Study.</p>';
+      if (p.route) {
+        h += '<div class="map" id="routeMap">' + mapSVG("r-") + '</div>';
+        h += '<div class="pathchips" id="routeChips"></div><div class="row"><button class="btn small ghost" id="routeUndo">Undo</button><button class="btn small ghost" id="routeReset">Reset</button><button class="btn small primary" id="routeCheck">Check route</button></div>';
+      } else {
+        h += '<div class="row"><input class="code" id="in-' + p.id + '" placeholder="Answer" autocomplete="off"><button class="btn primary" data-pz="' + p.id + '">Check</button></div>';
+      }
+      h += '<div class="msg" id="msg-' + p.id + '"></div>';
+      h += '<details class="hint"><summary>Stuck? Show a hint</summary><p class="small" style="margin-top:6px">' + esc(p.hint) + '</p></details>';
+      h += '<div id="un-' + p.id + '">' + (solved(p.id) ? unlockHTML(p) : "") + '</div></div>';
+      return h;
+    }).join("");
+    document.querySelectorAll("[data-pz]").forEach(function (b) {
+      var p = C.puzzles.filter(function (x) { return x.id === b.dataset.pz; })[0];
+      var inp = $("#in-" + p.id);
+      var go = function () {
+        if (p.check(inp.value)) { store.set("pz_" + p.id, "1"); $("#msg-" + p.id).className = "msg ok"; $("#msg-" + p.id).textContent = ""; $("#un-" + p.id).innerHTML = unlockHTML(p); }
+        else { $("#msg-" + p.id).className = "msg bad"; $("#msg-" + p.id).textContent = "Not quite. Try again."; }
+      };
+      b.addEventListener("click", go);
+      inp.addEventListener("keydown", function (e) { if (e.key === "Enter") go(); });
+    });
+    setupRoute();
+  }
+  function setupRoute() {
+    var p = C.puzzles.filter(function (x) { return x.route; })[0];
+    var startEl = $("#r-great"); if (startEl) startEl.classList.add("start");
+    var paint = function () {
+      document.querySelectorAll("#routeMap .room").forEach(function (el) {
+        el.classList.toggle("path", routeSel.indexOf(el.getAttribute("data-room")) >= 0);
+      });
+      var names = ["Great Room (start)"].concat(routeSel.map(function (id) { return ROOMS.filter(function (r) { return r.id === id; })[0].n; }));
+      $("#routeChips").innerHTML = names.map(function (n, i) { return "<span>" + (i ? "→ " : "") + esc(n) + "</span>"; }).join("");
+    };
+    $("#routeMap").addEventListener("click", function (e) {
+      var id = e.target.getAttribute && e.target.getAttribute("data-room");
+      if (!id || id === "great") return;
+      if (routeSel[routeSel.length - 1] === id) return;
+      routeSel.push(id); paint();
+    });
+    $("#routeUndo").addEventListener("click", function () { routeSel.pop(); paint(); });
+    $("#routeReset").addEventListener("click", function () { routeSel = []; paint(); });
+    $("#routeCheck").addEventListener("click", function () {
+      var m = $("#msg-route");
+      if (routeSel.join(">") === p.route.join(">")) { store.set("pz_route", "1"); m.className = "msg ok"; m.textContent = ""; $("#un-route").innerHTML = unlockHTML(p); }
+      else if (routeSel[routeSel.length - 1] !== "study") { m.className = "msg bad"; m.textContent = "The route has to end in the Study."; }
+      else { m.className = "msg bad"; m.textContent = "Someone would have seen that. Try another way."; }
+    });
+    paint();
+  }
+  renderPuzzles();
+
+  /* ---------- BODY HOTSPOT LIST ---------- */
+  var activeHot = null;
+  function visibleHots() { return C.body.filter(function (h) { return h.round === 1 || isR2(); }); }
+  function renderChips() {
+    $("#hotChips").innerHTML = visibleHots().map(function (h) {
+      return '<button class="chip ' + (h.round === 2 ? "r2" : "") + (activeHot === h.id ? " on" : "") + '" data-hot="' + h.id + '"><span class="dot"></span>' + esc(h.label) + '</button>';
+    }).join("");
+    document.querySelectorAll("[data-hot]").forEach(function (b) { b.addEventListener("click", function () { selectHot(b.dataset.hot); }); });
+  }
+  function selectHot(id) {
+    activeHot = id;
+    var h = C.body.filter(function (x) { return x.id === id; })[0];
+    $("#hotDetail").innerHTML = '<div class="lbl">' + esc(h.label) + (h.round === 2 ? ' <span class="badge r2" style="font-size:11px;padding:2px 8px">Round 2</span>' : "") + '</div><div>' + esc(h.text) + '</div>';
+    renderChips();
+    if (body3d) body3d.highlight(id);
+  }
+  $("#r2btn").addEventListener("click", function () {
+    if (norm($("#r2input").value) === C.round2Code) { store.set("round2", "1"); $("#r2msg").className = "msg ok"; $("#r2msg").textContent = "Round 2 unlocked. New spots on the body."; refreshRound(); }
+    else { $("#r2msg").className = "msg bad"; $("#r2msg").textContent = "That's not the Round 2 code."; }
+  });
+
+  /* ---------- 3D BODY ---------- */
+  var body3d = null;
+  function initBody() {
+    if (body3d) { body3d.resize(); return; }
+    if (!window.THREE) {
+      $("#bodyHint").textContent = "3D view couldn't load. Use the buttons below.";
+      body3d = { refresh: function () {}, highlight: function () {}, resize: function () {} };
+      return;
+    }
+    try { body3d = buildBody($("#bodyWrap")); }
+    catch (e) {
+      $("#bodyHint").textContent = "3D view isn't supported here. Use the buttons below.";
+      body3d = { refresh: function () {}, highlight: function () {}, resize: function () {} };
+    }
+  }
+
+  function buildBody(wrap) {
+    var T = THREE;
+    var renderer = new T.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    wrap.appendChild(renderer.domElement);
+    var scene = new T.Scene();
+    scene.fog = new T.Fog(0x0d0b10, 4, 9);
+    var camera = new T.PerspectiveCamera(45, 1, 0.05, 50);
+    var target = new T.Vector3(0, 0.1, 0.35);
+    var theta = 0.9, phi = 0.95, radius = 2.6;
+
+    scene.add(new T.HemisphereLight(0xc9bfff, 0x2a1a10, 0.75));
+    var key = new T.DirectionalLight(0xffe2c0, 0.85); key.position.set(2, 4, 2); scene.add(key);
+    var lamp = new T.PointLight(0xff8a3d, 0.7, 6); lamp.position.set(-1.2, 1.2, -1); scene.add(lamp);
+
+    var mat = function (c, o) { var m = new T.MeshStandardMaterial({ color: c, roughness: 0.8, metalness: 0 }); if (o) Object.keys(o).forEach(function (k) { m[k] = o[k]; }); return m; };
+    var add = function (geo, m, x, y, z, parent) { var me = new T.Mesh(geo, m); me.position.set(x, y, z); (parent || scene).add(me); return me; };
+
+    // floor + rug
+    var floor = add(new T.PlaneGeometry(8, 8), mat(0x3a281e), 0, 0, 0); floor.rotation.x = -Math.PI / 2;
+    var rug = add(new T.PlaneGeometry(2.2, 2.8), mat(0x4a2230), 0, 0.002, 0.35); rug.rotation.x = -Math.PI / 2;
+    var rugB = add(new T.PlaneGeometry(2.0, 2.6), mat(0x5a2a3a), 0, 0.003, 0.35); rugB.rotation.x = -Math.PI / 2;
+
+    // blood pool
+    var blood = mat(0x4a0710, { roughness: 0.25, metalness: 0.1 });
+    var b1 = add(new T.CircleGeometry(0.26, 32), blood, 0.02, 0.006, -0.5); b1.rotation.x = -Math.PI / 2;
+    var b2 = add(new T.CircleGeometry(0.15, 24), blood, -0.16, 0.007, -0.66); b2.rotation.x = -Math.PI / 2;
+
+    // body (face down), head toward -z
+    var jacket = mat(0x6b1f2a), pants = mat(0x34343e), skin = mat(0xc99a7a), hair = mat(0x55525a), shoe = mat(0x111111);
+    add(new T.BoxGeometry(0.44, 0.22, 0.62), jacket, 0, 0.12, -0.02);
+    add(new T.BoxGeometry(0.38, 0.19, 0.3), pants, 0, 0.11, 0.42);
+    var limb = function (a, b, r1, r2, m) {
+      var A = new T.Vector3(a[0], a[1], a[2]), B = new T.Vector3(b[0], b[1], b[2]);
+      var len = A.distanceTo(B);
+      var me = new T.Mesh(new T.CylinderGeometry(r1, r2, len, 14), m);
+      me.position.copy(A).add(B).multiplyScalar(0.5);
+      me.quaternion.setFromUnitVectors(new T.Vector3(0, 1, 0), B.clone().sub(A).normalize());
+      scene.add(me); return me;
+    };
+    limb([-0.11, 0.09, 0.52], [-0.14, 0.07, 1.36], 0.085, 0.065, pants);
+    limb([0.11, 0.09, 0.52], [0.2, 0.07, 1.33], 0.085, 0.065, pants);
+    add(new T.BoxGeometry(0.11, 0.09, 0.2), shoe, -0.15, 0.06, 1.46);
+    add(new T.BoxGeometry(0.11, 0.09, 0.2), shoe, 0.21, 0.06, 1.43);
+    // left arm reaching forward, right arm by side
+    var lWrist = [-0.46, 0.06, -0.62], rWrist = [0.42, 0.06, 0.24];
+    limb([-0.25, 0.13, -0.24], lWrist, 0.06, 0.05, jacket);
+    limb([0.25, 0.13, -0.2], rWrist, 0.06, 0.05, jacket);
+    add(new T.SphereGeometry(0.055, 16, 12), skin, -0.5, 0.05, -0.68);
+    add(new T.SphereGeometry(0.055, 16, 12), skin, 0.44, 0.05, 0.31);
+    add(new T.SphereGeometry(0.03, 10, 8), mat(0x8f8a94), 0.27, 0.16, -0.18).scale.set(1.4, 0.6, 1);
+    // head
+    add(new T.CylinderGeometry(0.05, 0.06, 0.1, 12), skin, 0, 0.13, -0.36).rotation.x = Math.PI / 2;
+    add(new T.SphereGeometry(0.125, 24, 18), skin, 0, 0.13, -0.47);
+    var hairM = add(new T.SphereGeometry(0.13, 24, 18, 0, Math.PI * 2, 0, Math.PI / 2), hair, 0, 0.14, -0.48);
+    hairM.rotation.x = -0.35;
+    var wound = add(new T.CircleGeometry(0.045, 16), mat(0x5a0a12, { roughness: 0.3 }), 0.01, 0.272, -0.46); wound.rotation.x = -Math.PI / 2;
+    // smashed watch on left wrist
+    var watch = add(new T.CylinderGeometry(0.035, 0.035, 0.02, 20), mat(0xc9a24a, { metalness: 0.7, roughness: 0.35 }), -0.43, 0.11, -0.57);
+    var face = add(new T.CircleGeometry(0.028, 20), mat(0xd9d9e0, { roughness: 0.1 }), -0.43, 0.121, -0.57); face.rotation.x = -Math.PI / 2;
+    // fur on left cuff
+    var fur = mat(0x8a8a8a);
+    [[-0.38, 0.11, -0.5], [-0.36, 0.1, -0.47], [-0.4, 0.12, -0.46]].forEach(function (p) { add(new T.SphereGeometry(0.018, 8, 6), fur, p[0], p[1], p[2]); });
+    // phone near right hand
+    add(new T.BoxGeometry(0.075, 0.012, 0.15), mat(0x16161c), 0.62, 0.007, 0.12);
+    var scr = add(new T.PlaneGeometry(0.065, 0.13), new T.MeshBasicMaterial({ color: 0x6a8cff }), 0.62, 0.0141, 0.12); scr.rotation.x = -Math.PI / 2;
+    // wallet
+    add(new T.BoxGeometry(0.1, 0.022, 0.12), mat(0x5a3a20), 0.36, 0.012, 0.62).rotation.y = 0.5;
+    // coroner note (paper)
+    var paper = add(new T.BoxGeometry(0.16, 0.004, 0.22), mat(0xe8e2d0), -0.62, 0.004, 0.42); paper.rotation.y = -0.3;
+
+    // hotspots
+    var POS = { B1: [0.01, 0.33, -0.46], B2: [-0.43, 0.2, -0.57], B3: [0.62, 0.09, 0.12], B4: [0.36, 0.1, 0.62], B5: [-0.36, 0.19, -0.44],
+      B6: [-0.5, 0.24, -0.62], B7: [-0.62, 0.09, 0.42], B8: [0.14, 0.3, -0.12] };
+    var hots = [], colliders = [];
+    C.body.forEach(function (h) {
+      var p = POS[h.id];
+      var col = h.round === 2 ? 0x9a7bff : 0xf07a2e;
+      var m = new T.Mesh(new T.SphereGeometry(0.035, 16, 12), new T.MeshBasicMaterial({ color: col }));
+      var ring = new T.Mesh(new T.SphereGeometry(0.055, 16, 12), new T.MeshBasicMaterial({ color: col, transparent: true, opacity: 0.28, depthWrite: false }));
+      var hit = new T.Mesh(new T.SphereGeometry(0.11, 10, 8), new T.MeshBasicMaterial({ visible: false }));
+      [m, ring, hit].forEach(function (o) { o.position.set(p[0], p[1], p[2]); scene.add(o); });
+      hit.userData.id = h.id;
+      hots.push({ h: h, m: m, ring: ring, hit: hit });
+    });
+    function refresh() {
+      colliders = [];
+      hots.forEach(function (o) {
+        var vis = o.h.round === 1 || isR2();
+        o.m.visible = o.ring.visible = vis;
+        if (vis) colliders.push(o.hit);
+      });
+    }
+    var sel = null;
+    function highlight(id) { sel = id; }
+    refresh();
+
+    function resize() {
+      var w = wrap.clientWidth, h = wrap.clientHeight;
+      if (!w || !h) return;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      radius = Math.max(radius, w < 420 ? 2.6 : 2.2);
+      camera.updateProjectionMatrix();
+    }
+    window.addEventListener("resize", resize);
+
+    // controls: drag to orbit, pinch / wheel to zoom, tap to pick
+    var el = renderer.domElement, pts = {}, moved = 0, lastPinch = 0;
+    el.addEventListener("pointerdown", function (e) { el.setPointerCapture(e.pointerId); pts[e.pointerId] = { x: e.clientX, y: e.clientY }; moved = 0; lastPinch = 0; });
+    el.addEventListener("pointermove", function (e) {
+      var p = pts[e.pointerId]; if (!p) return;
+      var ids = Object.keys(pts);
+      if (ids.length === 2) {
+        var a = pts[ids[0]], b = pts[ids[1]];
+        p.x = e.clientX; p.y = e.clientY;
+        var d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (lastPinch) radius = Math.min(5, Math.max(1.1, radius * lastPinch / d));
+        lastPinch = d; moved += 10; return;
+      }
+      var dx = e.clientX - p.x, dy = e.clientY - p.y;
+      moved += Math.abs(dx) + Math.abs(dy);
+      theta -= dx * 0.008; phi = Math.min(1.45, Math.max(0.25, phi - dy * 0.006));
+      p.x = e.clientX; p.y = e.clientY;
+    });
+    var up = function (e) {
+      var wasTap = moved < 8 && Object.keys(pts).length === 1;
+      delete pts[e.pointerId];
+      if (!wasTap) return;
+      var r = el.getBoundingClientRect();
+      var v = new T.Vector2(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+      var ray = new T.Raycaster(); ray.setFromCamera(v, camera);
+      var hit = ray.intersectObjects(colliders)[0];
+      if (hit) selectHot(hit.object.userData.id);
+    };
+    el.addEventListener("pointerup", up);
+    el.addEventListener("pointercancel", function (e) { delete pts[e.pointerId]; });
+    el.addEventListener("wheel", function (e) { e.preventDefault(); radius = Math.min(5, Math.max(1.1, radius * (1 + e.deltaY * 0.001))); }, { passive: false });
+
+    var t0 = performance.now();
+    function loop(now) {
+      requestAnimationFrame(loop);
+      if (current !== "body") return;
+      var t = (now - t0) / 1000;
+      camera.position.set(target.x + radius * Math.sin(phi) * Math.sin(theta), target.y + radius * Math.cos(phi), target.z + radius * Math.sin(phi) * Math.cos(theta));
+      camera.lookAt(target);
+      hots.forEach(function (o, i) {
+        var s = 1 + 0.25 * Math.sin(t * 3 + i);
+        var big = o.h.id === sel ? 1.7 : 1;
+        o.ring.scale.setScalar(s * big); o.m.scale.setScalar(big);
+      });
+      lamp.intensity = 0.6 + 0.08 * Math.sin(t * 7) + 0.05 * Math.sin(t * 13);
+      renderer.render(scene, camera);
+    }
+    resize();
+    requestAnimationFrame(loop);
+    return { refresh: refresh, highlight: highlight, resize: resize };
+  }
+
+  /* ---------- ME / SHEET ---------- */
+  function openCode(code) {
+    code = norm(code);
+    if (code === C.gmCode) { store.set("role", code); renderGM(); return true; }
+    if (C.roles[code]) { store.set("role", code); renderSheet(code); return true; }
+    return false;
+  }
+  $("#roleBtn").addEventListener("click", function () {
+    if (!openCode($("#roleInput").value)) { $("#roleMsg").className = "msg bad"; $("#roleMsg").textContent = "No character with that code."; }
+  });
+  $("#roleInput").addEventListener("keydown", function (e) { if (e.key === "Enter") $("#roleBtn").click(); });
+  function logout() { store.del("role"); $("#meSheet").style.display = "none"; $("#gmPage").style.display = "none"; $("#meLogin").style.display = ""; $("#roleInput").value = ""; $("#roleMsg").textContent = ""; }
+
+  function renderSheet(code) {
+    var r = C.roles[code];
+    var tabs = [["tl", "Timeline"]];
+    if (r.story) tabs.push(["story", "Your story"]);
+    tabs.push(["sec", "Secret"], ["oth", "Others"], ["tips", "Tips"]);
+    var h = '<div class="card hero"><div class="nm">' + esc(r.name) + '</div><div class="cos">' + esc(r.costume) + '</div>' +
+      '<p class="small">' + esc(r.who) + '</p><p class="small muted" style="margin-bottom:6px"><b>Attitude:</b> ' + esc(r.attitude) + '</p>' +
+      '<div class="small muted" style="margin-bottom:4px">When cornered, say:</div><div class="say">' + esc(r.cornered) + '</div></div>';
+    h += '<div class="card secretbox" id="goalBox"><div class="cover row" style="justify-content:space-between"><span><b>Secret goal</b><br><span class="small muted">Never reveal this. Tap to peek.</span></span><button class="btn small" id="goalShow">Show</button></div>' +
+      '<div class="reveal">' + (r.killer ? '<div class="killer">YOU ARE THE KILLER</div>' : "") + '<b>Secret goal:</b> ' + esc(r.goal) + '<div class="row" style="margin-top:8px"><button class="btn small ghost" id="goalHide">Hide</button></div></div></div>';
+    h += '<div class="subtabs" id="subtabs">' + tabs.map(function (t, i) { return '<button data-st="' + t[0] + '" class="' + (i ? "" : "on") + '">' + t[1] + '</button>'; }).join("") + '</div>';
+    h += '<div class="card" id="st-tl"><ul class="tl">' + r.timeline.map(function (row) {
+      return '<li class="' + (row[3] === "hide" ? "hide" : "") + '"><span class="t">' + esc(row[0]) + '</span><span class="w">' + esc(row[1]) + '</span><span class="d">' + esc(row[2]) + '</span></li>';
+    }).join("") + '</ul><p class="small muted" style="margin-top:8px">"Keep quiet" marks moments you\'d rather nobody found out. You can still choose to share them.</p></div>';
+    if (r.story) h += '<div class="card" id="st-story" style="display:none"><p class="small muted">What you tell everyone (it\'s a lie):</p><ul class="clean">' + r.story.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + '</ul></div>';
+    h += '<div class="card" id="st-sec" style="display:none"><p>' + esc(r.secret) + '</p><p class="small muted">You can share this or hide it. Only your secret goal must stay hidden.</p></div>';
+    h += '<div class="card" id="st-oth" style="display:none"><div class="kv">' + r.others.map(function (o) { return '<div><b>' + esc(o[0]) + '</b><span class="small">' + esc(o[1]) + '</span></div>'; }).join("") + '</div></div>';
+    h += '<div class="card" id="st-tips" style="display:none"><ul class="clean">' + r.tips.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + '</ul></div>';
+    h += '<button class="btn ghost small" id="switchRole">Switch character</button>';
+    $("#meLogin").style.display = "none"; $("#gmPage").style.display = "none";
+    var box = $("#meSheet"); box.innerHTML = h; box.style.display = "";
+    $("#goalShow").addEventListener("click", function () { $("#goalBox").classList.add("open"); });
+    $("#goalHide").addEventListener("click", function () { $("#goalBox").classList.remove("open"); });
+    document.querySelectorAll("#subtabs button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        document.querySelectorAll("#subtabs button").forEach(function (x) { x.classList.toggle("on", x === b); });
+        tabs.forEach(function (t) { $("#st-" + t[0]).style.display = t[0] === b.dataset.st ? "" : "none"; });
+      });
+    });
+    $("#switchRole").addEventListener("click", logout);
+  }
+
+  /* ---------- GM ---------- */
+  function inPlay() { var v = store.get("optRoles"); return v === null ? ["ROT", "ORB", "BOO"] : (v ? v.split(",") : []); }
+  function renderGM() {
+    var opt = inPlay();
+    var h = '<h2>GM page</h2>';
+    h += '<div class="card"><h3 style="margin-top:0">Character codes</h3><table class="gm"><tr><th>Code</th><th>Character</th><th></th></tr>' +
+      Object.keys(C.roles).map(function (k) { var r = C.roles[k]; return '<tr><td><b>' + k + '</b></td><td>' + esc(r.name) + '</td><td class="muted">' + (r.killer ? "Killer" : r.core ? "Core" : "Optional") + '</td></tr>'; }).join("") +
+      '</table><p class="small muted" style="margin-top:8px">Hand each player their code privately. GM code: <b>' + esc(C.gmCode) + '</b></p></div>';
+    h += '<div class="card"><h3 style="margin-top:0">Optional roles in play</h3>' +
+      [["ROT", "Graham Pike"], ["ORB", "Madame Oriel"], ["BOO", "Penny Lark"]].map(function (o) {
+        return '<label class="chk"><input type="checkbox" data-opt="' + o[0] + '"' + (opt.indexOf(o[0]) >= 0 ? " checked" : "") + '> ' + o[1] + '</label>';
+      }).join("") + '<p class="small muted">Used for printing. Unchecked roles\' clue cards are left out.</p></div>';
+    h += '<div class="card"><h3 style="margin-top:0">Print</h3><div class="row"><button class="btn primary" id="printCards">Print clue cards</button><button class="btn" id="printLabels">Print location &amp; envelope labels</button></div>' +
+      '<p class="small muted" style="margin-top:8px">Clue cards print 2 per row, cut along the dashes. Bold-bordered cards are item cards.</p></div>';
+    h += '<div class="card"><h3 style="margin-top:0">Round 2</h3><p>Code to announce: <b style="font-size:20px;letter-spacing:.08em">' + esc(C.round2Code) + '</b></p><p class="small muted">Players type it on the Body tab to reveal new spots. Open Ruth\'s Cabin when you announce it.</p>' +
+      '<button class="btn" id="gmR2">' + (isR2() ? "Round 2 is on (this device)" : "Turn on Round 2 on this device") + '</button></div>';
+    h += '<div class="card"><h3 style="margin-top:0">Run of show</h3><ol class="small" style="padding-left:18px;margin:0">' +
+      ["Briefing as the Deputy: read the Case tab, show the map and body (10 min)", "Players read their sheets (10 min)", "Search round 1, free-for-all (20 min)", "Discussion (15 min)", "Puzzle round (20 min)", "Announce Round 2 code, open Ruth's Cabin, search round 2 + discussion (25 min)", "Final statements, secret vote, reveal, then secret goals and prizes (15 min)"]
+        .map(function (s) { return "<li style='margin-bottom:4px'>" + esc(s) + "</li>"; }).join("") + '</ol></div>';
+    h += '<div class="card"><h3 style="margin-top:0">Puzzle answers</h3><table class="gm"><tr><td><b>Safe</b></td><td>103198 (10/31/98)</td></tr><tr><td><b>Burnt page</b></td><td>SIGHT. Shift each letter back 3: "The werewolf counted the gold twice and kept it once. He never let his bag out of his sight."</td></tr><tr><td><b>Route</b></td><td>Kitchen → Mudroom → Back Porch → Study</td></tr></table></div>';
+    h += '<div class="card"><h3 style="margin-top:0">Solution</h3><p><b>Marcus Reed</b> killed Edgar at <b>10:50</b> with the Golden Raven award, then faked an 11:20 time of death with Edgar\'s sound-effects recorder and a re-wound watch.</p>' +
+      '<p class="small muted">Key proof: recorder timer (C01), watch crown (B6), last text 10:44 + unread 10:55 (B3), Ruth saw him leave 10:42, paw prints porch → study (C20, C04), one cigarette (C19), muddy paw feet in his bag (C29), award with fur (C25), audit letter (C26).</p></div>';
+    h += '<div class="card"><h3 style="margin-top:0">Séance (only if Oriel asks)</h3><blockquote>' + esc(C.seance) + '</blockquote></div>';
+    h += '<div class="card"><h3 style="margin-top:0">Reveal script</h3><blockquote>' + esc(C.reveal) + '</blockquote></div>';
+    h += '<div class="row"><button class="btn ghost small" id="gmOut">Leave GM page</button><button class="btn ghost small" id="gmReset">Reset this device</button></div>';
+    $("#meLogin").style.display = "none"; $("#meSheet").style.display = "none";
+    var box = $("#gmPage"); box.innerHTML = h; box.style.display = "";
+    document.querySelectorAll("[data-opt]").forEach(function (cb) {
+      cb.addEventListener("change", function () {
+        var list = []; document.querySelectorAll("[data-opt]").forEach(function (x) { if (x.checked) list.push(x.dataset.opt); });
+        store.set("optRoles", list.join(","));
+      });
+    });
+    $("#printCards").addEventListener("click", function () { buildPrint("cards"); window.print(); });
+    $("#printLabels").addEventListener("click", function () { buildPrint("labels"); window.print(); });
+    $("#gmR2").addEventListener("click", function () { store.set("round2", "1"); refreshRound(); renderGM(); });
+    $("#gmOut").addEventListener("click", logout);
+    $("#gmReset").addEventListener("click", function () {
+      if (!confirm("Clear Round 2, puzzle progress and the saved code on this device?")) return;
+      ["round2", "pz_safe", "pz_page", "pz_route", "role", "optRoles"].forEach(store.del);
+      routeSel = []; renderPuzzles(); refreshRound(); logout();
+    });
+  }
+
+  function buildPrint(kind) {
+    var opt = inPlay(), h = "";
+    if (kind === "cards") {
+      h = '<div class="pgrid">' + C.cards.filter(function (c) { return !c.opt || opt.indexOf(c.opt) >= 0; }).map(function (c) {
+        return '<div class="pcard' + (c.item ? " item" : "") + '"><div class="ph"><span>' + c.id + ' · ' + esc(c.loc) + '</span><span>Round ' + c.round + '</span></div>' +
+          '<div class="pt">' + esc(c.text) + '</div>' + (c.cipher ? '<div class="pc">' + esc(C.cipher) + '</div>' : "") +
+          (c.item ? '<div class="itemtag">ITEM CARD: changes hands only when the holder hands it over.</div>' : "") + '</div>';
+      }).join("") + '</div>';
+    } else {
+      var locs = ["Study", "Great Room", "Kitchen", "Dining Room", "Back Porch", "Mudroom"];
+      h = '<div class="pgrid">' + locs.map(function (l) { return '<div class="plabel"><div class="big">' + esc(l.toUpperCase()) + '</div><div class="sm">Search location · Round 1</div></div>'; }).join("") +
+        C.envelopes.map(function (e) { return '<div class="plabel sealed"><div class="big">SEALED<br>' + esc(e.loc.toUpperCase()) + '</div><div class="sm">' + esc(e.how) + '</div></div>'; }).join("") + '</div>';
+    }
+    $("#printArea").innerHTML = h;
+  }
+
+  /* ---------- START ---------- */
+  refreshRound();
+  var saved = store.get("role");
+  if (saved) openCode(saved);
+  if (location.hash) { var v = location.hash.slice(1); if (document.getElementById("v-" + v)) show(v); }
+})();
+</script>
+</body>
+</html>
