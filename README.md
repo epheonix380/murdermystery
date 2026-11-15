@@ -19,6 +19,13 @@ With no environment variables it runs in debug mode on SQLite. On the server, se
 
 Run the tests with `.venv/bin/python manage.py test`.
 
+`e2e/full_game.js` plays a whole game in real browsers (one GM, four players) against a running server:
+
+```
+.venv/bin/python manage.py runserver 8765
+node e2e/full_game.js http://127.0.0.1:8765
+```
+
 ## Pages
 
 | URL | Who | What |
@@ -29,7 +36,10 @@ Run the tests with `.venv/bin/python manage.py test`.
 | `/host/players/` | The host | Names and characters; chosen roles are kept, the rest are cast at random |
 | `/host/links/` | The host | Copy-paste page with every player's private link |
 | `/gm/<token>/` | The host | Private GM link: makes any browser the host of that game |
-| `/p/<token>/` | One player | Their own character sheet, the case, who's coming and the rules |
+| `/host/print/` | The host | Printable clue cards (only for characters in this game) and location labels |
+| `/p/<token>/` | One player | Their character sheet, then on the night the case, map, body, puzzles, voting and reveal |
+
+On game night the host's dashboard starts the game, moves rounds on, opens voting and reveals the killer. Players' phones update straight away: each page keeps a WebSocket open (`/ws/p/<token>/` or `/ws/gm/<token>/`), the server sends a bare "changed" when the game changes, and the page fetches its own state from `/p/<token>/state/` or `/host/state/`. All the rules about who sees what are in `games/engine.py`. Puzzle answers are checked on the server and never sent to players, and each player gets 8 wrong guesses a minute.
 
 Hosts don't sign up. Starting a game creates an anonymous visitor id, kept in a cookie; each visitor can host one active game at a time. Games end when the host ends them, or a week after the party date.
 
@@ -57,8 +67,10 @@ Each case is a folder in `cases/`:
 | `puzzles.json` | Prompts and answers | Prompts to players; answers never leave the server |
 | `props.json` | Physical objects the GM prepares | GM |
 | `solution.json` | The killer, the reveal text and the true timeline | GM, until the reveal |
-| `extras.json` | Anything unique to the case, such as Hollowpine's cipher and floor plan | Depends on the field |
+| `extras.json` | Anything unique to the case, such as Hollowpine's cipher, séance line and floor plan | The floor plan to everyone; a field a puzzle or card `shows` with that puzzle; the rest to the GM |
 | `public/` | Files browsers may load, such as the map image | Everyone |
+
+`case.json` can also name a `body_viewer`: a script in `public/` that draws the body in 3D with three.js. It must define `window.CaseBody(wrap, onPick)` returning `{show(hotspots), highlight(id), resize()}`; see `cases/hollowpine/public/body.js`. Without one, players get the body clues as buttons.
 
 Only `public/` is ever served. The JSON files are read by the server and never sent as files.
 

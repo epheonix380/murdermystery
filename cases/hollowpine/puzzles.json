@@ -11,7 +11,8 @@
         "103198",
         "10311998"
       ]
-    }
+    },
+    "explanation": "103198: 10/31/98, the day The Hollowpine Girl was first published (card C10). Edgar's note says \"Safe = the night it all began.\""
   },
   {
     "id": "page",
@@ -25,6 +26,7 @@
         "SIGHT"
       ]
     },
+    "explanation": "SIGHT. Shift each letter back 3 (three ravens in the painting): \"The werewolf counted the gold twice and kept it once. He never let his bag out of his sight.\"",
     "shows": "cipher"
   },
   {
@@ -43,6 +45,7 @@
         "study"
       ]
     },
+    "explanation": "Kitchen, Mudroom, Back Porch, Study: out the back door and in through the French doors, so nobody in the Great Room or Hallway saw.",
     "shows": "map"
   }
 ]

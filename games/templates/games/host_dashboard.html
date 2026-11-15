@@ -1,31 +1,35 @@
 {% extends "games/base.html" %}
+{% load static %}
 {% block title %}Your game{% endblock %}
 {% block content %}
-<h1>{{ game.case.title }}</h1>
-<p class="muted">Party on {{ game.party_date|date:"l j F Y" }} · {{ game.get_status_display }}</p>
+<div class="row" style="justify-content:space-between;align-items:flex-start">
+  <h1 style="flex:1">{{ game.case.title }}</h1>
+  <span class="badge hot" id="statusBadge">{{ game.get_status_display }}</span>
+</div>
+<p class="muted">Party on {{ game.party_date|date:"l j F Y" }}</p>
 
+{% if has_players %}
+<div id="live"><div class="card"><p class="muted">Loading…</p></div></div>
+<div class="row" style="margin-bottom:12px">
+  <a class="btn" href="{% url 'host-links' %}">Player links</a>
+  {% if game.can_edit_cast %}<a class="btn" href="{% url 'host-players' %}">Edit cast</a>{% endif %}
+</div>
+{% else %}
 <div class="card">
   <h3>Players</h3>
-  {% if players %}
-  <table class="list">
-    <tr><th>Player</th><th>Character</th><th>Opened link</th></tr>
-    {% for p, role_name in players %}
-    <tr><td>{{ p.display_name }}</td><td>{{ role_name }}</td><td class="muted">{% if p.last_seen %}{{ p.last_seen|timesince }} ago{% else %}not yet{% endif %}</td></tr>
-    {% endfor %}
-  </table>
-  <div class="row" style="margin-top:12px">
-    <a class="btn primary" href="{% url 'host-links' %}">Player links</a>
-    {% if game.can_edit_cast %}<a class="btn" href="{% url 'host-players' %}">Edit cast</a>{% endif %}
-  </div>
-  {% else %}
   <p>No players yet. Add your {{ game.player_count }} players and give them characters.</p>
   <a class="btn primary" href="{% url 'host-players' %}">Set up the cast</a>
-  {% endif %}
 </div>
+{% endif %}
 
+<h3>Prepare</h3>
+<div class="card">
+  <p class="small">Print the clue cards and location labels, hide the cards in their rooms, and seal each sealed location's cards in an envelope.</p>
+  <div class="row"><a class="btn" href="{% url 'host-print' %}?kind=cards">Clue cards</a><a class="btn" href="{% url 'host-print' %}?kind=labels">Location labels</a></div>
+</div>
 {% if bundle.props %}
 <div class="card">
-  <h3>Props to prepare</h3>
+  <h3>Props</h3>
   <table class="list">
     <tr><th>Prop</th><th>Where it starts</th></tr>
     {% for prop in bundle.props %}
@@ -34,9 +38,34 @@
   </table>
 </div>
 {% endif %}
-
+{% if bundle.manifest.run_of_show %}
 <div class="card">
-  <h3>Your GM link</h3>
+  <h3>Run of show</h3>
+  <ol class="small" style="padding-left:18px;margin:0">{% for step in bundle.manifest.run_of_show %}<li style="margin-bottom:4px">{{ step }}</li>{% endfor %}</ol>
+</div>
+{% endif %}
+
+<h3>Spoilers</h3>
+<div class="card">
+  <details class="spoil"><summary>Puzzle answers</summary>
+    <table class="list" style="margin-top:8px">{% for p, readable in answers %}<tr><td><b>{{ p.title }}</b></td><td>{{ readable }}{% if p.explanation %}<div class="small muted">{{ p.explanation }}</div>{% endif %}</td></tr>{% endfor %}</table>
+  </details>
+</div>
+<div class="card">
+  <details class="spoil"><summary>Solution</summary>
+    {% if bundle.solution.summary %}<p style="margin-top:8px">{{ bundle.solution.summary }}</p>{% endif %}
+    {% if bundle.solution.key_proof %}<p class="small muted">Key proof:</p><ul class="clean small">{% for k in bundle.solution.key_proof %}<li>{{ k }}</li>{% endfor %}</ul>{% endif %}
+  </details>
+</div>
+<div class="card">
+  <details class="spoil"><summary>Reveal script</summary><blockquote style="margin-top:8px">{{ bundle.solution.reveal }}</blockquote></details>
+</div>
+{% for key, text in notes.items %}
+<div class="card"><details class="spoil"><summary>{{ key|capfirst }}</summary><blockquote style="margin-top:8px">{{ text }}</blockquote></details></div>
+{% endfor %}
+
+<h3>Your GM link</h3>
+<div class="card">
   <p class="small">Keep this to yourself. It opens this page on any device, for example if you switch phones or clear your browser.</p>
   <div class="row"><input type="text" readonly value="{{ gm_url }}" id="gmUrl"><button class="btn small" type="button" data-copy="#gmUrl">Copy</button></div>
 </div>
@@ -47,5 +76,12 @@
   <p class="small muted">Ends the game for everyone and frees you to host another. Games also end on their own a week after the party.</p>
   <button class="btn danger" type="submit">End game</button>
 </form>
+{{ cfg|json_script:"cfg" }}
 {% endblock %}
-{% block scripts %}{% include "games/_copy.html" %}{% endblock %}
+{% block scripts %}
+{% include "games/_copy.html" %}
+{% if has_players %}
+<script src="{% static 'games/live.js' %}"></script>
+<script src="{% static 'games/gm.js' %}"></script>
+{% endif %}
+{% endblock %}

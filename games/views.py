@@ -1,8 +1,9 @@
+import json
 from functools import wraps
 
 from django.contrib import messages
 from django.db import IntegrityError, transaction
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
@@ -11,7 +12,9 @@ from django.views.decorators.http import require_POST
 from catalog.loader import bundle_for
 from catalog.models import Case
 
+from . import engine
 from .casting import CastingError, cast_roles
+from .live import notify
 from .forms import NewGameForm
 from .models import Game, Player
 from .visitor import current_visitor, remember
@@ -66,14 +69,33 @@ def _role_names(bundle):
 @host_only
 def host_dashboard(request, game):
     bundle = bundle_for(game.case)
-    names = _role_names(bundle)
-    players = [(p, names.get(p.role_id, p.role_id)) for p in game.players.order_by("id")]
+    rooms = {r["id"]: r["name"] for r in bundle.extras.get("map", {}).get("rooms", [])}
     return render(request, "games/host_dashboard.html", {
         "game": game,
         "bundle": bundle,
-        "players": players,
+        "has_players": game.players.exists(),
+        "answers": [(p, _readable_answer(p["answer"], rooms)) for p in bundle.puzzles],
+        "notes": {k: v for k, v in bundle.extras.items() if isinstance(v, str) and k not in _shown_elsewhere(bundle)},
         "gm_url": request.build_absolute_uri(reverse("gm-link", args=[game.gm_token])),
+        "cfg": {
+            "stateUrl": reverse("host-state"),
+            "actionUrl": reverse("host-action"),
+            "goalUrl": reverse("host-goal"),
+            "wsPath": f"/ws/gm/{game.gm_token}/",
+        },
     })
+
+
+def _readable_answer(answer, rooms):
+    if answer["type"] == "route":
+        return " → ".join(rooms.get(r, r) for r in [answer["start"], *answer["sequence"]])
+    return " or ".join(answer["accept"])
+
+
+def _shown_elsewhere(bundle):
+    """Extras fields that puzzles or clue cards already show players."""
+    used = {p["shows"] for p in bundle.puzzles if "shows" in p}
+    return used | {c["shows"] for c in bundle.clues.get("cards", []) if "shows" in c}
 
 
 @host_only
@@ -192,4 +214,102 @@ def player_sheet(request, token):
         "is_killer": role["id"] == bundle.solution["killer"],
         "cast": cast,
         "ended": game.status == Game.Status.ARCHIVED,
+        "cfg": {
+            "stateUrl": reverse("player-state", args=[token]),
+            "solveUrl": reverse("player-solve", args=[token]),
+            "voteUrl": reverse("player-vote", args=[token]),
+            "wsPath": f"/ws/p/{token}/",
+            "map": bundle.extras.get("map"),
+            "bodyViewer": bundle.body_viewer_url,
+        },
+    })
+
+# ---------- game night (JSON) ----------
+
+def _json_body(request):
+    try:
+        data = json.loads(request.body or b"{}")
+    except ValueError:
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def _player_or_404(token):
+    player = get_object_or_404(Player.objects.select_related("game__case"), token=token)
+    if player.game.status == Game.Status.ARCHIVED:
+        raise Http404
+    return player
+
+
+def player_state(request, token):
+    player = _player_or_404(token)
+    return JsonResponse(engine.player_state(player.game, player, bundle_for(player.game.case)))
+
+
+@require_POST
+def player_solve(request, token):
+    player = _player_or_404(token)
+    data = _json_body(request)
+    correct, message = engine.solve(
+        player.game, player, bundle_for(player.game.case), str(data.get("puzzle", "")), data.get("answer", "")
+    )
+    if correct:
+        notify(player.game)
+    return JsonResponse({"correct": correct, "message": message})
+
+
+@require_POST
+def player_vote(request, token):
+    player = _player_or_404(token)
+    error = engine.vote(player.game, player, bundle_for(player.game.case), str(_json_body(request).get("suspect", "")))
+    if error:
+        return JsonResponse({"error": error}, status=400)
+    notify(player.game)
+    return JsonResponse({"ok": True})
+
+
+@host_only
+def host_state(request, game):
+    return JsonResponse(engine.gm_state(game, bundle_for(game.case)))
+
+
+@require_POST
+@host_only
+def host_action(request, game):
+    action = engine.ACTIONS.get(str(_json_body(request).get("action", "")))
+    if action is None:
+        return JsonResponse({"error": "Unknown action."}, status=400)
+    error = action(game, bundle_for(game.case))
+    if error:
+        return JsonResponse({"error": error}, status=400)
+    notify(game)
+    return JsonResponse({"ok": True})
+
+
+@require_POST
+@host_only
+def host_goal(request, game):
+    data = _json_body(request)
+    error = engine.set_goal(game, data.get("player"), data.get("met"))
+    if error:
+        return JsonResponse({"error": error}, status=400)
+    notify(game)
+    return JsonResponse({"ok": True})
+
+
+@host_only
+def host_print(request, game):
+    bundle = bundle_for(game.case)
+    cast = set(game.players.values_list("role_id", flat=True))
+    kind = request.GET.get("kind", "cards")
+    cards = [c for c in bundle.clues.get("cards", []) if c.get("requires_role", None) in (None, *cast)]
+    item_clues = {p["clue"] for p in bundle.props if "clue" in p}
+    return render(request, "games/print.html", {
+        "game": game,
+        "kind": "labels" if kind == "labels" else "cards",
+        "cards": cards,
+        "item_clues": item_clues,
+        "extras": bundle.extras,
+        "search_locations": bundle.search_locations,
+        "sealed": bundle.clues.get("sealed", []),
     })

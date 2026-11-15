@@ -23,6 +23,7 @@ ALLOWED_HOSTS = [h for h in os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,12
 CSRF_TRUSTED_ORIGINS = [f"https://{h}" for h in ALLOWED_HOSTS if h not in ("localhost", "127.0.0.1")]
 
 INSTALLED_APPS = [
+    "daphne",  # makes runserver speak WebSockets too
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -62,6 +63,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "mystery.wsgi.application"
+ASGI_APPLICATION = "mystery.asgi.application"
+
+# One server process, so game updates can travel in memory; no Redis needed.
+CHANNEL_LAYERS = {"default": {"BACKEND": "channels.layers.InMemoryChannelLayer"}}
 
 # DATABASE_URL=postgres://user:pass@127.0.0.1:5432/murdermystery on the server.
 DATABASES = {

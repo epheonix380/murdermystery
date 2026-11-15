@@ -21,6 +21,16 @@
     "text": "The victim. Famous horror novelist, host of the party."
   },
   "map": "public/map.svg",
+  "body_viewer": "public/body.js",
+  "run_of_show": [
+    "Briefing as the Deputy: read the premise, show the map and the body (10 min)",
+    "Players reread their sheets (10 min)",
+    "Search round 1, free-for-all (20 min)",
+    "Discussion (15 min)",
+    "Puzzle round (20 min)",
+    "Start Round 2 from your dashboard, open Ruth's Cabin, search round 2 and discussion (25 min)",
+    "Final statements, open voting, reveal, then secret goals and prizes (15 min)"
+  ],
   "files": {
     "roles": "roles.json",
     "clues": "clues.json",

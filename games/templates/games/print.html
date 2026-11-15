@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if kind == "labels" %}Labels{% else %}Clue cards{% endif %} · {{ game.case.title }}</title>
+<style>
+  body { font: 11pt/1.4 Inter, system-ui, sans-serif; color: #000; background: #fff; margin: 0; padding: 12px; }
+  .bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+  .bar a, .bar button { font: inherit; padding: 8px 14px; border: 1px solid #333; border-radius: 8px; background: #f4f0ea; color: #000; text-decoration: none; cursor: pointer; }
+  .bar p { margin: 0; color: #555; font-size: 10pt; }
+  .pgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .pcard { border: 1.5px dashed #444; border-radius: 3mm; padding: 4mm 5mm; break-inside: avoid; min-height: 42mm; }
+  .pcard .ph { font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: #555; margin-bottom: 2mm; display: flex; justify-content: space-between; gap: 8px; }
+  .pcard .pc { font-family: "Courier New", monospace; font-size: 10.5pt; margin-top: 2mm; letter-spacing: .05em; }
+  .pcard.item { border-style: solid; border-width: 2.5px; }
+  .pcard .itemtag { font-size: 8.5pt; font-weight: 700; margin-top: 2mm; }
+  .plabel { border: 2px solid #000; border-radius: 3mm; padding: 8mm 6mm; text-align: center; break-inside: avoid; }
+  .plabel .big { font-size: 22pt; font-weight: 800; letter-spacing: .04em; }
+  .plabel .sm { font-size: 10pt; margin-top: 3mm; }
+  .plabel.sealed { border-style: dashed; }
+  @media (max-width: 520px) { .pgrid { grid-template-columns: 1fr; } }
+  @media print { @page { margin: 10mm; } body { padding: 0; } .bar { display: none; } .pgrid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<div class="bar">
+  <button type="button" onclick="window.print()">Print</button>
+  {% if kind == "labels" %}<a href="?kind=cards">Clue cards instead</a>{% else %}<a href="?kind=labels">Location labels instead</a>{% endif %}
+  <a href="{% url 'host' %}">Back to your game</a>
+  <p>{% if kind == "labels" %}Put each label where its clues go. Sealed labels go on envelopes.{% else %}Cut along the dashes. Bold cards go with a physical prop. Cards for characters not in this game are left out.{% endif %}</p>
+</div>
+<div class="pgrid">
+{% if kind == "labels" %}
+  {% for loc in search_locations %}<div class="plabel"><div class="big">{{ loc|upper }}</div><div class="sm">Search location · Round 1</div></div>{% endfor %}
+  {% for s in sealed %}<div class="plabel sealed"><div class="big">SEALED<br>{{ s.location|upper }}</div><div class="sm">{{ s.instructions }}</div></div>{% endfor %}
+{% else %}
+  {% for c in cards %}
+  <div class="pcard{% if c.id in item_clues %} item{% endif %}">
+    <div class="ph"><span>{{ c.id }} · {{ c.location }}</span><span>Round {{ c.round }}</span></div>
+    <div>{{ c.text }}</div>
+    {% if c.shows %}<div class="pc">{% for k, v in extras.items %}{% if k == c.shows %}{{ v }}{% endif %}{% endfor %}</div>{% endif %}
+    {% if c.id in item_clues %}<div class="itemtag">ITEM: goes with a physical prop, which changes hands only when the holder hands it over.</div>{% endif %}
+  </div>
+  {% endfor %}
+{% endif %}
+</div>
+</body>
+</html>

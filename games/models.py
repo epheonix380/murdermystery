@@ -82,6 +82,7 @@ class Player(models.Model):
     role_id = models.CharField(max_length=40, help_text="A role id from the case's roles file")
     token = models.CharField(max_length=64, unique=True, default=new_token, editable=False)
     last_seen = models.DateTimeField(null=True, blank=True)
+    goal_met = models.BooleanField(null=True, blank=True, help_text="Set by the GM at the end of the game")
 
     class Meta:
         constraints = [

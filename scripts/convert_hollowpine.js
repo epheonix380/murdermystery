@@ -86,8 +86,14 @@ const answers = {
   page: { type: "word", accept: ["SIGHT"] },
   route: { type: "route", start: "great", sequence: C.puzzles[2].route },
 };
+// For the GM's answer sheet (from the old GM page).
+const explanations = {
+  safe: "103198: 10/31/98, the day The Hollowpine Girl was first published (card C10). Edgar's note says \"Safe = the night it all began.\"",
+  page: "SIGHT. Shift each letter back 3 (three ravens in the painting): \"The werewolf counted the gold twice and kept it once. He never let his bag out of his sight.\"",
+  route: "Kitchen, Mudroom, Back Porch, Study: out the back door and in through the French doors, so nobody in the Great Room or Hallway saw.",
+};
 const puzzles = C.puzzles.map((p) => {
-  const puzzle = { id: p.id, title: p.title, prompt: p.prompt, hint: p.hint, unlocks: sealedLocation(p.id), answer: answers[p.id] };
+  const puzzle = { id: p.id, title: p.title, prompt: p.prompt, hint: p.hint, unlocks: sealedLocation(p.id), answer: answers[p.id], explanation: explanations[p.id] };
   if (p.id === "page") puzzle.shows = "cipher";
   if (p.route) puzzle.shows = "map";
   return puzzle;
@@ -110,6 +116,18 @@ const props = C.cards
 // ---------- solution ----------
 const solution = {
   killer,
+  summary: "Marcus Reed killed Edgar at 10:50 with the Golden Raven award, then faked an 11:20 time of death with Edgar's sound-effects recorder and a re-wound watch.",
+  key_proof: [
+    "Recorder timer set for 11:20 (C01)",
+    "Watch crown pulled out (B6)",
+    "Last text sent 10:44, everything from 10:55 unread (B3)",
+    "Ruth saw him leave at 10:42",
+    "Paw prints porch to study (C20, C04)",
+    "Only one cigarette in the ashtray (C19)",
+    "Muddy paw feet in his bag (C29)",
+    "Award with gray fur (C25)",
+    "Audit letter (C26)",
+  ],
   reveal: C.reveal,
   timeline: C.roles[killer].timeline.map(([time, place, text]) => ({ time, place, text })),
 };
@@ -141,6 +159,16 @@ const manifest = {
   max_players: roles.length,
   victim: { name: "Edgar Thorne", text: "The victim. Famous horror novelist, host of the party." },
   map: "public/map.svg",
+  body_viewer: "public/body.js",
+  run_of_show: [
+    "Briefing as the Deputy: read the premise, show the map and the body (10 min)",
+    "Players reread their sheets (10 min)",
+    "Search round 1, free-for-all (20 min)",
+    "Discussion (15 min)",
+    "Puzzle round (20 min)",
+    "Start Round 2 from your dashboard, open Ruth's Cabin, search round 2 and discussion (25 min)",
+    "Final statements, open voting, reveal, then secret goals and prizes (15 min)",
+  ],
   files: {
     roles: "roles.json",
     clues: "clues.json",

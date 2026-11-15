@@ -2,33 +2,105 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "case.json: the manifest every case folder starts from",
   "type": "object",
-  "required": ["slug", "title", "premise", "rules", "min_players", "max_players", "files"],
+  "required": [
+    "slug",
+    "title",
+    "premise",
+    "rules",
+    "min_players",
+    "max_players",
+    "files"
+  ],
   "additionalProperties": false,
   "properties": {
-    "slug": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
-    "title": {"type": "string", "minLength": 1},
-    "premise": {"type": "array", "items": {"type": "string"}, "minItems": 1},
-    "rules": {"type": "array", "items": {"type": "string"}},
-    "min_players": {"type": "integer", "minimum": 1},
-    "max_players": {"type": "integer", "minimum": 1},
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "premise": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "min_players": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_players": {
+      "type": "integer",
+      "minimum": 1
+    },
     "victim": {
       "type": "object",
-      "required": ["name"],
-      "properties": {"name": {"type": "string"}, "text": {"type": "string"}}
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
     },
-    "map": {"type": "string", "description": "public/<file> inside the case folder, or an https:// link"},
+    "map": {
+      "type": "string",
+      "description": "public/<file> inside the case folder, or an https:// link"
+    },
     "files": {
       "type": "object",
-      "required": ["roles", "clues", "puzzles", "props", "solution"],
+      "required": [
+        "roles",
+        "clues",
+        "puzzles",
+        "props",
+        "solution"
+      ],
       "additionalProperties": false,
       "properties": {
-        "roles": {"type": "string"},
-        "clues": {"type": "string"},
-        "puzzles": {"type": "string"},
-        "props": {"type": "string"},
-        "solution": {"type": "string"},
-        "extras": {"type": "string"}
+        "roles": {
+          "type": "string"
+        },
+        "clues": {
+          "type": "string"
+        },
+        "puzzles": {
+          "type": "string"
+        },
+        "props": {
+          "type": "string"
+        },
+        "solution": {
+          "type": "string"
+        },
+        "extras": {
+          "type": "string"
+        }
       }
+    },
+    "body_viewer": {
+      "type": "string",
+      "description": "public/<file>.js that draws the body in 3D; see README"
+    },
+    "run_of_show": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The GM's running order for the night"
     }
   }
 }

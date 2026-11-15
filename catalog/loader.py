@@ -49,13 +49,31 @@ class CaseBundle:
     def clue_count(self):
         return len(self.clues.get("body", [])) + len(self.clues.get("cards", []))
 
-    @property
-    def map_url(self):
-        """Where browsers load the map from, or "" if the case has none."""
-        ref = self.manifest.get("map", "")
+    def _public_url(self, key):
+        ref = self.manifest.get(key, "")
         if not ref or ref.startswith("https://"):
             return ref
         return f"/cases/{self.slug}/{ref}"
+
+    @property
+    def map_url(self):
+        """Where browsers load the map from, or "" if the case has none."""
+        return self._public_url("map")
+
+    @property
+    def body_viewer_url(self):
+        """The case's 3D body script, or "" if it has none."""
+        return self._public_url("body_viewer")
+
+    @property
+    def search_locations(self):
+        """Places with clue cards that aren't sealed, in the order they first appear."""
+        sealed = {s["location"] for s in self.clues.get("sealed", [])}
+        seen = []
+        for card in self.clues.get("cards", []):
+            if card["location"] not in sealed and card["location"] not in seen:
+                seen.append(card["location"])
+        return seen
 
 
 @cache
@@ -200,13 +218,16 @@ def _cross_check(b):
             if prop not in prop_ids:
                 problems.append(f"roles {r['id']}: starting prop {prop!r} is not in props.json")
 
-    map_ref = m.get("map", "")
-    if map_ref and not map_ref.startswith("https://"):
-        path = _inside(b.folder / "public", map_ref.removeprefix("public/"))
-        if not map_ref.startswith("public/") or path is None:
-            problems.append(f"case.json map: {map_ref!r} must be an https:// link or a file under public/")
+    for key in ("map", "body_viewer"):
+        ref = m.get(key, "")
+        if not ref or (key == "map" and ref.startswith("https://")):
+            continue
+        path = _inside(b.folder / "public", ref.removeprefix("public/"))
+        if not ref.startswith("public/") or path is None:
+            allowed = "an https:// link or a file under public/" if key == "map" else "a file under public/"
+            problems.append(f"case.json {key}: {ref!r} must be {allowed}")
         elif not path.is_file():
-            problems.append(f"case.json map: {map_ref} not found")
+            problems.append(f"case.json {key}: {ref} not found")
     return problems
 
 

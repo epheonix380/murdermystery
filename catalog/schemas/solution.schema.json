@@ -2,17 +2,48 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "solution.json: GM only until the reveal",
   "type": "object",
-  "required": ["killer", "reveal"],
+  "required": [
+    "killer",
+    "reveal"
+  ],
   "additionalProperties": false,
   "properties": {
-    "killer": {"type": "string", "description": "A core role id"},
-    "reveal": {"type": "string"},
+    "killer": {
+      "type": "string",
+      "description": "A core role id"
+    },
+    "reveal": {
+      "type": "string"
+    },
     "timeline": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["time", "place", "text"],
-        "properties": {"time": {"type": "string"}, "place": {"type": "string"}, "text": {"type": "string"}}
+        "required": [
+          "time",
+          "place",
+          "text"
+        ],
+        "properties": {
+          "time": {
+            "type": "string"
+          },
+          "place": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "string"
+    },
+    "key_proof": {
+      "type": "array",
+      "items": {
+        "type": "string"
       }
     }
   }
