@@ -8,7 +8,11 @@ window.Live = function (stateUrl, wsPath, onState) {
     if (inflight) { again = true; return; }
     inflight = true;
     fetch(stateUrl, { credentials: "same-origin", cache: "no-store" })
-      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (r) {
+        if (r.status === 404) { location.reload(); throw new Error("game over"); } // ended: show the ended page
+        if (!r.ok) throw new Error(r.status);
+        return r.json();
+      })
       .then(onState)
       .catch(function () {})
       .then(function () { inflight = false; if (again) { again = false; refresh(); } });

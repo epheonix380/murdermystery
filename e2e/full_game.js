@@ -120,7 +120,13 @@ const NAMES = ["Sam", "Alex", "Jo", "Kim"];
   await shot(alex, "e2e-6-reveal");
   await shot(gm, "e2e-7-gm-revealed");
 
-  assert.deepStrictEqual(errors, []);
+  // Ending the game sends open player pages to the "ended" page
+  gm.once("dialog", (d) => d.accept());
+  await gm.click("text=End game");
+  await gm.waitForSelector("text=Pick a mystery");
+  await alex.waitForSelector("text=This game has ended");
+
+  assert.deepStrictEqual(errors.filter((e) => !/404/.test(e)), []);
   console.log("full game passed");
   await browser.close();
 })().catch((e) => { console.error(e); process.exit(1); });

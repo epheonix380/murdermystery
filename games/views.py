@@ -180,6 +180,7 @@ def host_links(request, game):
 def host_end(request, game):
     game.status = Game.Status.ARCHIVED
     game.save(update_fields=["status"])
+    notify(game)  # open player pages reload into "this game has ended"
     messages.success(request, "Game ended. You can host another one now.")
     return redirect("home")
 
