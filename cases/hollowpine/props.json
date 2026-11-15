@@ -2,14 +2,14 @@
   {
     "id": "manuscript",
     "name": "The Manuscript",
-    "description": "THE MANUSCRIPT. The Last Chapter by Edgar Thorne. Chapter 13 has been torn out. The margins are full of handwritten notes and rewrites, and the handwriting isn't Edgar's.",
+    "description": "The Last Chapter by Edgar Thorne. Chapter 13 has been torn out. The margins are full of handwritten notes and rewrites, and the handwriting isn't Edgar's.",
     "placed_at": "Umbrella Stand",
     "clue": "C24"
   },
   {
     "id": "photo-1998",
     "name": "The 1998 Photo",
-    "description": "THE 1998 PHOTO. Young Edgar and young Ruth by the lake, arm in arm. On the back: \"Summer '98, my muse.\"",
+    "description": "Young Edgar and young Ruth by the lake, arm in arm. On the back: \"Summer '98, my muse.\"",
     "placed_at": "Edgar's Safe",
     "clue": "C28"
   }

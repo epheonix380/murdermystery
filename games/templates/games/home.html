@@ -1,0 +1,26 @@
+{% extends "games/base.html" %}
+{% block content %}
+{% if active_game %}
+<div class="card banner">
+  <h3>Your active game</h3>
+  <p><b>{{ active_game.case.title }}</b> on {{ active_game.party_date|date:"j M Y" }}</p>
+  <a class="btn primary" href="{% url 'host' %}">Go to your game</a>
+</div>
+{% endif %}
+<h1>Pick a mystery</h1>
+<p class="muted">Host a game for your group. Each player gets a private link to their character before the party; you run the night from your phone.</p>
+{% for case in cases %}
+<div class="card case-card">
+  {% if case.map_url %}<img class="map" src="{{ case.map_url }}" alt="Map of {{ case.title }}" loading="lazy">{% endif %}
+  <div class="body">
+    <h2>{{ case.title }}</h2>
+    <p class="small">{{ case.premise.0 }}</p>
+    {% include "games/_case_stats.html" %}
+    <p class="small muted">Clues, puzzles and props are what you prepare as the GM.</p>
+    {% if not active_game %}<a class="btn primary" href="{% url 'new-game' case.slug %}">Host this case</a>{% endif %}
+  </div>
+</div>
+{% empty %}
+<p class="muted">No cases are published yet.</p>
+{% endfor %}
+{% endblock %}

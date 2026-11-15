@@ -1,0 +1,30 @@
+{% extends "games/base.html" %}
+{% block title %}Cast{% endblock %}
+{% block content %}
+<h1>Cast</h1>
+<form method="get" class="card row">
+  <label for="count" style="margin:0">Players</label>
+  <select name="count" id="count" style="width:auto" onchange="this.form.submit()">
+    {% for n in counts %}<option value="{{ n }}"{% if n == count %} selected{% endif %}>{{ n }}</option>{% endfor %}
+  </select>
+  <noscript><button class="btn small">Change</button></noscript>
+</form>
+
+<form method="post" class="card">
+  {% csrf_token %}
+  <input type="hidden" name="count" value="{{ count }}">
+  <p class="small muted">Type each player's name. Pick a character for anyone you want to place yourself, such as the killer, and leave the rest on Random. Every core character is always played; optional ones fill the extra places.</p>
+  {% for i, name, role_id, pid in rows %}
+  <div class="cast-row">
+    <input type="hidden" name="player_{{ i }}" value="{{ pid }}">
+    <input type="text" name="name_{{ i }}" value="{{ name }}" placeholder="Player {{ forloop.counter }} name" aria-label="Player {{ forloop.counter }} name" maxlength="80">
+    <select name="role_{{ i }}" aria-label="Player {{ forloop.counter }} character">
+      <option value="">Random</option>
+      {% for r in bundle.roles %}<option value="{{ r.id }}"{% if r.id == role_id %} selected{% endif %}>{{ r.name }}{% if not r.core %} (optional){% endif %}{% if r.id == bundle.solution.killer %} · killer{% endif %}</option>{% endfor %}
+    </select>
+  </div>
+  {% endfor %}
+  {% if has_players %}<p class="small muted">Players you keep keep their link, even if their character changes.</p>{% endif %}
+  <div class="row"><button class="btn primary" type="submit">Save cast</button><a class="btn" href="{% url 'host' %}">Cancel</a></div>
+</form>
+{% endblock %}

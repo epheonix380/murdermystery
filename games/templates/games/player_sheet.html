@@ -1,0 +1,85 @@
+{% extends "games/base.html" %}
+{% block meta %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+{% block title %}{{ role.name }} · {{ case.title }}{% endblock %}
+{% block brand_url %}{% url 'player' player.token %}{% endblock %}
+{% block brand %}{{ case.title }}{% endblock %}
+{% block nav %}{% endblock %}
+{% block content %}
+{% if ended %}
+<div class="card"><h2>This game has ended</h2><p class="muted">Thanks for playing {{ case.title }}.</p></div>
+{% else %}
+<p class="muted small">Hi {{ player.display_name }}. This page is only for you; don't share the link. Party on {{ game.party_date|date:"l j F" }}.</p>
+
+<div class="card hero">
+  <div class="nm">{{ role.name }}</div>
+  <div class="cos">{{ role.costume }}</div>
+  <p class="small">{{ role.who }}</p>
+  {% if role.attitude %}<p class="small muted" style="margin-bottom:6px"><b>Attitude:</b> {{ role.attitude }}</p>{% endif %}
+  {% if role.cornered %}<div class="small muted" style="margin-bottom:4px">When cornered, say:</div><div class="say">{{ role.cornered }}</div>{% endif %}
+</div>
+
+<div class="card secretbox" id="goalBox">
+  <div class="cover row" style="justify-content:space-between">
+    <span><b>Secret goal</b><br><span class="small muted">Never reveal this. Tap to peek.</span></span>
+    <button class="btn small" type="button" id="goalShow">Show</button>
+  </div>
+  <div class="reveal">
+    {% if is_killer %}<div class="killer">YOU ARE THE KILLER</div>{% endif %}
+    <b>Secret goal:</b> {{ role.goal }}
+    <div class="row" style="margin-top:8px"><button class="btn small" type="button" id="goalHide">Hide</button></div>
+  </div>
+</div>
+
+<div class="subtabs" id="subtabs">
+  <button type="button" data-st="tl" class="on">Timeline</button>
+  {% if role.story %}<button type="button" data-st="story">Your story</button>{% endif %}
+  <button type="button" data-st="sec">Secret</button>
+  {% if role.others %}<button type="button" data-st="oth">Others</button>{% endif %}
+  {% if role.tips %}<button type="button" data-st="tips">Tips</button>{% endif %}
+</div>
+<div class="card st" id="st-tl">
+  <ul class="tl">
+    {% for row in role.timeline %}<li class="{% if row.hide %}hide{% endif %}"><span class="t">{{ row.time }}</span><span class="w">{{ row.place }}</span><span class="d">{{ row.text }}</span></li>{% endfor %}
+  </ul>
+  <p class="small muted" style="margin-top:8px">"Keep quiet" marks moments you'd rather nobody found out. You can still choose to share them.</p>
+</div>
+{% if role.story %}<div class="card st" id="st-story" hidden><p class="small muted">What you tell everyone (it's a lie):</p><ul class="clean">{% for s in role.story %}<li>{{ s }}</li>{% endfor %}</ul></div>{% endif %}
+<div class="card st" id="st-sec" hidden><p>{{ role.secret }}</p><p class="small muted">You can share this or hide it. Only your secret goal must stay hidden.</p></div>
+{% if role.others %}<div class="card st" id="st-oth" hidden><div class="kv">{% for o in role.others %}<div><b>{{ o.name }}</b><span class="small">{{ o.text }}</span></div>{% endfor %}</div></div>{% endif %}
+{% if role.tips %}<div class="card st" id="st-tips" hidden><ul class="clean">{% for t in role.tips %}<li>{{ t }}</li>{% endfor %}</ul></div>{% endif %}
+
+<h3>The case</h3>
+<div class="card">
+  {% for p in case.premise %}<p>{{ p }}</p>{% endfor %}
+  {% if case.map_url %}<img src="{{ case.map_url }}" alt="Map of {{ case.title }}" style="width:100%;height:auto;border-radius:10px;margin-top:4px">{% endif %}
+</div>
+
+<h3>Who's coming</h3>
+<div class="card kv">
+  {% for c in cast %}<div><b>{{ c.name }}{% if c.is_you %}<span class="you">You</span>{% endif %}</b><span class="small muted">Played by {{ c.player }} · {{ c.costume }} · {{ c.who }}</span></div>{% endfor %}
+  {% if victim %}<div><b>{{ victim.name }}</b><span class="small muted">{{ victim.text }}</span></div>{% endif %}
+</div>
+
+<h3>Rules</h3>
+<div class="card"><ul class="clean">{% for r in case.rules %}<li>{{ r }}</li>{% endfor %}</ul></div>
+
+<p class="small muted">Clues and puzzles unlock here on the night.</p>
+{% endif %}
+{% endblock %}
+{% block scripts %}
+<script>
+(function () {
+  var box = document.getElementById("goalBox");
+  if (!box) return;
+  document.getElementById("goalShow").onclick = function () { box.classList.add("open"); };
+  document.getElementById("goalHide").onclick = function () { box.classList.remove("open"); };
+  var tabs = document.querySelectorAll("#subtabs button");
+  tabs.forEach(function (b) {
+    b.onclick = function () {
+      tabs.forEach(function (x) { x.classList.toggle("on", x === b); });
+      document.querySelectorAll(".st").forEach(function (s) { s.hidden = s.id !== "st-" + b.dataset.st; });
+    };
+  });
+})();
+</script>
+{% endblock %}

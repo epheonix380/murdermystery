@@ -1,8 +1,12 @@
+import datetime
 import secrets
 import uuid
 
 from django.db import models
 from django.db.models import Q
+from django.utils import timezone
+
+STALE_AFTER_DAYS = 7
 
 
 def new_token():
@@ -31,7 +35,8 @@ class Game(models.Model):
 
     case = models.ForeignKey("catalog.Case", on_delete=models.PROTECT, related_name="games")
     host = models.ForeignKey(Visitor, on_delete=models.CASCADE, related_name="hosted_games")
-    party_date = models.DateField(null=True, blank=True)
+    party_date = models.DateField()
+    player_count = models.PositiveSmallIntegerField()
     status = models.CharField(max_length=10, choices=Status, default=Status.DRAFT)
     current_round = models.PositiveSmallIntegerField(default=1)
     gm_token = models.CharField(max_length=64, unique=True, default=new_token, editable=False)
@@ -49,6 +54,26 @@ class Game(models.Model):
 
     def __str__(self):
         return f"{self.case} ({self.get_status_display()})"
+
+    @property
+    def can_edit_cast(self):
+        return self.status in (self.Status.DRAFT, self.Status.INVITED)
+
+    @classmethod
+    def active_for(cls, visitor):
+        if visitor is None:
+            return None
+        return cls.objects.filter(host=visitor).exclude(status=cls.Status.ARCHIVED).select_related("case").first()
+
+    @classmethod
+    def archive_stale(cls, today=None):
+        """Archive games whose party was more than a week ago, freeing their hosts."""
+        today = today or timezone.localdate()
+        return (
+            cls.objects.filter(party_date__lt=today - datetime.timedelta(days=STALE_AFTER_DAYS))
+            .exclude(status=cls.Status.ARCHIVED)
+            .update(status=cls.Status.ARCHIVED)
+        )
 
 
 class Player(models.Model):

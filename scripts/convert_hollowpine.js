@@ -102,7 +102,7 @@ const props = C.cards
   .map((c) => ({
     id: c.id === "C24" ? "manuscript" : "photo-1998",
     name: c.id === "C24" ? "The Manuscript" : "The 1998 Photo",
-    description: c.text,
+    description: c.text.replace(/^[A-Z0-9 ']+\. /, ""), // drop the card's "THE MANUSCRIPT. " heading
     placed_at: c.loc,
     clue: c.id,
   }));

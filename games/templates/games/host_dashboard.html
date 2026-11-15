@@ -1,0 +1,51 @@
+{% extends "games/base.html" %}
+{% block title %}Your game{% endblock %}
+{% block content %}
+<h1>{{ game.case.title }}</h1>
+<p class="muted">Party on {{ game.party_date|date:"l j F Y" }} · {{ game.get_status_display }}</p>
+
+<div class="card">
+  <h3>Players</h3>
+  {% if players %}
+  <table class="list">
+    <tr><th>Player</th><th>Character</th><th>Opened link</th></tr>
+    {% for p, role_name in players %}
+    <tr><td>{{ p.display_name }}</td><td>{{ role_name }}</td><td class="muted">{% if p.last_seen %}{{ p.last_seen|timesince }} ago{% else %}not yet{% endif %}</td></tr>
+    {% endfor %}
+  </table>
+  <div class="row" style="margin-top:12px">
+    <a class="btn primary" href="{% url 'host-links' %}">Player links</a>
+    {% if game.can_edit_cast %}<a class="btn" href="{% url 'host-players' %}">Edit cast</a>{% endif %}
+  </div>
+  {% else %}
+  <p>No players yet. Add your {{ game.player_count }} players and give them characters.</p>
+  <a class="btn primary" href="{% url 'host-players' %}">Set up the cast</a>
+  {% endif %}
+</div>
+
+{% if bundle.props %}
+<div class="card">
+  <h3>Props to prepare</h3>
+  <table class="list">
+    <tr><th>Prop</th><th>Where it starts</th></tr>
+    {% for prop in bundle.props %}
+    <tr><td><b>{{ prop.name }}</b><div class="small muted">{{ prop.description }}</div></td><td>{{ prop.placed_at|default:"With a player" }}</td></tr>
+    {% endfor %}
+  </table>
+</div>
+{% endif %}
+
+<div class="card">
+  <h3>Your GM link</h3>
+  <p class="small">Keep this to yourself. It opens this page on any device, for example if you switch phones or clear your browser.</p>
+  <div class="row"><input type="text" readonly value="{{ gm_url }}" id="gmUrl"><button class="btn small" type="button" data-copy="#gmUrl">Copy</button></div>
+</div>
+
+<form method="post" action="{% url 'host-end' %}" class="card" onsubmit="return confirm('End this game? Player links will stop working and you can host a new one.');">
+  {% csrf_token %}
+  <h3>End the game</h3>
+  <p class="small muted">Ends the game for everyone and frees you to host another. Games also end on their own a week after the party.</p>
+  <button class="btn danger" type="submit">End game</button>
+</form>
+{% endblock %}
+{% block scripts %}{% include "games/_copy.html" %}{% endblock %}

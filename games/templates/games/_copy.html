@@ -1,0 +1,14 @@
+<script>
+document.addEventListener("click", function (e) {
+  var b = e.target.closest("[data-copy]");
+  if (!b) return;
+  var el = document.querySelector(b.getAttribute("data-copy"));
+  var text = el.value !== undefined ? el.value : el.textContent;
+  var done = function () { var t = b.textContent; b.textContent = "Copied"; setTimeout(function () { b.textContent = t; }, 1500); };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(done);
+  } else {
+    el.select && el.select(); document.execCommand("copy"); done();
+  }
+});
+</script>

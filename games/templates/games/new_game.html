@@ -1,0 +1,16 @@
+{% extends "games/base.html" %}
+{% block title %}Host {{ case.title }}{% endblock %}
+{% block content %}
+<h1>Host {{ case.title }}</h1>
+<div class="card">
+  {% for p in case.premise %}<p>{{ p }}</p>{% endfor %}
+  {% include "games/_case_stats.html" %}
+</div>
+<form method="post" class="card">
+  {% csrf_token %}
+  <div class="field">{{ form.party_date.label_tag }}{{ form.party_date }}{{ form.party_date.errors }}</div>
+  <div class="field">{{ form.player_count.label_tag }}{{ form.player_count }}{{ form.player_count.errors }}
+    <p class="small muted" style="margin-top:6px">Not counting you: the GM runs the game and doesn't play a character. You can change this later.</p></div>
+  <button class="btn primary" type="submit">Create game</button>
+</form>
+{% endblock %}

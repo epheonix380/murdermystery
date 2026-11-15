@@ -19,6 +19,20 @@ With no environment variables it runs in debug mode on SQLite. On the server, se
 
 Run the tests with `.venv/bin/python manage.py test`.
 
+## Pages
+
+| URL | Who | What |
+| --- | --- | --- |
+| `/` | Anyone | Case browser: map, player range, clue, puzzle and prop counts |
+| `/host/new/<slug>/` | Anyone | Start a game: party date and number of players |
+| `/host/` | The host | Their active game: players, props to prepare, GM link, end game |
+| `/host/players/` | The host | Names and characters; chosen roles are kept, the rest are cast at random |
+| `/host/links/` | The host | Copy-paste page with every player's private link |
+| `/gm/<token>/` | The host | Private GM link: makes any browser the host of that game |
+| `/p/<token>/` | One player | Their own character sheet, the case, who's coming and the rules |
+
+Hosts don't sign up. Starting a game creates an anonymous visitor id, kept in a cookie; each visitor can host one active game at a time. Games end when the host ends them, or a week after the party date.
+
 ## Layout
 
 | Path | What |

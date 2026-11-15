@@ -1,0 +1,27 @@
+{% extends "games/base.html" %}
+{% block title %}Player links{% endblock %}
+{% block content %}
+<h1>Player links</h1>
+<p class="muted">Send each player their own link, privately. Anyone with a link can see that character's secrets.</p>
+<div class="card">
+  {% for name, role_name, url in links %}
+  <div class="link-row">
+    <div class="who"><b>{{ name }}</b> <span class="muted small">as {{ role_name }}</span><div class="url" id="link{{ forloop.counter }}">{{ url }}</div></div>
+    <button class="btn small" type="button" data-copy="#link{{ forloop.counter }}">Copy</button>
+  </div>
+  {% empty %}
+  <p>No players yet. <a href="{% url 'host-players' %}">Set up the cast</a> first.</p>
+  {% endfor %}
+</div>
+{% if links %}
+<div class="card">
+  <h3>All links at once</h3>
+  <p class="small muted">For pasting into your own notes. Don't paste this into a group chat: everyone would see everyone's link.</p>
+  <textarea class="copyall" id="allLinks" readonly>{% for name, role_name, url in links %}{{ name }} ({{ role_name }}): {{ url }}
+{% endfor %}</textarea>
+  <button class="btn small" type="button" data-copy="#allLinks" style="margin-top:8px">Copy all</button>
+</div>
+{% endif %}
+<a class="btn" href="{% url 'host' %}">Back to your game</a>
+{% endblock %}
+{% block scripts %}{% include "games/_copy.html" %}{% endblock %}

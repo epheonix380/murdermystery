@@ -214,3 +214,15 @@ def case_folders(cases_dir=None):
     """Every folder in CASES_DIR that has a case.json."""
     cases_dir = Path(cases_dir or settings.CASES_DIR)
     return sorted(p.parent for p in cases_dir.glob("*/case.json"))
+
+
+_bundle_cache = {}
+
+
+def bundle_for(case):
+    """The checked contents of a Case row's folder, cached until it is re-imported."""
+    cached = _bundle_cache.get(case.pk)
+    if cached is None or cached[0] != case.imported_at:
+        cached = (case.imported_at, load_case(Path(settings.CASES_DIR) / case.folder))
+        _bundle_cache[case.pk] = cached
+    return cached[1]
