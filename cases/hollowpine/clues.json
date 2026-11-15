@@ -1,0 +1,300 @@
+{
+  "rounds": 2,
+  "body": [
+    {
+      "id": "B1",
+      "round": 1,
+      "label": "Back of head",
+      "text": "A heavy blunt wound to the back of the head. He was struck from behind, by someone he'd turned his back on."
+    },
+    {
+      "id": "B2",
+      "round": 1,
+      "label": "Left wrist",
+      "text": "His wristwatch face is smashed. The hands are stopped at 11:20."
+    },
+    {
+      "id": "B3",
+      "round": 1,
+      "label": "Phone",
+      "text": "Last message sent 10:44 PM, to Ruth: \"Tea at 11 please.\" Every message from 10:55 PM on is unread, including Vivian at 10:55: \"Are you reading it at midnight or not?\""
+    },
+    {
+      "id": "B4",
+      "round": 1,
+      "label": "Wallet",
+      "text": "His wallet is empty except for a few receipts."
+    },
+    {
+      "id": "B5",
+      "round": 1,
+      "label": "Left cuff",
+      "text": "Strands of coarse gray fur caught on his left cuff."
+    },
+    {
+      "id": "B6",
+      "round": 2,
+      "label": "Watch, up close",
+      "text": "Look closer: the watch crown is pulled out. Someone set the time by hand before smashing it."
+    },
+    {
+      "id": "B7",
+      "round": 2,
+      "label": "Coroner's note",
+      "text": "The Deputy's coroner note: the blood had dried and the body had cooled. Death happened between 10:45 and 11:05 PM."
+    },
+    {
+      "id": "B8",
+      "round": 2,
+      "label": "Inside jacket pocket",
+      "text": "An index card: \"Midnight: read Ch. 13 unless the wolf comes clean.\""
+    }
+  ],
+  "cards": [
+    {
+      "id": "C01",
+      "location": "Study",
+      "round": 1,
+      "text": "A plastic skull on the bookshelf is hollow. Inside: Edgar's digital voice recorder, labeled \"E. Thorne - sound effects\". Its timer was set for 11:20 PM. Last file played: SCREAM_07."
+    },
+    {
+      "id": "C02",
+      "location": "Study",
+      "round": 1,
+      "text": "A clean rectangle in the dust on the shelf, where Edgar's Golden Raven award always stood. The award is gone."
+    },
+    {
+      "id": "C03",
+      "location": "Study",
+      "round": 1,
+      "text": "The French doors to the back porch are unlocked. A tuft of coarse gray fur is caught on the latch."
+    },
+    {
+      "id": "C04",
+      "location": "Study",
+      "round": 1,
+      "text": "One muddy print on the rug just inside the French doors. Not a shoe. It looks like a big animal paw."
+    },
+    {
+      "id": "C05",
+      "location": "Study",
+      "round": 1,
+      "text": "A half-burnt page pulled from the fireplace. The surviving lines are written in some kind of code:",
+      "shows": "cipher"
+    },
+    {
+      "id": "C06",
+      "location": "Study",
+      "round": 1,
+      "text": "A painting over the fireplace: \"Three Ravens at Midnight\". Edgar used to call it \"my key to everything.\""
+    },
+    {
+      "id": "C07",
+      "location": "Study",
+      "round": 1,
+      "text": "A sticky note under the desk drawer, in Edgar's handwriting: \"Safe = the night it all began.\""
+    },
+    {
+      "id": "C08",
+      "location": "Study",
+      "round": 1,
+      "text": "A wine glass on the side table, with dark purple lipstick on the rim."
+    },
+    {
+      "id": "C09",
+      "location": "Study",
+      "round": 1,
+      "text": "A crumpled note in the wastebasket: \"You stole my story. You'll pay for it. -G.P.\"",
+      "requires_role": "ROT"
+    },
+    {
+      "id": "C10",
+      "location": "Great Room",
+      "round": 1,
+      "text": "A framed book cover on the wall: The Hollowpine Girl, Edgar's first bestseller. Small print: \"First published October 31, 1998.\""
+    },
+    {
+      "id": "C11",
+      "location": "Great Room",
+      "round": 1,
+      "text": "A photo booth strip stamped 11:06 PM: Marcus, Vivian and Julian pulling faces. Marcus has wet hair, his werewolf mask in his hand, and sneakers on instead of his paw feet."
+    },
+    {
+      "id": "C12",
+      "location": "Great Room",
+      "round": 1,
+      "text": "Party schedule on the mantel: 8:00 Drinks. 8:30 Dinner. Midnight: Unmasking, and Edgar reads Chapter 13."
+    },
+    {
+      "id": "C13",
+      "location": "Kitchen",
+      "round": 1,
+      "text": "A tea tray, set and untouched. Ruth's note: \"Mr. T tea - 11:00\", with 11:00 crossed out and 11:15 written in."
+    },
+    {
+      "id": "C14",
+      "location": "Kitchen",
+      "round": 1,
+      "text": "Muddy paw prints cross the kitchen floor, from the mudroom door to the back stairs. None lead toward the Great Room."
+    },
+    {
+      "id": "C15",
+      "location": "Kitchen",
+      "round": 1,
+      "text": "From the kitchen sink you can see the back door through the window, but not the far end of the porch by the study."
+    },
+    {
+      "id": "C16",
+      "location": "Dining Room",
+      "round": 1,
+      "text": "Edgar's place card. On the back, in his writing: \"Tonight, everyone gets what they deserve. -E\""
+    },
+    {
+      "id": "C17",
+      "location": "Dining Room",
+      "round": 1,
+      "text": "Taped under the seance table: a small Bluetooth speaker. A cue sheet next to it: \"3rd knock: play WAIL_02.\"",
+      "requires_role": "ORB"
+    },
+    {
+      "id": "C18",
+      "location": "Dining Room",
+      "round": 1,
+      "text": "Madame Oriel's business card. Tucked behind it, an old staff badge: \"Doreen Fisk, Assistant to E. Thorne, 2014-2019.\"",
+      "requires_role": "ORB"
+    },
+    {
+      "id": "C19",
+      "location": "Back Porch",
+      "round": 1,
+      "text": "The porch ashtray holds exactly one cigarette butt."
+    },
+    {
+      "id": "C20",
+      "location": "Back Porch",
+      "round": 1,
+      "text": "Muddy paw prints run along the porch, from the back door to the study's French doors, and back again."
+    },
+    {
+      "id": "C21",
+      "location": "Back Porch",
+      "round": 1,
+      "text": "Small sneaker prints in the mud under the study window.",
+      "requires_role": "BOO"
+    },
+    {
+      "id": "C22",
+      "location": "Mudroom",
+      "round": 1,
+      "text": "The breaker box. Every switch is still ON. Ruth's flashlight sits on the shelf beside it."
+    },
+    {
+      "id": "C23",
+      "location": "Mudroom",
+      "round": 1,
+      "text": "A generator log on a clipboard: \"Started 11:28 PM - R.K.\""
+    },
+    {
+      "id": "C24",
+      "location": "Umbrella Stand",
+      "round": 2,
+      "text": "THE MANUSCRIPT. The Last Chapter by Edgar Thorne. Chapter 13 has been torn out. The margins are full of handwritten notes and rewrites, and the handwriting isn't Edgar's."
+    },
+    {
+      "id": "C25",
+      "location": "Umbrella Stand",
+      "round": 2,
+      "text": "Wrapped in a wet towel: the Golden Raven award. A few coarse gray hairs are stuck in its base."
+    },
+    {
+      "id": "C26",
+      "location": "Edgar's Safe",
+      "round": 2,
+      "text": "A letter from Edgar to Marcus Reed: \"The audit is done. $340,000 is missing. Confess to everyone by midnight, or I read Chapter 13 aloud and call my lawyer.\""
+    },
+    {
+      "id": "C27",
+      "location": "Edgar's Safe",
+      "round": 2,
+      "text": "Edgar's new will, signed last month: \"Hollowpine Lodge goes to Ruth Kowalski. To my nephew Julian, my library card and my forgiveness.\""
+    },
+    {
+      "id": "C28",
+      "location": "Edgar's Safe",
+      "round": 2,
+      "text": "THE 1998 PHOTO. Young Edgar and young Ruth by the lake, arm in arm. On the back: \"Summer '98, my muse.\""
+    },
+    {
+      "id": "C29",
+      "location": "Guest Rooms",
+      "round": 2,
+      "text": "Marcus's bag: a pair of rubber werewolf paw feet, caked in wet mud. Under them, spreadsheet printouts with whole columns cut out."
+    },
+    {
+      "id": "C30",
+      "location": "Guest Rooms",
+      "round": 2,
+      "text": "Julian's bag: an IOU for $28,000 to \"Lucky Lou\", due November 1. Also $500 cash in a money clip engraved \"E.T.\""
+    },
+    {
+      "id": "C31",
+      "location": "Guest Rooms",
+      "round": 2,
+      "text": "Vivian's bag: a co-author contract for The Last Chapter. Vivian has signed it. Edgar hasn't."
+    },
+    {
+      "id": "C32",
+      "location": "Guest Rooms",
+      "round": 2,
+      "text": "Graham's bag: a yellowed manuscript, The Hollow Girl by Graham Pike, 1996, with a publisher's rejection letter.",
+      "requires_role": "ROT"
+    },
+    {
+      "id": "C33",
+      "location": "Guest Rooms",
+      "round": 2,
+      "text": "Penny's camera. The last photo, stamped 10:22 PM, shows Edgar alive at his desk, typing, taken through the study window.",
+      "requires_role": "BOO"
+    },
+    {
+      "id": "C34",
+      "location": "Ruth's Cabin",
+      "round": 2,
+      "text": "Ruth's rubber boots by the door, size 7, still muddy. Ordinary boot treads."
+    },
+    {
+      "id": "C35",
+      "location": "Ruth's Cabin",
+      "round": 2,
+      "text": "A letter on Ruth's table, from Edgar: \"The lodge is yours when I'm gone. Don't tell Julian.\""
+    },
+    {
+      "id": "C36",
+      "location": "Ruth's Cabin",
+      "round": 2,
+      "text": "A box of candles, half empty."
+    }
+  ],
+  "sealed": [
+    {
+      "location": "Edgar's Safe",
+      "instructions": "Open after the group solves Puzzle 1 (The Safe)",
+      "unlocked_by_puzzle": "safe"
+    },
+    {
+      "location": "Guest Rooms",
+      "instructions": "Open after the group solves Puzzle 2 (The Burnt Page)",
+      "unlocked_by_puzzle": "page"
+    },
+    {
+      "location": "Umbrella Stand",
+      "instructions": "Open after the group solves Puzzle 3 (The Route)",
+      "unlocked_by_puzzle": "route"
+    },
+    {
+      "location": "Ruth's Cabin",
+      "instructions": "Open when Round 2 starts",
+      "unlocked_by_round": 2
+    }
+  ]
+}

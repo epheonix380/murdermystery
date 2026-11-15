@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "props.json: physical objects the GM prepares",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "name", "description"],
+    "additionalProperties": false,
+    "properties": {
+      "id": {"type": "string"},
+      "name": {"type": "string"},
+      "description": {"type": "string"},
+      "placed_at": {"type": "string", "description": "Where the GM hides it before the game"},
+      "clue": {"type": "string", "description": "Id of the clue card that goes with it"}
+    }
+  }
+}

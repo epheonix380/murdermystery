@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 56 760 456" width="760" height="456" role="img" aria-label="Floor plan of Hollowpine Lodge" font-family="Inter, system-ui, sans-serif">
+<rect x="0" y="56" width="760" height="456" fill="#121016"/>
+<rect x="24" y="64" width="132" height="72" rx="8" fill="#2c2636" stroke="#5b5168"/>
+<rect x="24" y="156" width="132" height="36" rx="8" fill="#2c2636" stroke="#5b5168"/>
+<rect x="180" y="64" width="556" height="44" rx="8" fill="#2c2636" stroke="#5b5168"/>
+<rect x="180" y="116" width="130" height="120" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="310" y="116" width="150" height="120" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="460" y="116" width="96" height="120" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="556" y="116" width="180" height="180" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="180" y="236" width="130" height="216" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="310" y="236" width="246" height="140" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="556" y="296" width="180" height="156" rx="0" fill="#1d1924" stroke="#5b5168" stroke-dasharray="6 4"/>
+<rect x="310" y="376" width="246" height="76" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="310" y="460" width="246" height="40" rx="8" fill="#2c2636" stroke="#5b5168"/>
+<rect x="180" y="116" width="556" height="336" fill="none" stroke="#a89cb8" stroke-width="3"/>
+<line x1="220" y1="116" x2="250" y2="116" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="620" y1="116" x2="680" y2="116" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="310" y1="186" x2="310" y2="214" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="340" y1="236" x2="372" y2="236" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="310" y1="304" x2="310" y2="334" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="492" y1="236" x2="526" y2="236" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="556" y1="196" x2="556" y2="226" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="404" y1="376" x2="462" y2="376" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="412" y1="452" x2="454" y2="452" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<text x="36" y="86" fill="#ece6f2" font-size="14" font-weight="600">Ruth's Cabin</text>
+<text x="36" y="104" fill="#a89cb8" font-size="12">Separate building</text>
+<circle cx="40" cy="118" r="5" fill="#9a7bff"/><text x="50" y="122" fill="#a89cb8" font-size="12">Cabin search</text>
+<text x="36" y="178" fill="#ece6f2" font-size="14" font-weight="600">Generator</text>
+<text x="458" y="91" text-anchor="middle" fill="#ece6f2" font-size="14" font-weight="600">Back Porch (covered)</text>
+<text x="192" y="138" fill="#ece6f2" font-size="14" font-weight="600">Mudroom</text>
+<text x="192" y="156" fill="#a89cb8" font-size="12">Breaker box</text>
+<circle cx="196" cy="170" r="5" fill="#9a7bff"/><text x="206" y="174" fill="#a89cb8" font-size="12">Umbrella stand</text>
+<text x="322" y="138" fill="#ece6f2" font-size="14" font-weight="600">Kitchen</text>
+<text x="322" y="156" fill="#a89cb8" font-size="12">Back stairs up</text>
+<text x="322" y="174" fill="#a89cb8" font-size="12">Window onto porch</text>
+<text x="472" y="138" fill="#ece6f2" font-size="14" font-weight="600">Hallway</text>
+<text x="472" y="156" fill="#a89cb8" font-size="12">Coat closet</text>
+<text x="568" y="138" fill="#ece6f2" font-size="14" font-weight="600">Study</text>
+<text x="568" y="156" fill="#a89cb8" font-size="12">Edgar's body</text>
+<text x="568" y="174" fill="#a89cb8" font-size="12">Desk, fireplace</text>
+<circle cx="572" cy="188" r="5" fill="#9a7bff"/><text x="582" y="192" fill="#a89cb8" font-size="12">Edgar's safe</text>
+<text x="192" y="258" fill="#ece6f2" font-size="14" font-weight="600">Dining Room</text>
+<text x="192" y="276" fill="#a89cb8" font-size="12">Seance table</text>
+<text x="322" y="258" fill="#ece6f2" font-size="14" font-weight="600">Great Room</text>
+<text x="322" y="276" fill="#a89cb8" font-size="12">Fireplace, photo booth</text>
+<text x="322" y="294" fill="#a89cb8" font-size="12">Party guests all night</text>
+<text x="568" y="318" fill="#ece6f2" font-size="14" font-weight="600">Guest Rooms</text>
+<text x="568" y="336" fill="#a89cb8" font-size="12">Upstairs, via the</text>
+<text x="568" y="354" fill="#a89cb8" font-size="12">kitchen back stairs</text>
+<circle cx="572" cy="368" r="5" fill="#9a7bff"/><text x="582" y="372" fill="#a89cb8" font-size="12">Luggage</text>
+<text x="322" y="398" fill="#ece6f2" font-size="14" font-weight="600">Foyer</text>
+<text x="322" y="416" fill="#a89cb8" font-size="12">Front door</text>
+<text x="433" y="485" text-anchor="middle" fill="#ece6f2" font-size="14" font-weight="600">Front Porch</text>
+<text x="235" y="102" text-anchor="middle" fill="#a89cb8" font-size="12">Back door</text>
+<text x="650" y="102" text-anchor="middle" fill="#a89cb8" font-size="12">French doors</text>
+</svg>

@@ -1,0 +1,217 @@
+{
+  "cipher": "WKH ZHUHZROI FRXQWHG WKH JROG WZLFH DQG NHSW LW RQFH. KH QHYHU OHW KLV EDJ RXW RI KLV VLJKW.",
+  "seance": "\"My clock lies... the beast came early... it came in from the rain.\"",
+  "map": {
+    "rooms": [
+      {
+        "id": "cabin",
+        "name": "Ruth's Cabin",
+        "x": 24,
+        "y": 64,
+        "w": 132,
+        "h": 72,
+        "lines": [
+          "Separate building"
+        ],
+        "info": "Ruth the caretaker's own little cabin, a short walk from the lodge. Searchable in Round 2.",
+        "kind": "outdoor",
+        "sealed": "Cabin search"
+      },
+      {
+        "id": "generator",
+        "name": "Generator",
+        "x": 24,
+        "y": 156,
+        "w": 132,
+        "h": 36,
+        "lines": [],
+        "info": "The backup generator, just outside the mudroom.",
+        "kind": "outdoor"
+      },
+      {
+        "id": "porch",
+        "name": "Back Porch (covered)",
+        "x": 180,
+        "y": 64,
+        "w": 556,
+        "h": 44,
+        "lines": [],
+        "info": "A covered porch along the back of the lodge. The mudroom's back door and the study's French doors both open onto it.",
+        "kind": "outdoor",
+        "center": true
+      },
+      {
+        "id": "mudroom",
+        "name": "Mudroom",
+        "x": 180,
+        "y": 116,
+        "w": 130,
+        "h": 120,
+        "lines": [
+          "Breaker box"
+        ],
+        "info": "Boots, coats and the breaker box. The back door leads out to the porch. The umbrella stand is sealed until Puzzle 3 is solved.",
+        "sealed": "Umbrella stand"
+      },
+      {
+        "id": "kitchen",
+        "name": "Kitchen",
+        "x": 310,
+        "y": 116,
+        "w": 150,
+        "h": 120,
+        "lines": [
+          "Back stairs up",
+          "Window onto porch"
+        ],
+        "info": "Connects to the mudroom, the Great Room and the back stairs up to the guest rooms. A window looks out toward the back door."
+      },
+      {
+        "id": "hallway",
+        "name": "Hallway",
+        "x": 460,
+        "y": 116,
+        "w": 96,
+        "h": 120,
+        "lines": [
+          "Coat closet"
+        ],
+        "info": "The only inside way to the study. It opens straight off the Great Room. There's a coat closet here."
+      },
+      {
+        "id": "study",
+        "name": "Study",
+        "x": 556,
+        "y": 116,
+        "w": 180,
+        "h": 180,
+        "lines": [
+          "Edgar's body",
+          "Desk, fireplace"
+        ],
+        "info": "Edgar's private study, where he was found. One door to the hallway, and French doors out to the back porch. His safe is sealed until Puzzle 1 is solved.",
+        "sealed": "Edgar's safe"
+      },
+      {
+        "id": "dining",
+        "name": "Dining Room",
+        "x": 180,
+        "y": 236,
+        "w": 130,
+        "h": 216,
+        "lines": [
+          "Seance table"
+        ],
+        "info": "Where dinner was served at 8:30. Opens onto the Great Room."
+      },
+      {
+        "id": "great",
+        "name": "Great Room",
+        "x": 310,
+        "y": 236,
+        "w": 246,
+        "h": 140,
+        "lines": [
+          "Fireplace, photo booth",
+          "Party guests all night"
+        ],
+        "info": "The heart of the party. Somebody was in here all night."
+      },
+      {
+        "id": "guest",
+        "name": "Guest Rooms",
+        "x": 556,
+        "y": 296,
+        "w": 180,
+        "h": 156,
+        "lines": [
+          "Upstairs, via the",
+          "kitchen back stairs"
+        ],
+        "info": "Upstairs, reached by the back stairs in the kitchen. Everyone's luggage is here, sealed until Puzzle 2 is solved.",
+        "kind": "upstairs",
+        "sealed": "Luggage"
+      },
+      {
+        "id": "foyer",
+        "name": "Foyer",
+        "x": 310,
+        "y": 376,
+        "w": 246,
+        "h": 76,
+        "lines": [
+          "Front door"
+        ],
+        "info": "The front entrance, off the Great Room."
+      },
+      {
+        "id": "frontporch",
+        "name": "Front Porch",
+        "x": 310,
+        "y": 460,
+        "w": 246,
+        "h": 40,
+        "lines": [],
+        "info": "Outside the front door. Exposed to the storm.",
+        "kind": "outdoor",
+        "center": true
+      }
+    ],
+    "doors": [
+      [
+        220,
+        116,
+        250,
+        116
+      ],
+      [
+        620,
+        116,
+        680,
+        116
+      ],
+      [
+        310,
+        186,
+        310,
+        214
+      ],
+      [
+        340,
+        236,
+        372,
+        236
+      ],
+      [
+        310,
+        304,
+        310,
+        334
+      ],
+      [
+        492,
+        236,
+        526,
+        236
+      ],
+      [
+        556,
+        196,
+        556,
+        226
+      ],
+      [
+        404,
+        376,
+        462,
+        376
+      ],
+      [
+        412,
+        452,
+        454,
+        452
+      ]
+    ]
+  }
+}

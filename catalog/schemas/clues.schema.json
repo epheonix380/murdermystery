@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "clues.json: everything players discover, and when it unlocks",
+  "type": "object",
+  "required": ["rounds"],
+  "additionalProperties": false,
+  "properties": {
+    "rounds": {"type": "integer", "minimum": 1},
+    "body": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "round", "label", "text"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "round": {"type": "integer", "minimum": 1},
+          "label": {"type": "string"},
+          "text": {"type": "string"}
+        }
+      }
+    },
+    "cards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "location", "round", "text"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "location": {"type": "string"},
+          "round": {"type": "integer", "minimum": 1},
+          "text": {"type": "string"},
+          "shows": {"type": "string", "description": "Name of an extras.json field shown with the card"},
+          "requires_role": {"type": "string", "description": "Leave the card out unless this optional role is cast"}
+        }
+      }
+    },
+    "sealed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["location", "instructions"],
+        "additionalProperties": false,
+        "properties": {
+          "location": {"type": "string"},
+          "instructions": {"type": "string"},
+          "unlocked_by_puzzle": {"type": "string"},
+          "unlocked_by_round": {"type": "integer", "minimum": 1}
+        },
+        "oneOf": [
+          {"required": ["unlocked_by_puzzle"]},
+          {"required": ["unlocked_by_round"]}
+        ]
+      }
+    }
+  }
+}

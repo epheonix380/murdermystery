@@ -1,0 +1,48 @@
+[
+  {
+    "id": "safe",
+    "title": "The Safe",
+    "prompt": "Edgar's safe needs a 6-digit code. Find the clues that tell you what it is.",
+    "hint": "Edgar always said everything started with his first book.",
+    "unlocks": "Edgar's Safe",
+    "answer": {
+      "type": "digits",
+      "accept": [
+        "103198",
+        "10311998"
+      ]
+    }
+  },
+  {
+    "id": "page",
+    "title": "The Burnt Page",
+    "prompt": "Decode the burnt page from the fireplace. Type the LAST word of the message.",
+    "hint": "Count the birds in the painting.",
+    "unlocks": "Guest Rooms",
+    "answer": {
+      "type": "word",
+      "accept": [
+        "SIGHT"
+      ]
+    },
+    "shows": "cipher"
+  },
+  {
+    "id": "route",
+    "title": "The Route",
+    "prompt": "The Great Room was crowded all night, yet nobody saw the killer reach the study. Starting from the Great Room, tap the rooms the killer passed through, in order, ending at the Study.",
+    "hint": "Is there another way into the study?",
+    "unlocks": "Umbrella Stand",
+    "answer": {
+      "type": "route",
+      "start": "great",
+      "sequence": [
+        "kitchen",
+        "mudroom",
+        "porch",
+        "study"
+      ]
+    },
+    "shows": "map"
+  }
+]

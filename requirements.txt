@@ -1,0 +1,4 @@
+Django==5.2.8
+dj-database-url==2.3.0
+jsonschema==4.23.0
+psycopg[binary]==3.2.3

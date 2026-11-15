@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "puzzles.json: puzzles with answers the server checks",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "title", "prompt", "answer"],
+    "additionalProperties": false,
+    "properties": {
+      "id": {"type": "string"},
+      "title": {"type": "string"},
+      "prompt": {"type": "string"},
+      "hint": {"type": "string"},
+      "unlocks": {"type": "string", "description": "A sealed location from clues.json"},
+      "shows": {"type": "string", "description": "Name of an extras.json field shown with the puzzle"},
+      "answer": {
+        "oneOf": [
+          {
+            "type": "object",
+            "description": "Compare only the digits typed",
+            "required": ["type", "accept"],
+            "additionalProperties": false,
+            "properties": {
+              "type": {"const": "digits"},
+              "accept": {"type": "array", "items": {"type": "string", "pattern": "^[0-9]+$"}, "minItems": 1}
+            }
+          },
+          {
+            "type": "object",
+            "description": "Correct if any accepted word appears, ignoring case",
+            "required": ["type", "accept"],
+            "additionalProperties": false,
+            "properties": {
+              "type": {"const": "word"},
+              "accept": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1}
+            }
+          },
+          {
+            "type": "object",
+            "description": "Rooms tapped on the map, in order, after the start room",
+            "required": ["type", "start", "sequence"],
+            "additionalProperties": false,
+            "properties": {
+              "type": {"const": "route"},
+              "start": {"type": "string"},
+              "sequence": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+            }
+          }
+        ]
+      }
+    }
+  }
+}

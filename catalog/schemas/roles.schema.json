@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "roles.json: one entry per character a player can be",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "type": "object",
+    "required": ["id", "name", "core", "costume", "who", "goal", "secret", "timeline"],
+    "properties": {
+      "id": {"type": "string", "pattern": "^[A-Za-z0-9_-]+$"},
+      "name": {"type": "string"},
+      "core": {"type": "boolean", "description": "Core roles are always cast; optional roles fill extra players"},
+      "costume": {"type": "string"},
+      "who": {"type": "string"},
+      "attitude": {"type": "string"},
+      "cornered": {"type": "string"},
+      "goal": {"type": "string"},
+      "secret": {"type": "string"},
+      "timeline": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["time", "place", "text"],
+          "additionalProperties": false,
+          "properties": {
+            "time": {"type": "string"},
+            "place": {"type": "string"},
+            "text": {"type": "string"},
+            "hide": {"type": "boolean"}
+          }
+        }
+      },
+      "story": {"type": "array", "items": {"type": "string"}},
+      "others": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["name", "text"],
+          "properties": {"name": {"type": "string"}, "text": {"type": "string"}}
+        }
+      },
+      "tips": {"type": "array", "items": {"type": "string"}},
+      "starting_props": {"type": "array", "items": {"type": "string"}}
+    }
+  }
+}

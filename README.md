@@ -1,33 +1,57 @@
-# Hollowpine Lodge case hub
+# Murder mystery
 
-A static site for "The Last Chapter at Hollowpine Lodge". It has two files, `index.html` and `data.js`, and no build step.
+A Django app for running murder mystery parties. Anyone can host a game of a case, players get a private link to their character before the party, and on the night the GM runs rounds, puzzles and voting from their phone.
 
-## Put it on GitHub Pages
+This branch holds the app. `main` still holds the original one-off static site for "The Last Chapter at Hollowpine Lodge", served by GitHub Pages; a copy is kept in `legacy/` because the Hollowpine case files are generated from it.
 
-1. Create a new public repository on GitHub, for example `hollowpine`.
-2. Upload `index.html`, `data.js` and this README (Add file → Upload files), then commit.
-3. Go to Settings → Pages. Under "Build and deployment", pick **Deploy from a branch**, branch `main`, folder `/ (root)`, and save.
-4. After a minute your hub is live at `https://<your-username>.github.io/hollowpine/`.
+## Run it locally
 
-## Codes
+```
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python manage.py migrate
+.venv/bin/python manage.py import_case
+.venv/bin/python manage.py createsuperuser   # for /admin/
+.venv/bin/python manage.py runserver
+```
 
-| Code | Opens |
+With no environment variables it runs in debug mode on SQLite. On the server, settings come from `.env` (see `.env.example`), including `DATABASE_URL` for Postgres.
+
+Run the tests with `.venv/bin/python manage.py test`.
+
+## Layout
+
+| Path | What |
 | --- | --- |
-| WOLF | Marcus Reed (the killer) |
-| BREW | Vivian Thorne |
-| FANG | Julian Thorne |
-| KEYS | Ruth Kowalski |
-| ROT | Graham Pike (optional) |
-| ORB | Madame Oriel (optional) |
-| BOO | Penny Lark (optional) |
-| RAVEN | GM page |
-| STORM | Round 2 code, typed on the Body tab |
+| `mystery/` | Django settings and URLs |
+| `catalog/` | Cases: the `Case` table, the case-file loader and checker, `import_case` |
+| `catalog/schemas/` | JSON schemas for every case file |
+| `games/` | Games, players, puzzle solves and votes |
+| `cases/<slug>/` | One folder per case |
+| `scripts/convert_hollowpine.js` | One-off conversion of `legacy/data.js` into `cases/hollowpine/` |
+| `legacy/` | The original static site |
 
-Players enter their code on the **Me** tab. The GM page has the solution, puzzle answers, the reveal script and the buttons to print clue cards and labels.
+## Cases
 
-## Notes
+Each case is a folder in `cases/`:
 
-- Progress (Round 2, solved puzzles, the code you opened) is saved per phone in that browser. "Reset this device" on the GM page clears it.
-- The 3D body loads three.js from jsDelivr, so the site needs internet. If it can't load, the hotspot buttons under the viewer still show every clue.
-- To change any text, edit `data.js`.
-- Nothing is secret from someone who reads the source. That's fine for a party.
+| File | Holds | Who sees it |
+| --- | --- | --- |
+| `case.json` | Slug, title, premise, rules, min and max players, victim, map, and the names of the files below | Everyone browsing cases |
+| `roles.json` | Each character: costume, attitude, timeline, secret, goal, starting props | A player sees only their own |
+| `clues.json` | Number of rounds, body hotspots, location cards, sealed locations and what unlocks them | Players, once unlocked |
+| `puzzles.json` | Prompts and answers | Prompts to players; answers never leave the server |
+| `props.json` | Physical objects the GM prepares | GM |
+| `solution.json` | The killer, the reveal text and the true timeline | GM, until the reveal |
+| `extras.json` | Anything unique to the case, such as Hollowpine's cipher and floor plan | Depends on the field |
+| `public/` | Files browsers may load, such as the map image | Everyone |
+
+Only `public/` is ever served. The JSON files are read by the server and never sent as files.
+
+To add or change a case, edit its files and run:
+
+```
+.venv/bin/python manage.py import_case <slug>    # or no slug for every case
+```
+
+This checks every file against its schema in `catalog/schemas/`, checks the files against each other (the killer is a core role, puzzles unlock real sealed locations, clue rounds exist, and so on), and lists every problem it finds. Only a case with no problems is loaded. It then saves the title, player range, map link and the clue, puzzle and prop counts to the `Case` table for the case browser. Add `--draft` to hide a case from the browser or `--publish` to show it.

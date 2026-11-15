@@ -1,0 +1,91 @@
+{
+  "killer": "WOLF",
+  "reveal": "The scream at 11:20 was a recording. Edgar was already dead. At 10:42, a werewolf walked out the back door for a cigarette he smoked once. He went along the porch, through the study's French doors, and struck Edgar from behind with his own award. He burned Chapter 13, set the recorder, wound the watch to 11:20 and smashed it. On the way back he hid the award and the manuscript in the umbrella stand, kicked off his muddy paws upstairs, and came down to make sure everyone was holding his arm when the scream came. The werewolf counted the gold twice and kept it once. Marcus Reed, you're under arrest.",
+  "timeline": [
+    {
+      "time": "7:15",
+      "place": "Study",
+      "text": "Arrived early. Edgar showed you an audit: confess to everyone by midnight, or he reads Chapter 13 aloud and calls his lawyer. He also bragged he'd changed his will to leave the lodge to \"the only one who never asked me for anything.\""
+    },
+    {
+      "time": "7:30",
+      "place": "Foyer",
+      "text": "The other guests arrive."
+    },
+    {
+      "time": "8:30",
+      "place": "Dining Room",
+      "text": "Dinner. Edgar's toast: at midnight he reads Chapter 13."
+    },
+    {
+      "time": "8:30–10:40",
+      "place": "Great Room",
+      "text": "Drinks with Vivian and Julian. Very chatty."
+    },
+    {
+      "time": "10:40",
+      "place": "Kitchen",
+      "text": "Announced a smoke break and walked out through the kitchen."
+    },
+    {
+      "time": "10:42",
+      "place": "Mudroom",
+      "text": "Out the back door in full costume. Ruth saw you go."
+    },
+    {
+      "time": "10:45",
+      "place": "Back Porch → Study",
+      "text": "Walked along the porch and in through the study's French doors. You argued."
+    },
+    {
+      "time": "10:50",
+      "place": "Study",
+      "text": "Struck Edgar on the back of the head with his Golden Raven award."
+    },
+    {
+      "time": "10:52",
+      "place": "Study",
+      "text": "Burned Chapter 13 in the fireplace. Set Edgar's sound-effects recorder (in the skull on the shelf) to play a scream at 11:20. Wound his watch to 11:20 and smashed it."
+    },
+    {
+      "time": "10:58",
+      "place": "Mudroom",
+      "text": "Out the French doors with the manuscript and the award. Hid both, wrapped in a towel, in the umbrella stand."
+    },
+    {
+      "time": "11:00",
+      "place": "Kitchen → upstairs",
+      "text": "Crossed the empty kitchen to the back stairs. Stuffed your muddy paw feet in your bag and put on sneakers."
+    },
+    {
+      "time": "11:02",
+      "place": "Great Room",
+      "text": "Came back with your mask off and wet hair: \"Rain's picked up!\""
+    },
+    {
+      "time": "11:06",
+      "place": "Great Room",
+      "text": "Photo booth with Vivian and Julian."
+    },
+    {
+      "time": "11:10",
+      "place": "Great Room",
+      "text": "Started a loud ghost-story game so everyone stayed close to you."
+    },
+    {
+      "time": "11:15",
+      "place": "Great Room",
+      "text": "Blackout."
+    },
+    {
+      "time": "11:20",
+      "place": "Great Room",
+      "text": "Squeezed Vivian's arm a second before the scream: \"Stay close, Viv.\""
+    },
+    {
+      "time": "11:32",
+      "place": "Study",
+      "text": "Vivian finds the body."
+    }
+  ]
+}

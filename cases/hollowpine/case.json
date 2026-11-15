@@ -1,0 +1,32 @@
+{
+  "slug": "hollowpine",
+  "title": "The Last Chapter at Hollowpine Lodge",
+  "premise": [
+    "Every Halloween, horror novelist Edgar Thorne throws a costume party at Hollowpine Lodge, his mountain retreat.",
+    "Tonight he promised a surprise: at the midnight unmasking he would read the final chapter of his unpublished novel, The Last Chapter. \"Some of you,\" he said at dinner, \"will recognize yourselves.\"",
+    "At 11:15 PM a storm cut the power. At 11:20 a scream came from the study. When the lights came back at 11:30, Edgar was dead on his study floor, and his manuscript was gone.",
+    "The roads are flooded. Nobody leaves until the killer is named."
+  ],
+  "rules": [
+    "Talk, question, accuse, bargain and lie as much as you like.",
+    "Everything on your sheet can be shared, or hidden. Your call.",
+    "The one thing you can never reveal is your secret goal.",
+    "Item cards change hands only when the holder hands them over. No snatching.",
+    "At the end everyone secretly votes for the killer. Catch them and the group wins. Meet your secret goal and you win a bonus prize too."
+  ],
+  "min_players": 4,
+  "max_players": 7,
+  "victim": {
+    "name": "Edgar Thorne",
+    "text": "The victim. Famous horror novelist, host of the party."
+  },
+  "map": "public/map.svg",
+  "files": {
+    "roles": "roles.json",
+    "clues": "clues.json",
+    "puzzles": "puzzles.json",
+    "props": "props.json",
+    "solution": "solution.json",
+    "extras": "extras.json"
+  }
+}
