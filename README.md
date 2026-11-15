@@ -15,7 +15,7 @@ python3 -m venv .venv
 .venv/bin/python manage.py runserver
 ```
 
-With no environment variables it runs in debug mode on SQLite. On the server, settings come from `.env` (see `.env.example`), including `DATABASE_URL` for Postgres.
+`runserver` uses Daphne, so WebSockets work locally too. With no environment variables it runs in debug mode on SQLite. On the server, settings come from `.env` (see `.env.example`), including `DATABASE_URL` for Postgres.
 
 Run the tests with `.venv/bin/python manage.py test`.
 
@@ -43,6 +43,10 @@ On game night the host's dashboard starts the game, moves rounds on, opens votin
 
 Hosts don't sign up. Starting a game creates an anonymous visitor id, kept in a cookie; each visitor can host one active game at a time. Games end when the host ends them, or a week after the party date.
 
+## Deploying
+
+See [DEPLOY.md](DEPLOY.md). In short: one Docker container (`Dockerfile`, `docker-compose.yml`) running Daphne on `127.0.0.1:8100` with a 300 MB memory cap, Postgres on the host, nginx in front (`deploy/nginx-murdermystery.conf`) and HTTPS from certbot. Static files are served by whitenoise. GitHub Actions runs the tests against Postgres on every push.
+
 ## Layout
 
 | Path | What |
@@ -53,6 +57,8 @@ Hosts don't sign up. Starting a game creates an anonymous visitor id, kept in a 
 | `games/` | Games, players, puzzle solves and votes |
 | `cases/<slug>/` | One folder per case |
 | `scripts/convert_hollowpine.js` | One-off conversion of `legacy/data.js` into `cases/hollowpine/` |
+| `deploy/` | Container entrypoint, nginx site, systemd unit |
+| `e2e/` | Browser test of a whole game |
 | `legacy/` | The original static site |
 
 ## Cases

@@ -1,0 +1,27 @@
+# The murder mystery app on the shared VPS.
+#
+#   network_mode: host   Postgres on this server listens on 127.0.0.1 only, which a
+#                        bridge network can't reach. The app itself binds to
+#                        127.0.0.1:8100, so only nginx can talk to it.
+#   mem_limit            the server is shared; the app gets at most 300 MB.
+
+services:
+  web:
+    build: .
+    container_name: murdermystery
+    env_file: .env
+    network_mode: host
+    restart: unless-stopped
+    mem_limit: 300m
+    stop_grace_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8100/healthz', timeout=5)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
