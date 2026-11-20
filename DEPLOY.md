@@ -75,7 +75,7 @@ nano .env
 ```
 DJANGO_DEBUG=0
 DJANGO_SECRET_KEY=<the long random string>
-DJANGO_ALLOWED_HOSTS=mystery.67-217-243-44.nip.io
+DJANGO_ALLOWED_HOSTS=mystery.67-217-243-44.nip.io,127.0.0.1
 DATABASE_URL=postgres://murdermystery:pick-a-long-password@127.0.0.1:5432/murdermystery
 ```
 
