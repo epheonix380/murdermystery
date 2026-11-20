@@ -1,0 +1,35 @@
+[
+  {
+    "id": "truffles",
+    "name": "The Truffle Box",
+    "description": "A box of chocolates: eleven in silver foil, the front slot empty. Players may eat them after the reveal.",
+    "placed_at": "Food Hall",
+    "clue": "C02"
+  },
+  {
+    "id": "contract",
+    "name": "The Sale Contract",
+    "description": "A few printed pages: the sale of Marlowe's to Brightway, unsigned.",
+    "placed_at": "Gideon's Safe",
+    "clue": "C40"
+  },
+  {
+    "id": "dictaphone",
+    "name": "Gideon's Dictaphone",
+    "description": "Any small recorder or old phone.",
+    "placed_at": "Gideon's Safe",
+    "clue": "C39"
+  },
+  {
+    "id": "pen",
+    "name": "The Adrenaline Pen",
+    "description": "A marker pen with a printed label is enough.",
+    "placed_at": "Ornament Box",
+    "clue": "C41"
+  },
+  {
+    "id": "keyring",
+    "name": "Gideon's Keyring",
+    "description": "A bunch of old keys on a brass ring."
+  }
+]

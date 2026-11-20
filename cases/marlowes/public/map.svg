@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 16 716 374" width="716" height="374" role="img" aria-label="Floor plan of Silent Night at Marlowe's" font-family="Inter, system-ui, sans-serif">
+<rect x="16" y="16" width="716" height="374" fill="#121016"/>
+<rect x="24" y="24" width="250" height="96" rx="0" fill="#1d1924" stroke="#5b5168" stroke-dasharray="6 4"/>
+<rect x="274" y="24" width="150" height="96" rx="0" fill="#1d1924" stroke="#5b5168" stroke-dasharray="6 4"/>
+<rect x="424" y="24" width="150" height="96" rx="0" fill="#1d1924" stroke="#5b5168" stroke-dasharray="6 4"/>
+<rect x="574" y="24" width="150" height="96" rx="0" fill="#1d1924" stroke="#5b5168" stroke-dasharray="6 4"/>
+<rect x="24" y="136" width="130" height="150" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="154" y="136" width="370" height="150" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="524" y="136" width="200" height="75" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="524" y="211" width="200" height="75" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="24" y="302" width="400" height="80" rx="0" fill="#1d1924" stroke="#5b5168" stroke-dasharray="6 4"/>
+<rect x="424" y="302" width="300" height="80" rx="8" fill="#2c2636" stroke="#5b5168"/>
+<rect x="24" y="24" width="700" height="96" fill="none" stroke="#a89cb8" stroke-width="3"/>
+<rect x="24" y="136" width="700" height="150" fill="none" stroke="#a89cb8" stroke-width="3"/>
+<rect x="24" y="302" width="700" height="80" fill="none" stroke="#a89cb8" stroke-width="3"/>
+<line x1="154" y1="196" x2="154" y2="226" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="524" y1="156" x2="524" y2="186" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="524" y1="233" x2="524" y2="263" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="300" y1="136" x2="340" y2="136" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="180" y1="302" x2="220" y2="302" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="424" y1="325" x2="424" y2="355" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="274" y1="57" x2="274" y2="87" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="424" y1="57" x2="424" y2="87" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="574" y1="57" x2="574" y2="87" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<text x="36" y="46" fill="#ece6f2" font-size="14" font-weight="600">Toy Floor</text>
+<text x="36" y="64" fill="#a89cb8" font-size="12">Upstairs</text>
+<text x="36" y="82" fill="#a89cb8" font-size="12">Agnes's department</text>
+<text x="286" y="46" fill="#ece6f2" font-size="14" font-weight="600">Santa's Grotto</text>
+<text x="286" y="64" fill="#a89cb8" font-size="12">Upstairs</text>
+<text x="286" y="82" fill="#a89cb8" font-size="12">Santa's throne</text>
+<text x="436" y="46" fill="#ece6f2" font-size="14" font-weight="600">Gideon's Office</text>
+<text x="436" y="64" fill="#a89cb8" font-size="12">Upstairs</text>
+<circle cx="440" cy="78" r="5" fill="#9a7bff"/><text x="450" y="82" fill="#a89cb8" font-size="12">Safe</text>
+<text x="586" y="46" fill="#ece6f2" font-size="14" font-weight="600">Staff Room</text>
+<text x="586" y="64" fill="#a89cb8" font-size="12">Upstairs</text>
+<circle cx="590" cy="78" r="5" fill="#9a7bff"/><text x="600" y="82" fill="#a89cb8" font-size="12">Lockers</text>
+<text x="36" y="158" fill="#ece6f2" font-size="14" font-weight="600">Front Window</text>
+<text x="36" y="176" fill="#a89cb8" font-size="12">Faces the street</text>
+<text x="166" y="158" fill="#ece6f2" font-size="14" font-weight="600">Food Hall</text>
+<text x="166" y="176" fill="#a89cb8" font-size="12">The party</text>
+<text x="166" y="194" fill="#a89cb8" font-size="12">The tree and the gifts</text>
+<text x="166" y="212" fill="#a89cb8" font-size="12">Where Gideon died</text>
+<text x="536" y="158" fill="#ece6f2" font-size="14" font-weight="600">Confectionery Counter</text>
+<text x="536" y="176" fill="#a89cb8" font-size="12">Gold and silver truffles</text>
+<circle cx="540" cy="190" r="5" fill="#9a7bff"/><text x="550" y="194" fill="#a89cb8" font-size="12">Till</text>
+<text x="536" y="233" fill="#ece6f2" font-size="14" font-weight="600">Wrapping Room</text>
+<text x="536" y="251" fill="#a89cb8" font-size="12">Paper, ribbon, tape</text>
+<text x="36" y="324" fill="#ece6f2" font-size="14" font-weight="600">Stockroom</text>
+<text x="36" y="342" fill="#a89cb8" font-size="12">Basement</text>
+<text x="36" y="360" fill="#a89cb8" font-size="12">Christmas decorations</text>
+<circle cx="40" cy="374" r="5" fill="#9a7bff"/><text x="50" y="378" fill="#a89cb8" font-size="12">Ornament box</text>
+<text x="436" y="324" fill="#ece6f2" font-size="14" font-weight="600">Loading Dock</text>
+<text x="436" y="342" fill="#a89cb8" font-size="12">Basement, in the snow</text>
+<text x="436" y="360" fill="#a89cb8" font-size="12">Only phone signal</text>
+<text x="320" y="131" text-anchor="middle" fill="#a89cb8" font-size="12">Main stairs</text>
+<text x="200" y="297" text-anchor="middle" fill="#a89cb8" font-size="12">Back stairs</text>
+</svg>

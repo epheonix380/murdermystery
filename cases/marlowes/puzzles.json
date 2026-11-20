@@ -1,0 +1,45 @@
+[
+  {
+    "id": "safe",
+    "title": "The True Love Safe",
+    "prompt": "Gideon's brass safe takes a 3-digit code. Engraved round the dial: \"All the gifts my true love sent to me.\"",
+    "hint": "Count every gift in every verse of The Twelve Days of Christmas. On the second day you get two turtle doves and another partridge.",
+    "unlocks": "Gideon's Safe",
+    "answer": {
+      "type": "digits",
+      "accept": [
+        "364"
+      ]
+    },
+    "explanation": "364. Each verse repeats the earlier gifts: 1, then 1+2, then 1+2+3, up to 1+2+...+12. Added together, that's 364 gifts."
+  },
+  {
+    "id": "box",
+    "title": "The Ornament Box",
+    "prompt": "The ornament box in the stockroom has a word lock. Find the word.",
+    "hint": "Read the tree checklist. First things first.",
+    "unlocks": "Ornament Box",
+    "shows": "tree_checklist",
+    "answer": {
+      "type": "word",
+      "accept": [
+        "ALMOND"
+      ]
+    },
+    "explanation": "ALMOND: the first letters of Angel, Lights, Mistletoe, Ornaments, Nativity, Doves. Agnes and Roz both signed the checklist."
+  },
+  {
+    "id": "till",
+    "title": "The Till",
+    "prompt": "The confectionery till opens with the time of a sale, as four 24-hour digits. When was the last gold marzipan truffle sold?",
+    "hint": "When did the counter close tonight? Read the note on the till.",
+    "unlocks": "Confectionery Till",
+    "answer": {
+      "type": "digits",
+      "accept": [
+        "1645"
+      ]
+    },
+    "explanation": "1645. The counter closed at 5 PM, and Doris sold the last marzipan truffle a quarter of an hour before. The till roll shows that sale was on staff card 0012: Agnes."
+  }
+]

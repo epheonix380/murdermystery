@@ -1,0 +1,231 @@
+{
+  "tree_checklist": "Tree, in order: Angel. Lights. Mistletoe. Ornaments. Nativity. Doves. Box word: first things first. Tree team: A.P. and R.F.",
+  "map": {
+    "rooms": [
+      {
+        "id": "toy-floor",
+        "name": "Toy Floor",
+        "x": 24,
+        "y": 24,
+        "w": 250,
+        "h": 96,
+        "kind": "upstairs",
+        "lines": [
+          "Upstairs",
+          "Agnes's department"
+        ],
+        "info": "Agnes's department. Her desk and the department's green tape."
+      },
+      {
+        "id": "grotto",
+        "name": "Santa's Grotto",
+        "x": 274,
+        "y": 24,
+        "w": 150,
+        "h": 96,
+        "kind": "upstairs",
+        "lines": [
+          "Upstairs",
+          "Santa's throne"
+        ],
+        "info": "Off the Toy Floor. Holly and Gideon argued here at 8:45."
+      },
+      {
+        "id": "office",
+        "name": "Gideon's Office",
+        "x": 424,
+        "y": 24,
+        "w": 150,
+        "h": 96,
+        "kind": "upstairs",
+        "lines": [
+          "Upstairs"
+        ],
+        "sealed": "Safe",
+        "info": "Gideon's desk, his old brass safe and the first aid kit."
+      },
+      {
+        "id": "staff-room",
+        "name": "Staff Room",
+        "x": 574,
+        "y": 24,
+        "w": 150,
+        "h": 96,
+        "kind": "upstairs",
+        "lines": [
+          "Upstairs"
+        ],
+        "sealed": "Lockers",
+        "info": "Sofa, coat pegs and the staff lockers, which stay shut until Round 2."
+      },
+      {
+        "id": "front-window",
+        "name": "Front Window",
+        "x": 24,
+        "y": 136,
+        "w": 130,
+        "h": 150,
+        "lines": [
+          "Faces the street"
+        ],
+        "info": "Roz's window display. Carol singers watch from outside."
+      },
+      {
+        "id": "food-hall",
+        "name": "Food Hall",
+        "x": 154,
+        "y": 136,
+        "w": 370,
+        "h": 150,
+        "lines": [
+          "The party",
+          "The tree and the gifts",
+          "Where Gideon died"
+        ],
+        "info": "The staff party, the big tree with the Secret Santa gifts, and the mulled wine pot."
+      },
+      {
+        "id": "confectionery",
+        "name": "Confectionery Counter",
+        "x": 524,
+        "y": 136,
+        "w": 200,
+        "h": 75,
+        "lines": [
+          "Gold and silver truffles"
+        ],
+        "sealed": "Till",
+        "info": "Gold-foil marzipan truffles and silver-foil nut-free ones. The till is locked."
+      },
+      {
+        "id": "wrapping",
+        "name": "Wrapping Room",
+        "x": 524,
+        "y": 211,
+        "w": 200,
+        "h": 75,
+        "lines": [
+          "Paper, ribbon, tape"
+        ],
+        "info": "Marlowe's own gift paper, ribbon and tape."
+      },
+      {
+        "id": "stockroom",
+        "name": "Stockroom",
+        "x": 24,
+        "y": 302,
+        "w": 400,
+        "h": 80,
+        "kind": "upstairs",
+        "lines": [
+          "Basement",
+          "Christmas decorations"
+        ],
+        "sealed": "Ornament box",
+        "info": "Down the back stairs. Christmas decorations, and the padlocked ornament box."
+      },
+      {
+        "id": "loading-dock",
+        "name": "Loading Dock",
+        "x": 424,
+        "y": 302,
+        "w": 300,
+        "h": 80,
+        "kind": "outdoor",
+        "lines": [
+          "Basement, in the snow",
+          "Only phone signal"
+        ],
+        "info": "Half outdoors in the snow. The only phone signal in the building."
+      }
+    ],
+    "doors": [
+      [
+        154,
+        196,
+        154,
+        226
+      ],
+      [
+        524,
+        156,
+        524,
+        186
+      ],
+      [
+        524,
+        233,
+        524,
+        263
+      ],
+      [
+        300,
+        136,
+        340,
+        136
+      ],
+      [
+        180,
+        302,
+        220,
+        302
+      ],
+      [
+        424,
+        325,
+        424,
+        355
+      ],
+      [
+        274,
+        57,
+        274,
+        87
+      ],
+      [
+        424,
+        57,
+        424,
+        87
+      ],
+      [
+        574,
+        57,
+        574,
+        87
+      ]
+    ],
+    "walls": [
+      [
+        24,
+        24,
+        700,
+        96
+      ],
+      [
+        24,
+        136,
+        700,
+        150
+      ],
+      [
+        24,
+        302,
+        700,
+        80
+      ]
+    ],
+    "labels": [
+      {
+        "x": 320,
+        "y": 131,
+        "text": "Main stairs"
+      },
+      {
+        "x": 200,
+        "y": 297,
+        "text": "Back stairs"
+      }
+    ]
+  }
+}

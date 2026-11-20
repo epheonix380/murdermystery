@@ -1,0 +1,540 @@
+[
+  {
+    "id": "FRANK",
+    "name": "Frank Doyle",
+    "core": true,
+    "costume": "Santa suit and beard",
+    "who": "Marlowe's Santa for 25 years. The children love you.",
+    "attitude": "Warm, loud, a little too fond of brandy.",
+    "cornered": "\"I've been Santa in this store for twenty-five years. I'd never hurt anyone at Christmas!\"",
+    "goal": "Don't let anyone find out you took the toys.",
+    "secret": "Since 1 December you've been taking toys from the stockroom for the children's ward at St Anne's, where your granddaughter was treated last year. Gideon blamed June. Today you also bought two boxes of nut-free truffles for the ward on your staff card.",
+    "timeline": [
+      {
+        "time": "3:30 PM",
+        "place": "Confectionery Counter",
+        "text": "Bought two boxes of nut-free truffles for the St Anne's kids, on your staff card.",
+        "hide": true
+      },
+      {
+        "time": "6:30",
+        "place": "Food Hall",
+        "text": "Put your Secret Santa gift for Gideon under the tree: a bottle of brandy, wrapped badly with clear tape. You can't tie a bow to save your life."
+      },
+      {
+        "time": "7:15",
+        "place": "Food Hall",
+        "text": "Gideon announced he'd sold the store to Brightway."
+      },
+      {
+        "time": "8:30",
+        "place": "Food Hall",
+        "text": "Gideon told you Brightway is replacing you with a \"digital Santa\", then accused you of stealing toys in front of everyone. You said, \"You'll be sorry, Gideon.\""
+      },
+      {
+        "time": "8:35",
+        "place": "Staff Room",
+        "text": "Went upstairs to calm down with your hip flask.",
+        "hide": true
+      },
+      {
+        "time": "8:55",
+        "place": "Food Hall",
+        "text": "Came back down."
+      },
+      {
+        "time": "9:05",
+        "place": "Food Hall",
+        "text": "For a laugh, sat in Gideon's chair wearing his jacket and did your Gideon impression. He made you take it off."
+      },
+      {
+        "time": "9:30",
+        "place": "Food Hall",
+        "text": "Secret Santa. Gideon opened your gift, and it was truffles, not your brandy. You were too stunned to speak."
+      },
+      {
+        "time": "9:35",
+        "place": "Loading Dock",
+        "text": "Ran out to the only phone signal and called an ambulance. The roads are closed."
+      },
+      {
+        "time": "9:50",
+        "place": "Food Hall",
+        "text": "Back inside. Gideon was dead."
+      }
+    ],
+    "others": [
+      {
+        "name": "Agnes",
+        "text": "Runs the Secret Santa every year. She sorted the gifts at 8:50."
+      },
+      {
+        "name": "Victor",
+        "text": "The Brightway man. He's been asking a lot of questions about Gideon tonight."
+      },
+      {
+        "name": "Holly",
+        "text": "From the Staff Room, you heard her shouting at her dad in the Grotto at about 8:45: something about \"dead\"."
+      },
+      {
+        "name": "June (if playing)",
+        "text": "Gideon fired her for the toys you took. You feel terrible."
+      }
+    ],
+    "tips": [
+      "Your gift and your truffle receipt make you look guilty. Explain the truffles without giving away the toys.",
+      "Ask who touched your gift after you left it under the tree.",
+      "Someone in that room knew your gift wasn't truffles."
+    ]
+  },
+  {
+    "id": "VICTOR",
+    "name": "Victor Crane",
+    "core": true,
+    "costume": "Sharp suit, reindeer tie, Brightway lanyard",
+    "who": "Dealmaker from Brightway Retail, here to get the sale of Marlowe's signed tonight.",
+    "attitude": "Smooth and charming, until he's cornered.",
+    "cornered": "\"I needed him alive to sign. Why on earth would I kill him?\"",
+    "goal": "End the game holding Gideon's dictaphone.",
+    "secret": "Last week you offered Gideon \"a little something for you personally\" to sign quickly. At 8:55 he played you a recording of it: raise the price tonight, or Brightway's chairman hears it. That tape would end your career.",
+    "timeline": [
+      {
+        "time": "7:00",
+        "place": "Gideon's Office",
+        "text": "Left a Brightway hamper for Gideon: champagne and a marzipan stollen. You had a slice of the stollen yourself."
+      },
+      {
+        "time": "7:15",
+        "place": "Food Hall",
+        "text": "Gideon announced the sale. Nobody clapped."
+      },
+      {
+        "time": "7:40",
+        "place": "Food Hall",
+        "text": "Remembered the stollen and asked Holly how bad her father's allergy is. All nuts, even almonds, she said."
+      },
+      {
+        "time": "8:55",
+        "place": "Gideon's Office",
+        "text": "Gideon played you the recording of your offer. Raise the price tonight, or the chairman hears it.",
+        "hide": true
+      },
+      {
+        "time": "9:00",
+        "place": "Food Hall",
+        "text": "Gideon made you carry his jacket down. You hung it on his chair."
+      },
+      {
+        "time": "9:25",
+        "place": "Food Hall",
+        "text": "Brought Gideon a mulled wine from the pot, to sweeten him up."
+      },
+      {
+        "time": "9:30",
+        "place": "Food Hall",
+        "text": "Secret Santa. Standing next to Gideon, you heard Agnes say quietly, \"They're nut-free, Gideon, I checked the box myself.\" Your mind was on the recording."
+      },
+      {
+        "time": "9:32",
+        "place": "Gideon's Office",
+        "text": "Ran for the first aid kit. There was no spare pen."
+      },
+      {
+        "time": "9:45",
+        "place": "Food Hall",
+        "text": "Gideon died."
+      }
+    ],
+    "others": [
+      {
+        "name": "Holly",
+        "text": "Wanted to sell to her own buyers. Furious with her father tonight."
+      },
+      {
+        "name": "Frank",
+        "text": "Threatened Gideon at 8:30. It was his gift."
+      },
+      {
+        "name": "Roz",
+        "text": "You heard Gideon fired her tonight."
+      },
+      {
+        "name": "Agnes",
+        "text": "The sweet one who runs the Secret Santa."
+      }
+    ],
+    "tips": [
+      "The stollen and your question about the allergy look terrible. Explain them early.",
+      "The recording is in Gideon's safe. Get to it before anyone else.",
+      "Think back to the moment he opened the gift."
+    ]
+  },
+  {
+    "id": "HOLLY",
+    "name": "Holly Marlowe",
+    "core": true,
+    "costume": "Red knitted Christmas jumper, holly-leaf earrings",
+    "who": "Gideon's daughter. You've managed the store for ten years.",
+    "attitude": "Capable, stressed, quick-tempered.",
+    "cornered": "\"I tried to save him! I was the one tearing his jacket apart for that pen!\"",
+    "goal": "End the game holding the sale contract.",
+    "secret": "Last year you forged your father's signature on a bank loan to keep the store going. The sale's audit would have found it. Your own buyers would have kept the store, and kept it quiet.",
+    "timeline": [
+      {
+        "time": "6:00",
+        "place": "Gideon's Office",
+        "text": "Took Dad's keyring from his desk to unlock the office for the party. You still have it."
+      },
+      {
+        "time": "6:30",
+        "place": "Staff Room",
+        "text": "Wrote the caterers' allergy list: \"Dad: all nuts. Pen in his inside jacket pocket. NO marzipan.\""
+      },
+      {
+        "time": "7:15",
+        "place": "Food Hall",
+        "text": "Dad announced the sale to Brightway. You found out with everyone else."
+      },
+      {
+        "time": "7:40",
+        "place": "Food Hall",
+        "text": "Victor asked you how bad Dad's allergy is. An odd question."
+      },
+      {
+        "time": "8:45",
+        "place": "Santa's Grotto",
+        "text": "Shouted at Dad: \"I'd sooner see you dead than see this place go to Brightway.\" You lost an earring somewhere.",
+        "hide": true
+      },
+      {
+        "time": "9:00",
+        "place": "Food Hall",
+        "text": "Moved the gift pile under the tree to make room for the signing table. Victor came down carrying Dad's jacket."
+      },
+      {
+        "time": "9:05",
+        "place": "Food Hall",
+        "text": "Frank sat in Dad's chair wearing his jacket, doing an impression. Dad was furious."
+      },
+      {
+        "time": "9:30",
+        "place": "Food Hall",
+        "text": "Secret Santa. Dad hesitated over the truffles. Roz called out, \"Go on, Gideon, it's Christmas!\""
+      },
+      {
+        "time": "9:32",
+        "place": "Food Hall",
+        "text": "Dad couldn't breathe. You tore through his jacket for the pen. It wasn't there. It's always there."
+      },
+      {
+        "time": "9:45",
+        "place": "Food Hall",
+        "text": "Dad died."
+      }
+    ],
+    "others": [
+      {
+        "name": "Victor",
+        "text": "Asked about Dad's allergy at 7:40. Why?"
+      },
+      {
+        "name": "Frank",
+        "text": "Threatened Dad tonight. It was his gift."
+      },
+      {
+        "name": "Roz",
+        "text": "Dad fired her tonight, and she egged him on to eat."
+      },
+      {
+        "name": "Agnes",
+        "text": "Like a grandmother to you. She organised the Secret Santa."
+      }
+    ],
+    "tips": [
+      "The threat, the allergy list and the search all make you look guilty. Stay calm.",
+      "The loan must not come out, but the truth about Dad matters more.",
+      "Who had their hands on the gifts before you moved them?"
+    ],
+    "starting_props": [
+      "keyring"
+    ]
+  },
+  {
+    "id": "ROZ",
+    "name": "Roz Finch",
+    "core": true,
+    "costume": "Paint-spattered apron, red knitted beret",
+    "who": "Marlowe's window dresser for two years.",
+    "attitude": "Quiet, sharp-eyed, bitter about this place.",
+    "cornered": "\"I was in the window from nine o'clock! Ask the carol singers!\"",
+    "goal": "Make sure everyone learns who really carved the Marlowe Nutcracker.",
+    "secret": "Your mother, Eleanor Finch, carved the Marlowe Nutcracker in 1951 and sold it to Gideon for fifty pounds. She died poor. Your Aunt Agnes got you this job, and you agreed to keep that quiet at work. Tonight Gideon caught you reading the 1951 agreement in his files and fired you.",
+    "timeline": [
+      {
+        "time": "2:00 PM",
+        "place": "Front Window",
+        "text": "Ran out of clear tape and borrowed a roll of green tape from the toy department."
+      },
+      {
+        "time": "7:30",
+        "place": "Stockroom",
+        "text": "Finished the tree with Aunt Agnes. She padlocked the ornament box, and you both signed the tree checklist."
+      },
+      {
+        "time": "8:15",
+        "place": "Gideon's Office",
+        "text": "Gideon caught you reading the 1951 agreement in his files. He locked it in his safe and fired you.",
+        "hide": true
+      },
+      {
+        "time": "8:25",
+        "place": "Stockroom",
+        "text": "Told Aunt Agnes you'd been fired. She went very quiet.",
+        "hide": true
+      },
+      {
+        "time": "8:40",
+        "place": "Food Hall",
+        "text": "Photographed the gift pile for the store's socials. Frank's gift for Gideon was lumpy, with no bow."
+      },
+      {
+        "time": "9:00",
+        "place": "Front Window",
+        "text": "Finished the window, waving at the carol singers outside."
+      },
+      {
+        "time": "9:30",
+        "place": "Food Hall",
+        "text": "Secret Santa. Gideon's gift now had a perfect Marlowe bow. When he hesitated, you called, \"Go on, Gideon, it's Christmas!\" You meant it as a dig."
+      },
+      {
+        "time": "9:45",
+        "place": "Food Hall",
+        "text": "Gideon died."
+      }
+    ],
+    "others": [
+      {
+        "name": "Agnes",
+        "text": "Your aunt, though nobody here knows. She's been strange all day."
+      },
+      {
+        "name": "Frank",
+        "text": "Can't wrap a present to save his life."
+      },
+      {
+        "name": "Holly",
+        "text": "Hated the sale as much as anyone."
+      },
+      {
+        "name": "Victor",
+        "text": "Brought a hamper for Gideon. You smelled marzipan on him."
+      }
+    ],
+    "tips": [
+      "Telling your mother's story is your goal, but it also gives you a motive. Choose your moment.",
+      "Your 8:40 photo is evidence. When you share it is up to you."
+    ]
+  },
+  {
+    "id": "AGNES",
+    "name": "Agnes Pruitt",
+    "core": true,
+    "costume": "Red knitted cardigan, glasses on a chain",
+    "who": "Head of the toy department for 41 years, and organiser of the staff Secret Santa.",
+    "attitude": "Kind, motherly, never flustered.",
+    "cornered": "\"I've given this store forty-one years of my life. I loved that man like a brother.\"",
+    "goal": "Don't get the most votes.",
+    "secret": "You are the killer. You were born Agnes Finch: Eleanor, who carved the Marlowe Nutcracker, was your sister. Gideon paid you to keep quiet every Christmas. Today he ended it, cut your pension, and said he'd fire Eleanor's daughter, your niece Roz. So you turned his Secret Santa gift into marzipan and took his pen.",
+    "timeline": [
+      {
+        "time": "1:00 PM",
+        "place": "Toy Floor",
+        "text": "Gideon told you: the store is sold, no more Christmas envelopes, your pension is cut, and \"Eleanor's girl\" goes tonight.",
+        "hide": true
+      },
+      {
+        "time": "4:45 PM",
+        "place": "Confectionery Counter",
+        "text": "Bought a box of nut-free truffles and one gold marzipan truffle on your staff card. Told Doris they were for the boss.",
+        "hide": true
+      },
+      {
+        "time": "7:30",
+        "place": "Stockroom",
+        "text": "Finished the tree with Roz and padlocked the ornament box, as every year."
+      },
+      {
+        "time": "8:25",
+        "place": "Stockroom",
+        "text": "Roz told you Gideon had fired her.",
+        "hide": true
+      },
+      {
+        "time": "8:50",
+        "place": "Wrapping Room",
+        "text": "Took Frank's gift for Gideon, swapped his brandy for the truffles with the gold one at the front, rewrapped it with green toy tape and a Marlowe bow, and put Frank's tag back. The brandy went in the bin.",
+        "hide": true
+      },
+      {
+        "time": "9:10",
+        "place": "Food Hall",
+        "text": "Straightened Gideon's jacket on his chair and slipped his pen out.",
+        "hide": true
+      },
+      {
+        "time": "9:15",
+        "place": "Stockroom",
+        "text": "Hid the pen in the ornament box.",
+        "hide": true
+      },
+      {
+        "time": "9:20",
+        "place": "Staff Room",
+        "text": "Dropped the silver truffle you took out, wrapped in a napkin, into your locker.",
+        "hide": true
+      },
+      {
+        "time": "9:30",
+        "place": "Food Hall",
+        "text": "Called \"Boss first!\" When he hesitated, you said quietly, \"They're nut-free, Gideon, I checked the box myself.\"",
+        "hide": true
+      },
+      {
+        "time": "9:45",
+        "place": "Food Hall",
+        "text": "Gideon died."
+      }
+    ],
+    "story": [
+      "At 8:50 you sorted the gifts into opening order, like every year, and fixed a torn wrapper.",
+      "At 9:15 you went down to the stockroom to fetch the Santa sack.",
+      "Otherwise you were in the Food Hall all evening."
+    ],
+    "others": [
+      {
+        "name": "Frank",
+        "text": "His gift, his tag. Everyone will look at him first."
+      },
+      {
+        "name": "Holly",
+        "text": "She wrote the allergy list and searched the jacket."
+      },
+      {
+        "name": "Victor",
+        "text": "Brought marzipan into the store tonight. Very convenient."
+      },
+      {
+        "name": "Roz",
+        "text": "Your niece. Protect her, and don't let anyone connect the two of you."
+      }
+    ],
+    "tips": [
+      "Frank is the obvious suspect. Let them get there by themselves.",
+      "If anyone talks about the till, remind them about Frank's receipt.",
+      "If they find out Roz is your niece, you were just looking out for family."
+    ]
+  },
+  {
+    "id": "JUNE",
+    "name": "June Wells",
+    "core": false,
+    "costume": "Elf hat and ears, green tunic",
+    "who": "Seasonal elf, three weeks into the job.",
+    "attitude": "Cheerful, nosy, always filming.",
+    "cornered": "\"I handed out the presents! That's literally my job!\"",
+    "goal": "Find out who really took the missing toys.",
+    "secret": "You've been secretly filming the staff for a behind-the-scenes video you plan to sell online.",
+    "timeline": [
+      {
+        "time": "8:00",
+        "place": "Food Hall",
+        "text": "Gideon fired you in front of everyone for stealing toys. You didn't."
+      },
+      {
+        "time": "9:12",
+        "place": "Food Hall",
+        "text": "Took a photo of the party for your video. In it, Agnes is bent over Gideon's chair, fussing with his jacket.",
+        "hide": true
+      },
+      {
+        "time": "9:28",
+        "place": "Food Hall",
+        "text": "Filled the Santa sack with the gifts from under the tree."
+      },
+      {
+        "time": "9:30",
+        "place": "Food Hall",
+        "text": "Handed out the gifts. Gideon's was heavy at one end, like chocolates sliding about."
+      },
+      {
+        "time": "9:45",
+        "place": "Food Hall",
+        "text": "Gideon died."
+      }
+    ],
+    "others": [
+      {
+        "name": "Frank",
+        "text": "Kind to you all month. Smells of brandy."
+      },
+      {
+        "name": "Agnes",
+        "text": "Your boss on the toy floor. Lovely to everyone."
+      },
+      {
+        "name": "Holly",
+        "text": "Didn't stick up for you when you were fired."
+      }
+    ],
+    "tips": [
+      "Your photo is evidence, but sharing it shows you've been filming people. Decide what matters more."
+    ]
+  },
+  {
+    "id": "CELESTE",
+    "name": "Celeste Marlowe",
+    "core": false,
+    "costume": "Sparkly dress, faux-fur stole",
+    "who": "Gideon's wife of three years.",
+    "attitude": "Glamorous, bored, sharper than she looks.",
+    "cornered": "\"I'd never risk prison for that man. I'd much rather take him to court.\"",
+    "goal": "End the game holding Gideon's keyring.",
+    "secret": "Gideon told you last week he was divorcing you after Christmas. You've already hired a lawyer to fight the prenup, which leaves you nothing.",
+    "timeline": [
+      {
+        "time": "7:15",
+        "place": "Food Hall",
+        "text": "Gideon announced the sale. He hadn't told you either."
+      },
+      {
+        "time": "9:10",
+        "place": "Food Hall",
+        "text": "Saw Agnes fussing over Gideon's jacket and take something small from a pocket. You assumed it was his reading glasses."
+      },
+      {
+        "time": "9:30",
+        "place": "Food Hall",
+        "text": "Secret Santa."
+      },
+      {
+        "time": "9:45",
+        "place": "Food Hall",
+        "text": "Gideon died."
+      }
+    ],
+    "others": [
+      {
+        "name": "Holly",
+        "text": "Your stepdaughter. She has Gideon's keys, and you want them."
+      },
+      {
+        "name": "Victor",
+        "text": "Charming. Too charming."
+      }
+    ],
+    "tips": [
+      "The keyring opens Gideon's desk and his private papers. Get it."
+    ]
+  }
+]
