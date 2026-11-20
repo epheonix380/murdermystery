@@ -10,41 +10,41 @@
     "The missing silver truffle in her locker (C44)",
     "Motive: \"Eleanor and little Agnes Finch\" (C37) and the ledger of envelopes (C38, B8)"
   ],
-  "reveal": "Santa's gift didn't kill Gideon Marlowe. Frank wrapped a bottle of brandy, badly, with clear tape and no bow. At ten to nine, the kindest woman in the store carried it off to the wrapping room \"to fix the torn paper\". She poured the brandy into the bin, put in a box of nut-free truffles she'd bought at a quarter to five on her own staff card, and moved one gold marzipan truffle to the front. She tied the bow she had taught everyone to tie, with tape from her own department, and put Santa's tag back on. At ten past nine she straightened Gideon's jacket and took his pen. At half past she called \"Boss first!\", and when he hesitated she told him, \"They're nut-free, Gideon. I checked the box myself.\" In 1951 her big sister Eleanor carved the Marlowe Nutcracker and sold it for fifty pounds. For thirty-nine years Gideon paid Agnes to forget. Today he told her the money was ending, and that her sister's daughter was next. Agnes Pruitt, born Agnes Finch, you're under arrest.",
+  "reveal": "Santa's gift didn't kill Gideon Marlowe. Frank wrapped a bottle of brandy, badly, with clear tape and no bow. At ten to nine, the kindest woman in the store carried it off to the wrap nook \"to fix the torn paper\". She poured the brandy into the bin, put in a box of nut-free truffles she'd bought at a quarter to five on her own staff card, and moved one gold marzipan truffle to the front. She tied the bow she had taught everyone to tie, with tape from her own department, and put Santa's tag back on. At ten past nine she straightened Gideon's jacket and took his pen. At half past she called \"Boss first!\", and when he hesitated she told him, \"They're nut-free, Gideon. I checked the box myself.\" In 1951 her big sister Eleanor carved the Marlowe Nutcracker and sold it for fifty pounds. For thirty-nine years Gideon paid Agnes to forget. Today he told her the money was ending, and that her sister's daughter was next. Agnes Pruitt, born Agnes Finch, you're under arrest.",
   "timeline": [
     {
       "time": "1:00 PM",
-      "place": "Toy Floor",
+      "place": "Toy department",
       "text": "Gideon tells Agnes the hush money ends and Roz will be fired."
     },
     {
       "time": "4:45 PM",
-      "place": "Confectionery Counter",
+      "place": "The Bar",
       "text": "Agnes buys nut-free truffles and one marzipan truffle on staff card 0012."
     },
     {
       "time": "8:50",
-      "place": "Wrapping Room",
+      "place": "Wrap Nook",
       "text": "Agnes swaps Frank's brandy for the truffles and rewraps the gift."
     },
     {
       "time": "9:10",
-      "place": "Food Hall",
+      "place": "Dining Table",
       "text": "Agnes takes the pen from Gideon's jacket."
     },
     {
       "time": "9:15",
-      "place": "Stockroom",
+      "place": "The Patio",
       "text": "She hides it in the ornament box."
     },
     {
       "time": "9:30",
-      "place": "Food Hall",
+      "place": "Dining Table",
       "text": "\"They're nut-free, Gideon, I checked the box myself.\" He eats the marzipan truffle."
     },
     {
       "time": "9:45",
-      "place": "Food Hall",
+      "place": "Dining Table",
       "text": "Gideon dies."
     }
   ]

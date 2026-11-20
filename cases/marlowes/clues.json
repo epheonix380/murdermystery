@@ -53,213 +53,207 @@
   "cards": [
     {
       "id": "C01",
-      "location": "Food Hall",
+      "location": "Dining Table",
       "round": 1,
       "text": "Gideon's opened gift wrap: a perfect three-loop Marlowe bow, green tape under it, and older tape marks where the paper was opened before."
     },
     {
       "id": "C02",
-      "location": "Food Hall",
+      "location": "Dining Table",
       "round": 1,
       "text": "The truffle box: \"Marlowe's Nut-Free Truffles. Made in a nut-free kitchen.\" Eleven left, all in silver foil. The front slot is empty."
     },
     {
       "id": "C03",
-      "location": "Staff Room",
+      "location": "Entrance Hall",
       "round": 1,
       "text": "A toy wrapped by Frank for St Anne's: lumpy, held with clear tape, no bow. The tag, \"For a brave kid, from Santa\", is in the same scrawl as Gideon's tag."
     },
     {
       "id": "C04",
-      "location": "Food Hall",
+      "location": "Dining Table",
       "round": 1,
       "text": "The Secret Santa draw, in Agnes's handwriting: Frank to Gideon, Gideon to Agnes, Agnes to Roz, Roz to Frank, Holly to Victor, Victor to Holly. \"Boss opens first! A.P.\""
     },
     {
       "id": "C05",
-      "location": "Food Hall",
+      "location": "Dining Table",
       "round": 1,
       "text": "The mulled wine pot. Everyone has been drinking from it all night."
     },
     {
       "id": "C06",
-      "location": "Food Hall",
+      "location": "Dining Table",
       "round": 1,
       "text": "The party schedule: \"7:15 Toast. 9:30 Secret Santa. Then the signing.\""
     },
     {
       "id": "C07",
-      "location": "Food Hall",
+      "location": "Dining Table",
       "round": 1,
       "text": "A torn receipt under the tree: \"...TRUFFLE... STAFF CARD ..12\". The time is torn off."
     },
     {
       "id": "C08",
-      "location": "Food Hall",
+      "location": "Entrance Hall",
       "round": 1,
-      "text": "The staff list by the kitchen door: Agnes Pruitt 0012, Frank Doyle 0112, Holly Marlowe 0201, Roz Finch 0388. \"Seasonal staff: no staff card.\""
+      "text": "The staff noticeboard: Agnes Pruitt 0012, Frank Doyle 0112, Holly Marlowe 0201, Roz Finch 0388. \"Seasonal staff: no staff card.\""
     },
     {
       "id": "C09",
-      "location": "Confectionery Counter",
+      "location": "The Bar",
       "round": 1,
-      "text": "A sign: \"Christmas Eve: this counter closes at 5 PM.\""
+      "text": "A sign on the bar: \"Christmas Eve: Doris's chocolate counter closes at 5 PM.\""
     },
     {
       "id": "C10",
-      "location": "Confectionery Counter",
+      "location": "The Bar",
       "round": 1,
-      "text": "A note on the till: \"Sold the last gold marzipan truffle a quarter of an hour before I closed up. D.\""
+      "text": "A note on the bar till: \"Sold the last gold marzipan truffle a quarter of an hour before I closed up. D.\""
     },
     {
       "id": "C11",
-      "location": "Confectionery Counter",
+      "location": "The Bar",
       "round": 1,
       "text": "A display card: \"Marzipan truffles: gold foil. Nut-free truffles: silver foil. Never mix them. Mr Marlowe's allergy!\""
     },
     {
       "id": "C12",
-      "location": "Confectionery Counter",
+      "location": "The Bar",
       "round": 1,
-      "text": "The till, locked. Its lock opens with the time of a sale, in 24-hour digits."
+      "text": "The bar till, locked. Its lock opens with the time of a sale, in 24-hour digits."
     },
     {
       "id": "C13",
-      "location": "Wrapping Room",
+      "location": "Wrap Nook",
       "round": 1,
-      "text": "Offcuts of the same paper as Gideon's gift. This room's own tape is clear."
+      "text": "Offcuts of the same paper as Gideon's gift. The wrap station's own tape is clear."
     },
     {
       "id": "C14",
-      "location": "Wrapping Room",
+      "location": "Wrap Nook",
       "round": 1,
       "text": "In the bin, under the offcuts: a bottle of brandy, still in its box, with a scrap of the gift paper and clear tape stuck to it."
     },
     {
       "id": "C15",
-      "location": "Wrapping Room",
+      "location": "Wrap Nook",
       "round": 1,
       "text": "On the wall: \"The Marlowe Bow, as taught by A. Pruitt since 1985.\" Below it, everyone trained: Holly, Roz and June among them."
     },
     {
       "id": "C16",
-      "location": "Front Window",
+      "location": "The Glass Wall",
       "round": 1,
       "text": "Roz's camera: a photo of the gift pile at 8:40. The gift tagged \"To Gideon\" is lumpy, with no bow."
     },
     {
       "id": "C17",
-      "location": "Front Window",
+      "location": "The Glass Wall",
       "round": 1,
-      "text": "Roz's workbench: a roll of green tape stamped \"TOYS\"."
+      "text": "Roz's paint table by the glass wall: a roll of green tape stamped \"TOYS\"."
     },
     {
       "id": "C18",
-      "location": "Front Window",
+      "location": "The Glass Wall",
       "round": 1,
-      "text": "A note pushed through the door by the carol singers: \"Thank you to the window lady who waved at us from nine till half past!\""
+      "text": "A note sent up by the carol singers across the road: \"Thank you to the lady painting the glass, who waved at us from nine till half past!\""
     },
     {
       "id": "C19",
-      "location": "Toy Floor",
+      "location": "Wrap Nook",
       "round": 1,
-      "text": "The tape dispensers, by department: Toys green, Windows clear, Office gold, Food Hall red."
-    },
-    {
-      "id": "C20",
-      "location": "Toy Floor",
-      "round": 1,
-      "text": "Agnes's desk: knitting needles, a half-finished green scarf, and a photo of the toy department staff in 1985."
+      "text": "A chart on the wrap station: every department has its own tape. Toys green, Windows clear, Office gold, Food Hall red."
     },
     {
       "id": "C21",
-      "location": "Toy Floor",
+      "location": "Entrance Hall",
       "round": 1,
-      "text": "The stock list: \"14 toys missing since 1 December.\""
+      "text": "On the noticeboard: \"Toy department: 14 toys missing since 1 December.\""
     },
     {
       "id": "C22",
-      "location": "Santa's Grotto",
+      "location": "The Lounge",
       "round": 1,
-      "text": "A holly-leaf earring under Santa's throne."
+      "text": "A holly-leaf earring under an armchair."
     },
     {
       "id": "C23",
-      "location": "Gideon's Office",
+      "location": "The Lounge",
       "round": 1,
-      "text": "An old brass safe. Engraved round the dial: \"All the gifts my true love sent to me.\""
+      "text": "Gideon's cabinet holds an old brass safe. Engraved round the dial: \"All the gifts my true love sent to me.\""
     },
     {
       "id": "C24",
-      "location": "Gideon's Office",
+      "location": "The Lounge",
       "round": 1,
       "text": "The first aid kit: an empty slot for a spare adrenaline pen, and a note: \"Order spare pen. G., November.\""
     },
     {
       "id": "C25",
-      "location": "Gideon's Office",
+      "location": "The Lounge",
       "round": 1,
-      "text": "A Brightway hamper addressed to Gideon: champagne, and a marzipan stollen with one slice cut."
+      "text": "In Gideon's cabinet, a Brightway hamper addressed to him: champagne, and a marzipan stollen with one slice cut."
     },
     {
       "id": "C26",
-      "location": "Gideon's Office",
+      "location": "The Lounge",
       "round": 1,
       "text": "A copy of the sale contract. Clause 9: the staff pension top-up ends, and all long-serving staff are let go on 31 January."
     },
     {
       "id": "C27",
-      "location": "Gideon's Office",
+      "location": "The Lounge",
       "round": 1,
       "text": "A sticky note in Victor's handwriting: \"A little something for you personally? V.\""
     },
     {
       "id": "C28",
-      "location": "Staff Room",
+      "location": "Entrance Hall",
       "round": 1,
-      "text": "A sack of new toys and two boxes of nut-free truffles, labelled \"For St Anne's Children's Ward\". With them, a receipt: \"15:30. NUT-FREE TRUFFLES x2. STAFF CARD 0112.\""
+      "text": "By the coat pegs: a sack of new toys and two boxes of nut-free truffles, labelled \"For St Anne's Children's Ward\". With them, a receipt: \"15:30. NUT-FREE TRUFFLES x2. STAFF CARD 0112.\""
     },
     {
       "id": "C29",
-      "location": "Staff Room",
+      "location": "The Bar",
       "round": 1,
-      "text": "The caterers' allergy list, in Holly's handwriting: \"Dad: all nuts. Pen in his inside jacket pocket. NO marzipan.\""
+      "text": "Pinned behind the bar, the allergy list in Holly's handwriting: \"Dad: all nuts. Pen in his inside jacket pocket. NO marzipan.\""
     },
     {
       "id": "C30",
-      "location": "Staff Room",
+      "location": "Entrance Hall",
       "round": 1,
-      "text": "June's phone, charging. Her 9:12 photo of the party shows Agnes bent over Gideon's chair, holding his jacket.",
+      "text": "June's phone, charging by the coat pegs. Her 9:12 photo of the party shows Agnes bent over Gideon's chair, holding his jacket.",
       "requires_role": "JUNE"
     },
     {
       "id": "C31",
-      "location": "Stockroom",
+      "location": "The Patio",
       "round": 1,
-      "text": "The ornament box, padlocked with a word lock."
+      "text": "The decorations chest. Inside, the ornament box, padlocked with a word lock."
     },
     {
       "id": "C32",
-      "location": "Stockroom",
+      "location": "The Patio",
       "round": 1,
-      "text": "The tree checklist, pinned up:",
+      "text": "The tree checklist, taped inside the chest lid:",
       "shows": "tree_checklist"
     },
     {
       "id": "C33",
-      "location": "Stockroom",
+      "location": "The Patio",
       "round": 1,
-      "text": "The Santa sack's peg is empty. A note on it: \"Santa sack: under the tree from 9:00.\""
+      "text": "The Santa sack's hook on the decorations chest is empty. A note on it: \"Santa sack: under the tree from 9:00.\""
     },
     {
       "id": "C34",
-      "location": "Loading Dock",
+      "location": "The Patio",
       "round": 1,
-      "text": "The phone log on the wall: \"9:35. Emergency call. Ambulance: roads closed.\""
+      "text": "A sign on the patio door: \"The only phone signal in the building is out here.\" The intercom log: \"9:35. Emergency call. Ambulance: roads closed.\""
     },
     {
       "id": "C35",
-      "location": "Food Hall",
+      "location": "Dining Table",
       "round": 1,
       "text": "Celeste's clutch bag: a letter from a divorce lawyer, dated 20 December.",
       "requires_role": "CELESTE"
@@ -302,13 +296,13 @@
     },
     {
       "id": "C42",
-      "location": "Confectionery Till",
+      "location": "Bar Till",
       "round": 1,
       "text": "The till roll: \"16:45. NUT-FREE TRUFFLES x1. MARZIPAN TRUFFLE (GOLD) x1. STAFF CARD 0012.\""
     },
     {
       "id": "C43",
-      "location": "Confectionery Till",
+      "location": "Bar Till",
       "round": 1,
       "text": "A sticky note from Doris: \"Mrs P from Toys. 'For the boss,' she said.\""
     },
@@ -349,7 +343,7 @@
       "unlocked_by_puzzle": "box"
     },
     {
-      "location": "Confectionery Till",
+      "location": "Bar Till",
       "instructions": "Open after the group solves The Till",
       "unlocked_by_puzzle": "till"
     },

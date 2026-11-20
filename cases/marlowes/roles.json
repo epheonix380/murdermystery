@@ -12,54 +12,54 @@
     "timeline": [
       {
         "time": "3:30 PM",
-        "place": "Confectionery Counter",
-        "text": "Bought two boxes of nut-free truffles for the St Anne's kids, on your staff card.",
+        "place": "The Bar",
+        "text": "Bought two boxes of nut-free truffles from Doris at the bar, for the St Anne's kids, on your staff card.",
         "hide": true
       },
       {
         "time": "6:30",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Put your Secret Santa gift for Gideon under the tree: a bottle of brandy, wrapped badly with clear tape. You can't tie a bow to save your life."
       },
       {
         "time": "7:15",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Gideon announced he'd sold the store to Brightway."
       },
       {
         "time": "8:30",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Gideon told you Brightway is replacing you with a \"digital Santa\", then accused you of stealing toys in front of everyone. You said, \"You'll be sorry, Gideon.\""
       },
       {
         "time": "8:35",
-        "place": "Staff Room",
-        "text": "Went upstairs to calm down with your hip flask.",
+        "place": "Entrance Hall",
+        "text": "Went out onto the patio to calm down with your hip flask.",
         "hide": true
       },
       {
         "time": "8:55",
-        "place": "Food Hall",
-        "text": "Came back down."
+        "place": "Dining Table",
+        "text": "Came back in."
       },
       {
         "time": "9:05",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "For a laugh, sat in Gideon's chair wearing his jacket and did your Gideon impression. He made you take it off."
       },
       {
         "time": "9:30",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Secret Santa. Gideon opened your gift, and it was truffles, not your brandy. You were too stunned to speak."
       },
       {
         "time": "9:35",
-        "place": "Loading Dock",
-        "text": "Ran out to the only phone signal and called an ambulance. The roads are closed."
+        "place": "The Patio",
+        "text": "Ran out onto the patio, the only place with phone signal, and called an ambulance. The roads are closed."
       },
       {
         "time": "9:50",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Back inside. Gideon was dead."
       }
     ],
@@ -74,7 +74,7 @@
       },
       {
         "name": "Holly",
-        "text": "From the Staff Room, you heard her shouting at her dad in the Grotto at about 8:45: something about \"dead\"."
+        "text": "From the patio, you heard her shouting at her dad in the lounge at about 8:45: something about \"dead\"."
       },
       {
         "name": "June (if playing)",
@@ -100,48 +100,48 @@
     "timeline": [
       {
         "time": "7:00",
-        "place": "Gideon's Office",
-        "text": "Left a Brightway hamper for Gideon: champagne and a marzipan stollen. You had a slice of the stollen yourself."
+        "place": "The Lounge",
+        "text": "Left a Brightway hamper for Gideon in his cabinet in the lounge: champagne and a marzipan stollen. You had a slice of the stollen yourself."
       },
       {
         "time": "7:15",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Gideon announced the sale. Nobody clapped."
       },
       {
         "time": "7:40",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Remembered the stollen and asked Holly how bad her father's allergy is. All nuts, even almonds, she said."
       },
       {
         "time": "8:55",
-        "place": "Gideon's Office",
+        "place": "The Lounge",
         "text": "Gideon played you the recording of your offer. Raise the price tonight, or the chairman hears it.",
         "hide": true
       },
       {
         "time": "9:00",
-        "place": "Food Hall",
-        "text": "Gideon made you carry his jacket down. You hung it on his chair."
+        "place": "Dining Table",
+        "text": "Gideon made you carry his jacket over from the lounge. You hung it on his chair at the table."
       },
       {
         "time": "9:25",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Brought Gideon a mulled wine from the pot, to sweeten him up."
       },
       {
         "time": "9:30",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Secret Santa. Standing next to Gideon, you heard Agnes say quietly, \"They're nut-free, Gideon, I checked the box myself.\" Your mind was on the recording."
       },
       {
         "time": "9:32",
-        "place": "Gideon's Office",
-        "text": "Ran for the first aid kit. There was no spare pen."
+        "place": "The Lounge",
+        "text": "Ran to the first aid kit in the lounge. There was no spare pen."
       },
       {
         "time": "9:45",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Gideon died."
       }
     ],
@@ -182,53 +182,53 @@
     "timeline": [
       {
         "time": "6:00",
-        "place": "Gideon's Office",
-        "text": "Took Dad's keyring from his desk to unlock the office for the party. You still have it."
+        "place": "The Lounge",
+        "text": "Took Dad's keyring from his cabinet in the lounge to unlock the bar for the party. You still have it."
       },
       {
         "time": "6:30",
-        "place": "Staff Room",
-        "text": "Wrote the caterers' allergy list: \"Dad: all nuts. Pen in his inside jacket pocket. NO marzipan.\""
+        "place": "Entrance Hall",
+        "text": "Wrote the allergy list for the bar: \"Dad: all nuts. Pen in his inside jacket pocket. NO marzipan.\""
       },
       {
         "time": "7:15",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Dad announced the sale to Brightway. You found out with everyone else."
       },
       {
         "time": "7:40",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Victor asked you how bad Dad's allergy is. An odd question."
       },
       {
         "time": "8:45",
-        "place": "Santa's Grotto",
-        "text": "Shouted at Dad: \"I'd sooner see you dead than see this place go to Brightway.\" You lost an earring somewhere.",
+        "place": "The Lounge",
+        "text": "Shouted at Dad in the lounge: \"I'd sooner see you dead than see this place go to Brightway.\" You lost an earring somewhere.",
         "hide": true
       },
       {
         "time": "9:00",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Moved the gift pile under the tree to make room for the signing table. Victor came down carrying Dad's jacket."
       },
       {
         "time": "9:05",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Frank sat in Dad's chair wearing his jacket, doing an impression. Dad was furious."
       },
       {
         "time": "9:30",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Secret Santa. Dad hesitated over the truffles. Roz called out, \"Go on, Gideon, it's Christmas!\""
       },
       {
         "time": "9:32",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Dad couldn't breathe. You tore through his jacket for the pen. It wasn't there. It's always there."
       },
       {
         "time": "9:45",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Dad died."
       }
     ],
@@ -264,52 +264,52 @@
     "name": "Roz Finch",
     "core": true,
     "costume": "Paint-spattered apron, red knitted beret",
-    "who": "Marlowe's window dresser for two years.",
+    "who": "Marlowe's window dresser for two years. Tonight you painted a snow scene on the party room's glass wall.",
     "attitude": "Quiet, sharp-eyed, bitter about this place.",
-    "cornered": "\"I was in the window from nine o'clock! Ask the carol singers!\"",
+    "cornered": "\"I was painting the glass wall from nine o'clock! Ask the carol singers!\"",
     "goal": "Make sure everyone learns who really carved the Marlowe Nutcracker.",
     "secret": "Your mother, Eleanor Finch, carved the Marlowe Nutcracker in 1951 and sold it to Gideon for fifty pounds. She died poor. Your Aunt Agnes got you this job, and you agreed to keep that quiet at work. Tonight Gideon caught you reading the 1951 agreement in his files and fired you.",
     "timeline": [
       {
         "time": "2:00 PM",
-        "place": "Front Window",
-        "text": "Ran out of clear tape and borrowed a roll of green tape from the toy department."
+        "place": "The Glass Wall",
+        "text": "Ran out of clear tape while setting up the glass wall, and borrowed a roll of green tape from the toy department."
       },
       {
         "time": "7:30",
-        "place": "Stockroom",
-        "text": "Finished the tree with Aunt Agnes. She padlocked the ornament box, and you both signed the tree checklist."
+        "place": "The Patio",
+        "text": "Finished the tree with Aunt Agnes and packed the spare decorations into the chest on the patio. She padlocked the ornament box, and you both signed the tree checklist."
       },
       {
         "time": "8:15",
-        "place": "Gideon's Office",
-        "text": "Gideon caught you reading the 1951 agreement in his files. He locked it in his safe and fired you.",
+        "place": "The Lounge",
+        "text": "Gideon caught you reading the 1951 agreement in his cabinet. He locked it in his safe and fired you.",
         "hide": true
       },
       {
         "time": "8:25",
-        "place": "Stockroom",
-        "text": "Told Aunt Agnes you'd been fired. She went very quiet.",
+        "place": "The Patio",
+        "text": "Told Aunt Agnes, out on the patio, that you'd been fired. She went very quiet.",
         "hide": true
       },
       {
         "time": "8:40",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Photographed the gift pile for the store's socials. Frank's gift for Gideon was lumpy, with no bow."
       },
       {
         "time": "9:00",
-        "place": "Front Window",
-        "text": "Finished the window, waving at the carol singers outside."
+        "place": "The Glass Wall",
+        "text": "Painted the glass wall, waving at the carol singers across the road."
       },
       {
         "time": "9:30",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Secret Santa. Gideon's gift now had a perfect Marlowe bow. When he hesitated, you called, \"Go on, Gideon, it's Christmas!\" You meant it as a dig."
       },
       {
         "time": "9:45",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Gideon died."
       }
     ],
@@ -349,67 +349,67 @@
     "timeline": [
       {
         "time": "1:00 PM",
-        "place": "Toy Floor",
+        "place": "Toy department",
         "text": "Gideon told you: the store is sold, no more Christmas envelopes, your pension is cut, and \"Eleanor's girl\" goes tonight.",
         "hide": true
       },
       {
         "time": "4:45 PM",
-        "place": "Confectionery Counter",
-        "text": "Bought a box of nut-free truffles and one gold marzipan truffle on your staff card. Told Doris they were for the boss.",
+        "place": "The Bar",
+        "text": "Bought a box of nut-free truffles and one gold marzipan truffle from Doris at the bar, on your staff card. Told her they were for the boss.",
         "hide": true
       },
       {
         "time": "7:30",
-        "place": "Stockroom",
-        "text": "Finished the tree with Roz and padlocked the ornament box, as every year."
+        "place": "The Patio",
+        "text": "Finished the tree with Roz and padlocked the ornament box in the decorations chest, as every year."
       },
       {
         "time": "8:25",
-        "place": "Stockroom",
+        "place": "The Patio",
         "text": "Roz told you Gideon had fired her.",
         "hide": true
       },
       {
         "time": "8:50",
-        "place": "Wrapping Room",
-        "text": "Took Frank's gift for Gideon, swapped his brandy for the truffles with the gold one at the front, rewrapped it with green toy tape and a Marlowe bow, and put Frank's tag back. The brandy went in the bin.",
+        "place": "Wrap Nook",
+        "text": "Took Frank's gift for Gideon to the wrap nook, swapped his brandy for the truffles with the gold one at the front, rewrapped it with green toy tape and a Marlowe bow, and put Frank's tag back. The brandy went in the bin.",
         "hide": true
       },
       {
         "time": "9:10",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Straightened Gideon's jacket on his chair and slipped his pen out.",
         "hide": true
       },
       {
         "time": "9:15",
-        "place": "Stockroom",
-        "text": "Hid the pen in the ornament box.",
+        "place": "The Patio",
+        "text": "Hid the pen in the ornament box on the patio.",
         "hide": true
       },
       {
         "time": "9:20",
-        "place": "Staff Room",
-        "text": "Dropped the silver truffle you took out, wrapped in a napkin, into your locker.",
+        "place": "Entrance Hall",
+        "text": "Dropped the silver truffle you took out, wrapped in a napkin, into your locker in the entrance hall.",
         "hide": true
       },
       {
         "time": "9:30",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Called \"Boss first!\" When he hesitated, you said quietly, \"They're nut-free, Gideon, I checked the box myself.\"",
         "hide": true
       },
       {
         "time": "9:45",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Gideon died."
       }
     ],
     "story": [
       "At 8:50 you sorted the gifts into opening order, like every year, and fixed a torn wrapper.",
-      "At 9:15 you went down to the stockroom to fetch the Santa sack.",
-      "Otherwise you were in the Food Hall all evening."
+      "At 9:15 you went out to the patio to fetch the Santa sack from the decorations chest.",
+      "Otherwise you were at the table all evening."
     ],
     "others": [
       {
@@ -448,28 +448,28 @@
     "timeline": [
       {
         "time": "8:00",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Gideon fired you in front of everyone for stealing toys. You didn't."
       },
       {
         "time": "9:12",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Took a photo of the party for your video. In it, Agnes is bent over Gideon's chair, fussing with his jacket.",
         "hide": true
       },
       {
         "time": "9:28",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Filled the Santa sack with the gifts from under the tree."
       },
       {
         "time": "9:30",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Handed out the gifts. Gideon's was heavy at one end, like chocolates sliding about."
       },
       {
         "time": "9:45",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Gideon died."
       }
     ],
@@ -504,22 +504,22 @@
     "timeline": [
       {
         "time": "7:15",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Gideon announced the sale. He hadn't told you either."
       },
       {
         "time": "9:10",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Saw Agnes fussing over Gideon's jacket and take something small from a pocket. You assumed it was his reading glasses."
       },
       {
         "time": "9:30",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Secret Santa."
       },
       {
         "time": "9:45",
-        "place": "Food Hall",
+        "place": "Dining Table",
         "text": "Gideon died."
       }
     ],

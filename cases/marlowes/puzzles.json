@@ -16,7 +16,7 @@
   {
     "id": "box",
     "title": "The Ornament Box",
-    "prompt": "The ornament box in the stockroom has a word lock. Find the word.",
+    "prompt": "The ornament box in the decorations chest on the patio has a word lock. Find the word.",
     "hint": "Read the tree checklist. First things first.",
     "unlocks": "Ornament Box",
     "shows": "tree_checklist",
@@ -31,9 +31,9 @@
   {
     "id": "till",
     "title": "The Till",
-    "prompt": "The confectionery till opens with the time of a sale, as four 24-hour digits. When was the last gold marzipan truffle sold?",
-    "hint": "When did the counter close tonight? Read the note on the till.",
-    "unlocks": "Confectionery Till",
+    "prompt": "The bar till opens with the time of a sale, as four 24-hour digits. When was the last gold marzipan truffle sold?",
+    "hint": "When did Doris's counter close tonight? Read the note on the till.",
+    "unlocks": "Bar Till",
     "answer": {
       "type": "digits",
       "accept": [
