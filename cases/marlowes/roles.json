@@ -268,7 +268,7 @@
     "attitude": "Quiet, sharp-eyed, bitter about this place.",
     "cornered": "\"I was painting the glass wall from nine o'clock! Ask the carol singers!\"",
     "goal": "Make sure everyone learns who really carved the Marlowe Nutcracker.",
-    "secret": "Your mother, Eleanor Finch, carved the Marlowe Nutcracker in 1951 and sold it to Gideon for fifty pounds. She died poor. Your Aunt Agnes got you this job, and you agreed to keep that quiet at work. Tonight Gideon caught you reading the 1951 agreement in his files and fired you.",
+    "secret": "Your mother, Eleanor Finch, carved the Marlowe Nutcracker in 1979 and sold it to Gideon for fifty pounds. She died poor. Your Aunt Agnes got you this job, and you agreed to keep that quiet at work. Tonight Gideon caught you reading the 1979 agreement in his files and fired you.",
     "timeline": [
       {
         "time": "2:00 PM",
@@ -283,7 +283,7 @@
       {
         "time": "8:15",
         "place": "The Lounge",
-        "text": "Gideon caught you reading the 1951 agreement in his cabinet. He locked it in his safe and fired you.",
+        "text": "Gideon caught you reading the 1979 agreement in his cabinet. He locked it in his safe and fired you.",
         "hide": true
       },
       {
