@@ -65,13 +65,13 @@
     },
     {
       "id": "C03",
-      "location": "Entrance Hall",
+      "location": "Patio Lounge",
       "round": 1,
-      "text": "A toy wrapped by Frank for St Anne's: lumpy, held with clear tape, no bow. The tag, \"For a brave kid, from Santa\", is in the same scrawl as Gideon's tag."
+      "text": "In Frank's sack under a patio table: a toy he wrapped for St Anne's. Lumpy, held with clear tape, no bow. The tag, \"For a brave kid, from Santa\", is in the same scrawl as Gideon's tag."
     },
     {
       "id": "C04",
-      "location": "Dining Table",
+      "location": "The Tree",
       "round": 1,
       "text": "The Secret Santa draw, in Agnes's handwriting: Frank to Gideon, Gideon to Agnes, Agnes to Roz, Roz to Frank, Holly to Victor, Victor to Holly. \"Boss opens first! A.P.\""
     },
@@ -83,13 +83,13 @@
     },
     {
       "id": "C06",
-      "location": "Dining Table",
+      "location": "The Tree",
       "round": 1,
-      "text": "The party schedule: \"7:15 Toast. 9:30 Secret Santa. Then the signing.\""
+      "text": "Pinned to the tree, the party schedule: \"7:15 Toast. 9:30 Secret Santa. Then the signing.\""
     },
     {
       "id": "C07",
-      "location": "Dining Table",
+      "location": "The Tree",
       "round": 1,
       "text": "A torn receipt under the tree: \"...TRUFFLE... STAFF CARD ..12\". The time is torn off."
     },
@@ -125,21 +125,21 @@
     },
     {
       "id": "C13",
-      "location": "Wrap Nook",
+      "location": "Entrance Hall",
       "round": 1,
-      "text": "Offcuts of the same paper as Gideon's gift. The wrap station's own tape is clear."
+      "text": "On the wrap table: offcuts of the same paper as Gideon's gift. The wrap table's own tape is clear."
     },
     {
       "id": "C14",
-      "location": "Wrap Nook",
+      "location": "Entrance Hall",
       "round": 1,
-      "text": "In the bin, under the offcuts: a bottle of brandy, still in its box, with a scrap of the gift paper and clear tape stuck to it."
+      "text": "In the bin by the wrap table, under the offcuts: a bottle of brandy, still in its box, with a scrap of the gift paper and clear tape stuck to it."
     },
     {
       "id": "C15",
-      "location": "Wrap Nook",
+      "location": "Entrance Hall",
       "round": 1,
-      "text": "On the wall: \"The Marlowe Bow, as taught by A. Pruitt since 1985.\" Below it, everyone trained: Holly, Roz and June among them."
+      "text": "Above the wrap table: \"The Marlowe Bow, as taught by A. Pruitt since 1985.\" Below it, everyone trained: Holly, Roz and June among them."
     },
     {
       "id": "C16",
@@ -161,9 +161,9 @@
     },
     {
       "id": "C19",
-      "location": "Wrap Nook",
+      "location": "Entrance Hall",
       "round": 1,
-      "text": "A chart on the wrap station: every department has its own tape. Toys green, Windows clear, Office gold, Food Hall red."
+      "text": "A chart on the wrap table: every department has its own tape. Toys green, Windows clear, Office gold, Food Hall red."
     },
     {
       "id": "C21",
@@ -209,9 +209,9 @@
     },
     {
       "id": "C28",
-      "location": "Entrance Hall",
+      "location": "Patio Lounge",
       "round": 1,
-      "text": "By the coat pegs: a sack of new toys and two boxes of nut-free truffles, labelled \"For St Anne's Children's Ward\". With them, a receipt: \"15:30. NUT-FREE TRUFFLES x2. STAFF CARD 0112.\""
+      "text": "Under a table at the far end of the patio: a sack of new toys and two boxes of nut-free truffles, labelled \"For St Anne's Children's Ward\". With them, a receipt: \"15:30. NUT-FREE TRUFFLES x2. STAFF CARD 0112.\""
     },
     {
       "id": "C29",
@@ -221,9 +221,9 @@
     },
     {
       "id": "C30",
-      "location": "Entrance Hall",
+      "location": "The Bar",
       "round": 1,
-      "text": "June's phone, charging by the coat pegs. Her 9:12 photo of the party shows Agnes bent over Gideon's chair, holding his jacket.",
+      "text": "June's phone, charging behind the bar. Her 9:12 photo of the party shows Agnes bent over Gideon's chair, holding his jacket.",
       "requires_role": "JUNE"
     },
     {
@@ -247,9 +247,9 @@
     },
     {
       "id": "C34",
-      "location": "The Patio",
+      "location": "Patio Lounge",
       "round": 1,
-      "text": "A sign on the patio door: \"The only phone signal in the building is out here.\" The intercom log: \"9:35. Emergency call. Ambulance: roads closed.\""
+      "text": "A sign by the patio chairs: \"The only phone signal in the building is out here.\" The intercom log: \"9:35. Emergency call. Ambulance: roads closed.\""
     },
     {
       "id": "C35",

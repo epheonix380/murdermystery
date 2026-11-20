@@ -1,32 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 16 728 416" width="728" height="416" role="img" aria-label="Floor plan of Silent Night at Marlowe's" font-family="Inter, system-ui, sans-serif">
-<rect x="16" y="16" width="728" height="416" fill="#121016"/>
-<rect x="320" y="24" width="130" height="110" rx="0" fill="#1d1924" stroke="#5b5168"/>
-<rect x="450" y="24" width="130" height="110" rx="0" fill="#1d1924" stroke="#5b5168"/>
-<rect x="24" y="134" width="296" height="150" rx="0" fill="#1d1924" stroke="#5b5168"/>
-<rect x="320" y="134" width="250" height="150" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 16 728 406" width="728" height="406" role="img" aria-label="Floor plan of Silent Night at Marlowe's" font-family="Inter, system-ui, sans-serif">
+<rect x="16" y="16" width="728" height="406" fill="#121016"/>
+<rect x="320" y="24" width="260" height="110" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="24" y="134" width="210" height="150" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="234" y="134" width="100" height="150" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="334" y="134" width="236" height="150" rx="0" fill="#1d1924" stroke="#5b5168"/>
 <rect x="570" y="134" width="166" height="150" rx="0" fill="#1d1924" stroke="#5b5168"/>
 <rect x="24" y="284" width="712" height="40" rx="0" fill="#1d1924" stroke="#5b5168"/>
-<rect x="24" y="324" width="712" height="100" rx="8" fill="#2c2636" stroke="#5b5168"/>
+<rect x="24" y="324" width="516" height="90" rx="8" fill="#2c2636" stroke="#5b5168"/>
+<rect x="540" y="324" width="196" height="90" rx="8" fill="#2c2636" stroke="#5b5168"/>
 <rect x="24" y="134" width="712" height="190" fill="none" stroke="#a89cb8" stroke-width="3"/>
 <rect x="320" y="24" width="260" height="110" fill="none" stroke="#a89cb8" stroke-width="3"/>
 <line x1="320" y1="64" x2="320" y2="94" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
-<line x1="340" y1="134" x2="380" y2="134" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
-<line x1="450" y1="104" x2="450" y2="128" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="380" y1="134" x2="420" y2="134" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
 <line x1="120" y1="324" x2="160" y2="324" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
-<line x1="470" y1="324" x2="510" y2="324" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="440" y1="324" x2="480" y2="324" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
 <text x="332" y="46" fill="#ece6f2" font-size="14" font-weight="600">Entrance Hall</text>
-<text x="332" y="64" fill="#a89cb8" font-size="12">Coat pegs</text>
-<text x="332" y="82" fill="#a89cb8" font-size="12">Noticeboard</text>
+<text x="332" y="64" fill="#a89cb8" font-size="12">Coat pegs and noticeboard</text>
+<text x="332" y="82" fill="#a89cb8" font-size="12">Wrap table</text>
 <circle cx="336" cy="96" r="5" fill="#9a7bff"/><text x="346" y="100" fill="#a89cb8" font-size="12">Lockers</text>
-<text x="462" y="46" fill="#ece6f2" font-size="14" font-weight="600">Wrap Nook</text>
-<text x="462" y="64" fill="#a89cb8" font-size="12">Gift-wrap station</text>
 <text x="36" y="156" fill="#ece6f2" font-size="14" font-weight="600">Dining Table</text>
 <text x="36" y="174" fill="#a89cb8" font-size="12">The party</text>
-<text x="36" y="192" fill="#a89cb8" font-size="12">The tree and the gifts</text>
+<text x="36" y="192" fill="#a89cb8" font-size="12">Gideon's chair</text>
 <text x="36" y="210" fill="#a89cb8" font-size="12">Where Gideon died</text>
-<text x="332" y="156" fill="#ece6f2" font-size="14" font-weight="600">The Bar</text>
-<text x="332" y="174" fill="#a89cb8" font-size="12">Doris's chocolate counter</text>
-<circle cx="336" cy="188" r="5" fill="#9a7bff"/><text x="346" y="192" fill="#a89cb8" font-size="12">Till</text>
+<text x="246" y="156" fill="#ece6f2" font-size="14" font-weight="600">The Tree</text>
+<text x="246" y="174" fill="#a89cb8" font-size="12">The gifts</text>
+<text x="346" y="156" fill="#ece6f2" font-size="14" font-weight="600">The Bar</text>
+<text x="346" y="174" fill="#a89cb8" font-size="12">Doris's chocolate counter</text>
+<circle cx="350" cy="188" r="5" fill="#9a7bff"/><text x="360" y="192" fill="#a89cb8" font-size="12">Till</text>
 <text x="582" y="156" fill="#ece6f2" font-size="14" font-weight="600">The Lounge</text>
 <text x="582" y="174" fill="#a89cb8" font-size="12">Armchairs</text>
 <text x="582" y="192" fill="#a89cb8" font-size="12">Gideon's cabinet</text>
@@ -35,7 +35,9 @@
 <text x="36" y="346" fill="#ece6f2" font-size="14" font-weight="600">The Patio</text>
 <text x="36" y="364" fill="#a89cb8" font-size="12">Outside, in the snow</text>
 <text x="36" y="382" fill="#a89cb8" font-size="12">Decorations chest</text>
-<text x="36" y="400" fill="#a89cb8" font-size="12">The only phone signal</text>
-<circle cx="40" cy="414" r="5" fill="#9a7bff"/><text x="50" y="418" fill="#a89cb8" font-size="12">Ornament box</text>
+<circle cx="40" cy="396" r="5" fill="#9a7bff"/><text x="50" y="400" fill="#a89cb8" font-size="12">Ornament box</text>
+<text x="552" y="346" fill="#ece6f2" font-size="14" font-weight="600">Patio Lounge</text>
+<text x="552" y="364" fill="#a89cb8" font-size="12">Chairs and tables</text>
+<text x="552" y="382" fill="#a89cb8" font-size="12">The only phone signal</text>
 <text x="272" y="84" text-anchor="middle" fill="#a89cb8" font-size="12">Entrance</text>
 </svg>

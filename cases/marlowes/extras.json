@@ -7,47 +7,47 @@
         "name": "Entrance Hall",
         "x": 320,
         "y": 24,
-        "w": 130,
+        "w": 260,
         "h": 110,
         "lines": [
-          "Coat pegs",
-          "Noticeboard"
+          "Coat pegs and noticeboard",
+          "Wrap table"
         ],
         "sealed": "Lockers",
-        "info": "The way in. Coat pegs, the staff noticeboard, and the staff lockers, which stay shut until Round 2."
-      },
-      {
-        "id": "wrap-nook",
-        "name": "Wrap Nook",
-        "x": 450,
-        "y": 24,
-        "w": 130,
-        "h": 110,
-        "lines": [
-          "Gift-wrap station"
-        ],
-        "info": "A nook off the entrance hall with Marlowe's gift paper, ribbon and tape."
+        "info": "The way in. Coat pegs, the staff noticeboard, the gift-wrap table, and the staff lockers, which stay shut until Round 2."
       },
       {
         "id": "dining",
         "name": "Dining Table",
         "x": 24,
         "y": 134,
-        "w": 296,
+        "w": 210,
         "h": 150,
         "lines": [
           "The party",
-          "The tree and the gifts",
+          "Gideon's chair",
           "Where Gideon died"
         ],
-        "info": "The long table where the party sat, the tree with the Secret Santa gifts, and the mulled wine pot."
+        "info": "The long table where the party sat, Gideon's chair, and the mulled wine pot."
+      },
+      {
+        "id": "tree",
+        "name": "The Tree",
+        "x": 234,
+        "y": 134,
+        "w": 100,
+        "h": 150,
+        "lines": [
+          "The gifts"
+        ],
+        "info": "The Christmas tree at the end of the table, with the Secret Santa gifts underneath."
       },
       {
         "id": "bar",
         "name": "The Bar",
-        "x": 320,
+        "x": 334,
         "y": 134,
-        "w": 250,
+        "w": 236,
         "h": 150,
         "lines": [
           "Doris's chocolate counter"
@@ -84,16 +84,29 @@
         "name": "The Patio",
         "x": 24,
         "y": 324,
-        "w": 712,
-        "h": 100,
+        "w": 516,
+        "h": 90,
         "kind": "outdoor",
         "lines": [
           "Outside, in the snow",
-          "Decorations chest",
-          "The only phone signal"
+          "Decorations chest"
         ],
         "sealed": "Ornament box",
-        "info": "Outside, along the whole glass wall. The decorations chest, and the only phone signal in the building."
+        "info": "Outside, along the glass wall. The decorations chest, with the ornament box inside."
+      },
+      {
+        "id": "patio-lounge",
+        "name": "Patio Lounge",
+        "x": 540,
+        "y": 324,
+        "w": 196,
+        "h": 90,
+        "kind": "outdoor",
+        "lines": [
+          "Chairs and tables",
+          "The only phone signal"
+        ],
+        "info": "Chairs and tables at the far end of the patio. The only phone signal in the building."
       }
     ],
     "doors": [
@@ -104,16 +117,10 @@
         94
       ],
       [
-        340,
-        134,
         380,
+        134,
+        420,
         134
-      ],
-      [
-        450,
-        104,
-        450,
-        128
       ],
       [
         120,
@@ -122,9 +129,9 @@
         324
       ],
       [
-        470,
+        440,
         324,
-        510,
+        480,
         324
       ]
     ],
