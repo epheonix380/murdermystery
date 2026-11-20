@@ -1,0 +1,30 @@
+[
+  {
+    "id": "cellar",
+    "title": "The Cellar Lock",
+    "prompt": "The wine cellar has a 4-digit lock. Lord Voss always said the code was the year his vintage was laid down.",
+    "hint": "Look at the label on the port decanter in the ballroom.",
+    "unlocks": "Wine Cellar",
+    "answer": {
+      "type": "digits",
+      "accept": [
+        "1887"
+      ]
+    },
+    "explanation": "1887, printed on the port label (tell players it's on the decanter in the Ballroom)."
+  },
+  {
+    "id": "path",
+    "title": "The Quiet Way Down",
+    "prompt": "Nobody in the ballroom saw anyone go to the cellar. Starting from the Ballroom, tap the rooms someone would pass through to reach the Wine Cellar unseen.",
+    "answer": {
+      "type": "route",
+      "start": "ballroom",
+      "sequence": [
+        "pantry",
+        "cellar"
+      ]
+    },
+    "explanation": "Ballroom, Pantry, Wine Cellar: the servants' stair from the pantry."
+  }
+]

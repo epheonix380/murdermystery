@@ -12,7 +12,7 @@ class PublicFileTests(TestCase):
     def test_serves_map(self):
         response = self.client.get("/cases/hollowpine/public/map.svg")
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b"Floor plan of Hollowpine Lodge", b"".join(response.streaming_content))
+        self.assertIn(b"Floor plan of The Last Chapter at Hollowpine Lodge", b"".join(response.streaming_content))
 
     def test_case_json_files_are_not_reachable(self):
         for path in [

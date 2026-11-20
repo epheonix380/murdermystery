@@ -1,0 +1,12 @@
+{
+  "killer": "BUTLER",
+  "summary": "Hollis Grey poisoned the port in the wine cellar at 8:40 because Lord Voss had found out he was selling the cellar's bottles.",
+  "key_proof": ["Cloudy film in the glass and in the cellar (C1, C4)", "Mina saw a light in the cellar at 8:40 (C6)", "Note about the cellar books (B3)", "Wine dealer receipts and the poison tin (C5, C7)"],
+  "reveal": "At 8:40, while everyone waited in the ballroom, Hollis Grey slipped through the pantry and down the servants' stair to the wine cellar. He poured the port, stirred rat poison into one glass, and hid the tin behind the flour on his way back. Lord Voss had found the torn ledger. Tonight he meant to tell everyone. Hollis Grey, you're under arrest.",
+  "timeline": [
+    { "time": "8:15", "place": "Library", "text": "Clara and Lord Voss argue about the will." },
+    { "time": "8:40", "place": "Wine Cellar", "text": "Hollis poisons the port." },
+    { "time": "8:45", "place": "Pantry", "text": "Hollis hides the poison tin." },
+    { "time": "9:00", "place": "Ballroom", "text": "The toast. Lord Voss collapses." }
+  ]
+}

@@ -2,6 +2,7 @@
 // data in legacy/index.html) into the case-file format in cases/hollowpine/.
 //
 //   node scripts/convert_hollowpine.js
+//   python manage.py render_map hollowpine      # draws public/map.svg
 //
 // Re-running overwrites the generated files. Hand edits belong in the JSON
 // files afterwards, not here.
@@ -145,6 +146,11 @@ const extras = {
       return room;
     }),
     doors: DOORS,
+    walls: [[180, 116, 556, 336]],
+    labels: [
+      { x: 235, y: 102, text: "Back door" },
+      { x: 650, y: 102, text: "French doors" },
+    ],
   },
 };
 
@@ -186,44 +192,4 @@ write("puzzles.json", puzzles);
 write("props.json", props);
 write("solution.json", solution);
 write("extras.json", extras);
-fs.mkdirSync(path.join(out, "public"), { recursive: true });
-fs.writeFileSync(path.join(out, "public", "map.svg"), mapSVG());
-
-// A standalone version of the site's floor plan, with colours inlined so it
-// renders anywhere (the case browser, a link, a printout).
-function mapSVG() {
-  const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  const fill = { out: "#2c2636", up: "#1d1924" };
-  let s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 56 760 456" width="760" height="456" role="img" aria-label="Floor plan of Hollowpine Lodge" font-family="Inter, system-ui, sans-serif">\n';
-  s += '<rect x="0" y="56" width="760" height="456" fill="#121016"/>\n';
-  ROOMS.forEach((r) => {
-    const dash = r.k === "up" ? ' stroke-dasharray="6 4"' : "";
-    s += `<rect x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" rx="${r.k === "out" ? 8 : 0}" fill="${fill[r.k] || "#1d1924"}" stroke="#5b5168"${dash}/>\n`;
-  });
-  s += '<rect x="180" y="116" width="556" height="336" fill="none" stroke="#a89cb8" stroke-width="3"/>\n';
-  DOORS.forEach((d) => {
-    s += `<line x1="${d[0]}" y1="${d[1]}" x2="${d[2]}" y2="${d[3]}" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>\n`;
-  });
-  ROOMS.forEach((r) => {
-    if (r.center) {
-      s += `<text x="${r.x + r.w / 2}" y="${r.y + r.h / 2 + 5}" text-anchor="middle" fill="#ece6f2" font-size="14" font-weight="600">${esc(r.n)}</text>\n`;
-      return;
-    }
-    let y = r.y + 22;
-    s += `<text x="${r.x + 12}" y="${y}" fill="#ece6f2" font-size="14" font-weight="600">${esc(r.n)}</text>\n`;
-    r.l.forEach((line) => {
-      y += 18;
-      s += `<text x="${r.x + 12}" y="${y}" fill="#a89cb8" font-size="12">${esc(line)}</text>\n`;
-    });
-    if (r.seal) {
-      y += 18;
-      s += `<circle cx="${r.x + 16}" cy="${y - 4}" r="5" fill="#9a7bff"/><text x="${r.x + 26}" y="${y}" fill="#a89cb8" font-size="12">${esc(r.seal)}</text>\n`;
-    }
-  });
-  s += '<text x="235" y="102" text-anchor="middle" fill="#a89cb8" font-size="12">Back door</text>\n';
-  s += '<text x="650" y="102" text-anchor="middle" fill="#a89cb8" font-size="12">French doors</text>\n';
-  s += "</svg>\n";
-  return s;
-}
-
 console.log(`wrote ${out}: ${roles.length} roles, ${clues.body.length + clues.cards.length} clues, ${puzzles.length} puzzles, ${props.length} props`);

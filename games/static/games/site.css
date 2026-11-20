@@ -132,6 +132,7 @@ details.hint summary { cursor: pointer; color: var(--muted); font-size: 14px; ma
 .map .room.sel { fill: rgba(240,122,46,.25); stroke: var(--accent); }
 .map .room.path { fill: rgba(154,123,255,.28); stroke: var(--accent2); }
 .map .room.start { fill: rgba(79,191,122,.2); stroke: var(--ok); }
+.map .wall { fill: none; stroke: #7a6f88; stroke-width: 2.5; pointer-events: none; }
 .map .door { stroke: var(--accent); stroke-width: 5; stroke-linecap: round; pointer-events: none; }
 .map text { fill: var(--text); font-size: 13px; pointer-events: none; }
 .map text.nm { font-weight: 700; font-size: 14px; }

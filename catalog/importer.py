@@ -16,7 +16,10 @@ def import_case(folder, published=None):
     bundle = load_case(folder)
     m = bundle.manifest
     files = m["files"]
-    folder_rel = bundle.folder.resolve().relative_to(settings.CASES_DIR.resolve())
+    folder = bundle.folder.resolve()
+    cases_dir = settings.CASES_DIR.resolve()
+    # Stored relative to CASES_DIR when inside it, so the database survives the folder moving.
+    folder_rel = folder.relative_to(cases_dir) if folder.is_relative_to(cases_dir) else folder
 
     case = Case.objects.filter(slug=bundle.slug).first() or Case(slug=bundle.slug, published=True)
     if published is not None:

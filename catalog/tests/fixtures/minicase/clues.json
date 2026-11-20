@@ -1,0 +1,81 @@
+{
+  "rounds": 2,
+  "body": [
+    {
+      "id": "B1",
+      "round": 1,
+      "label": "Lips",
+      "text": "His lips have a faint blue tint. Poison, fast acting."
+    },
+    {
+      "id": "B2",
+      "round": 1,
+      "label": "Right hand",
+      "text": "Still gripping the stem of a port glass."
+    },
+    {
+      "id": "B3",
+      "round": 2,
+      "label": "Waistcoat pocket",
+      "text": "A note in his writing: \"Tell Hollis tonight. The cellar books don't add up.\""
+    }
+  ],
+  "cards": [
+    {
+      "id": "C1",
+      "location": "Ballroom",
+      "round": 1,
+      "text": "The silver tray and the port decanter. Only Lord Voss's glass has a cloudy film at the bottom. The decanter's label reads:",
+      "shows": "port_label"
+    },
+    {
+      "id": "C2",
+      "location": "Library",
+      "round": 1,
+      "text": "Two chairs pushed back hard. A torn draft of a will lies in the grate."
+    },
+    {
+      "id": "C3",
+      "location": "Pantry",
+      "round": 1,
+      "text": "Fresh flour scattered on the floor, as if the sacks were moved."
+    },
+    {
+      "id": "C4",
+      "location": "Wine Cellar",
+      "round": 1,
+      "text": "A decanter of port and a ring of the same cloudy film on the counter. The cellar ledger has pages torn out."
+    },
+    {
+      "id": "C5",
+      "location": "Butler's Room",
+      "round": 2,
+      "text": "Receipts from a wine dealer in the next town, all paid to Hollis Grey."
+    },
+    {
+      "id": "C6",
+      "location": "Garden",
+      "round": 1,
+      "requires_role": "GUEST",
+      "text": "Mina's notebook: \"8:40, light in the cellar window.\""
+    },
+    {
+      "id": "C7",
+      "location": "Butler's Room",
+      "round": 2,
+      "text": "A rat poison tin with flour on the lid."
+    }
+  ],
+  "sealed": [
+    {
+      "location": "Wine Cellar",
+      "instructions": "Open after the group solves The Cellar Lock",
+      "unlocked_by_puzzle": "cellar"
+    },
+    {
+      "location": "Butler's Room",
+      "instructions": "Open when Round 2 starts",
+      "unlocked_by_round": 2
+    }
+  ]
+}

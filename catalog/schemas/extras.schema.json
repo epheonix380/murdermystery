@@ -5,23 +5,119 @@
   "properties": {
     "map": {
       "type": "object",
-      "required": ["rooms"],
+      "required": [
+        "rooms"
+      ],
       "properties": {
         "rooms": {
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["id", "name", "x", "y", "w", "h"],
+            "required": [
+              "id",
+              "name",
+              "x",
+              "y",
+              "w",
+              "h"
+            ],
             "properties": {
-              "id": {"type": "string"},
-              "name": {"type": "string"},
-              "x": {"type": "number"}, "y": {"type": "number"},
-              "w": {"type": "number"}, "h": {"type": "number"}
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "w": {
+                "type": "number"
+              },
+              "h": {
+                "type": "number"
+              },
+              "lines": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Short notes drawn under the name"
+              },
+              "info": {
+                "type": "string",
+                "description": "Shown when a player taps the room"
+              },
+              "kind": {
+                "enum": [
+                  "outdoor",
+                  "upstairs"
+                ],
+                "description": "Outdoor rooms are tinted and rounded; upstairs rooms have dashed edges"
+              },
+              "sealed": {
+                "type": "string",
+                "description": "Name of something sealed here, drawn with a purple dot"
+              },
+              "center": {
+                "type": "boolean",
+                "description": "Centre the name, for long thin rooms"
+              }
             }
           }
         },
-        "doors": {"type": "array", "items": {"type": "array", "items": {"type": "number"}, "minItems": 4, "maxItems": 4}}
-      }
+        "doors": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "description": "Each door is a line [x1, y1, x2, y2] on a wall"
+        },
+        "labels": {
+          "type": "array",
+          "description": "Free text on the map, such as 'Back door'",
+          "items": {
+            "type": "object",
+            "required": [
+              "x",
+              "y",
+              "text"
+            ],
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "text": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "walls": {
+          "type": "array",
+          "description": "Outer walls drawn as thick outlines, each [x, y, width, height], e.g. around the main building",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 4,
+            "maxItems": 4
+          }
+        }
+      },
+      "description": "A floor plan. The app draws it as a tappable map, and `manage.py render_map` turns it into public/map.svg"
     }
   }
 }

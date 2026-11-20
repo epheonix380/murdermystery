@@ -1,0 +1,113 @@
+{
+  "map": {
+    "rooms": [
+      {
+        "id": "garden",
+        "name": "Garden",
+        "x": 24,
+        "y": 24,
+        "w": 456,
+        "h": 40,
+        "kind": "outdoor",
+        "center": true,
+        "info": "Outside the ballroom windows."
+      },
+      {
+        "id": "ballroom",
+        "name": "Ballroom",
+        "x": 24,
+        "y": 80,
+        "w": 240,
+        "h": 140,
+        "lines": [
+          "The toast"
+        ],
+        "info": "Where everyone gathered."
+      },
+      {
+        "id": "library",
+        "name": "Library",
+        "x": 264,
+        "y": 80,
+        "w": 216,
+        "h": 70,
+        "info": "Lord Voss's study."
+      },
+      {
+        "id": "pantry",
+        "name": "Pantry",
+        "x": 264,
+        "y": 150,
+        "w": 216,
+        "h": 70,
+        "lines": [
+          "Servants' stair down"
+        ],
+        "info": "Behind the ballroom, with stairs to the cellar."
+      },
+      {
+        "id": "cellar",
+        "name": "Wine Cellar",
+        "x": 264,
+        "y": 236,
+        "w": 216,
+        "h": 80,
+        "kind": "upstairs",
+        "sealed": "Locked",
+        "info": "Down the servants' stair. Locked with a 4-digit code."
+      },
+      {
+        "id": "butlers",
+        "name": "Butler's Room",
+        "x": 24,
+        "y": 236,
+        "w": 224,
+        "h": 80,
+        "sealed": "Round 2",
+        "info": "Hollis Grey's quarters, off the pantry stair."
+      }
+    ],
+    "doors": [
+      [
+        264,
+        100,
+        264,
+        130
+      ],
+      [
+        264,
+        170,
+        264,
+        200
+      ],
+      [
+        300,
+        220,
+        340,
+        220
+      ],
+      [
+        248,
+        256,
+        248,
+        286
+      ]
+    ],
+    "walls": [
+      [
+        24,
+        80,
+        456,
+        140
+      ]
+    ],
+    "labels": [
+      {
+        "x": 380,
+        "y": 232,
+        "text": "Stair down"
+      }
+    ]
+  },
+  "port_label": "Briar Hall Reserve, laid down 1887"
+}

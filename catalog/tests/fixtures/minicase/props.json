@@ -1,0 +1,4 @@
+[
+  { "id": "sealed-will", "name": "The Sealed Will", "description": "An envelope sealed with red wax, marked \"To be opened after my death.\"" },
+  { "id": "ledger", "name": "The Cellar Ledger", "description": "An old account book with pages torn out.", "placed_at": "Wine Cellar", "clue": "C4" }
+]

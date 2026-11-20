@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 16 472 308" width="472" height="308" role="img" aria-label="Floor plan of The Last Toast at Briar Hall" font-family="Inter, system-ui, sans-serif">
+<rect x="16" y="16" width="472" height="308" fill="#121016"/>
+<rect x="24" y="24" width="456" height="40" rx="8" fill="#2c2636" stroke="#5b5168"/>
+<rect x="24" y="80" width="240" height="140" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="264" y="80" width="216" height="70" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="264" y="150" width="216" height="70" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="264" y="236" width="216" height="80" rx="0" fill="#1d1924" stroke="#5b5168" stroke-dasharray="6 4"/>
+<rect x="24" y="236" width="224" height="80" rx="0" fill="#1d1924" stroke="#5b5168"/>
+<rect x="24" y="80" width="456" height="140" fill="none" stroke="#a89cb8" stroke-width="3"/>
+<line x1="264" y1="100" x2="264" y2="130" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="264" y1="170" x2="264" y2="200" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="300" y1="220" x2="340" y2="220" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<line x1="248" y1="256" x2="248" y2="286" stroke="#f07a2e" stroke-width="5" stroke-linecap="round"/>
+<text x="252" y="49" text-anchor="middle" fill="#ece6f2" font-size="14" font-weight="600">Garden</text>
+<text x="36" y="102" fill="#ece6f2" font-size="14" font-weight="600">Ballroom</text>
+<text x="36" y="120" fill="#a89cb8" font-size="12">The toast</text>
+<text x="276" y="102" fill="#ece6f2" font-size="14" font-weight="600">Library</text>
+<text x="276" y="172" fill="#ece6f2" font-size="14" font-weight="600">Pantry</text>
+<text x="276" y="190" fill="#a89cb8" font-size="12">Servants' stair down</text>
+<text x="276" y="258" fill="#ece6f2" font-size="14" font-weight="600">Wine Cellar</text>
+<circle cx="280" cy="272" r="5" fill="#9a7bff"/><text x="290" y="276" fill="#a89cb8" font-size="12">Locked</text>
+<text x="36" y="258" fill="#ece6f2" font-size="14" font-weight="600">Butler's Room</text>
+<circle cx="40" cy="272" r="5" fill="#9a7bff"/><text x="50" y="276" fill="#a89cb8" font-size="12">Round 2</text>
+<text x="380" y="232" text-anchor="middle" fill="#a89cb8" font-size="12">Stair down</text>
+</svg>

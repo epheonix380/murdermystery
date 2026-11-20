@@ -1,0 +1,68 @@
+[
+  {
+    "id": "BUTLER",
+    "name": "Hollis Grey",
+    "core": true,
+    "costume": "Black tailcoat, white gloves",
+    "who": "Butler at Briar Hall for thirty years. You poured the port.",
+    "attitude": "Calm, formal, never raises his voice.",
+    "cornered": "\"I have served this family since before most of you were born.\"",
+    "goal": "Don't get the most votes.",
+    "secret": "You are the killer. Lord Voss caught you selling the cellar's rarest bottles and was cutting you out of the will tonight. You poisoned his glass in the wine cellar at 8:40.",
+    "timeline": [
+      { "time": "8:30", "place": "Ballroom", "text": "Announced dinner was delayed." },
+      { "time": "8:40", "place": "Wine Cellar", "text": "Poured the port and stirred rat poison into Lord Voss's glass.", "hide": true },
+      { "time": "8:45", "place": "Pantry", "text": "Hid the poison tin behind the flour sacks.", "hide": true },
+      { "time": "9:00", "place": "Ballroom", "text": "Served the port on a silver tray." }
+    ],
+    "story": ["You were in the ballroom from 8:30 until the toast."],
+    "others": [
+      { "name": "Clara", "text": "She stands to inherit everything. Point at her." },
+      { "name": "Dr. Pell", "text": "He had a bag full of medicines tonight." }
+    ],
+    "tips": ["If they find the cellar, say anyone could have gone down there."]
+  },
+  {
+    "id": "HEIR",
+    "name": "Clara Voss",
+    "core": true,
+    "costume": "Green evening gown, pearls",
+    "who": "Lord Voss's niece and, until tonight, his only heir.",
+    "attitude": "Sharp and impatient.",
+    "goal": "Still be holding the sealed will when the game ends.",
+    "secret": "You argued with your uncle at 8:15 because you heard he was changing the will.",
+    "timeline": [
+      { "time": "8:15", "place": "Library", "text": "Argued with your uncle about the will.", "hide": true },
+      { "time": "8:30", "place": "Ballroom", "text": "Waited for dinner with everyone." },
+      { "time": "8:42", "place": "Ballroom", "text": "Noticed Hollis was missing from the room." }
+    ],
+    "starting_props": ["sealed-will"]
+  },
+  {
+    "id": "DOCTOR",
+    "name": "Dr. Amos Pell",
+    "core": true,
+    "costume": "Tweed suit, doctor's bag",
+    "who": "The family doctor and an old friend of Lord Voss.",
+    "attitude": "Kind, nervous, talks too much.",
+    "goal": "Make sure nobody looks inside your doctor's bag.",
+    "secret": "Lord Voss lent you money you never paid back.",
+    "timeline": [
+      { "time": "8:30", "place": "Ballroom", "text": "Chatted with Clara." },
+      { "time": "9:00", "place": "Ballroom", "text": "Rushed to Lord Voss when he fell. Smelled bitter almonds? No: something sharper, like rat poison." }
+    ]
+  },
+  {
+    "id": "GUEST",
+    "name": "Mina Tate",
+    "core": false,
+    "costume": "Red dress, notebook",
+    "who": "A journalist invited to cover the announcement.",
+    "attitude": "Curious, asks everyone questions.",
+    "goal": "Learn what the new will says.",
+    "secret": "You were secretly paid by Clara to report on the will.",
+    "timeline": [
+      { "time": "8:40", "place": "Garden", "text": "Saw a light moving in the wine cellar window." }
+    ]
+  }
+]

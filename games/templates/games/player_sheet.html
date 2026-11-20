@@ -21,6 +21,13 @@
     {% if role.attitude %}<p class="small muted" style="margin-bottom:6px"><b>Attitude:</b> {{ role.attitude }}</p>{% endif %}
     {% if role.cornered %}<div class="small muted" style="margin-bottom:4px">When cornered, say:</div><div class="say">{{ role.cornered }}</div>{% endif %}
   </div>
+  {% if starting_props %}
+  <div class="card">
+    <h3>You start with</h3>
+    {% for prop in starting_props %}<p><b>{{ prop.name }}</b><br><span class="small">{{ prop.description }}</span></p>{% endfor %}
+    <p class="small muted">The GM hands you the real object. It only changes hands when you choose to hand it over.</p>
+  </div>
+  {% endif %}
   <div class="card secretbox" id="goalBox">
     <div class="cover row" style="justify-content:space-between">
       <span><b>Secret goal</b><br><span class="small muted">Never reveal this. Tap to peek.</span></span>

@@ -75,6 +75,7 @@ def host_dashboard(request, game):
         "bundle": bundle,
         "has_players": game.players.exists(),
         "answers": [(p, _readable_answer(p["answer"], rooms)) for p in bundle.puzzles],
+        "props": _props_with_holders(game, bundle),
         "notes": {k: v for k, v in bundle.extras.items() if isinstance(v, str) and k not in _shown_elsewhere(bundle)},
         "gm_url": request.build_absolute_uri(reverse("gm-link", args=[game.gm_token])),
         "cfg": {
@@ -84,6 +85,19 @@ def host_dashboard(request, game):
             "wsPath": f"/ws/gm/{game.gm_token}/",
         },
     })
+
+
+def _props_with_holders(game, bundle):
+    """Each prop with where it starts: a place, or the character (and player) who holds it."""
+    players = {p.role_id: p.display_name for p in game.players.all()}
+    out = []
+    for prop in bundle.props:
+        holders = [
+            f"{r['name']} ({players[r['id']]})" if r["id"] in players else f"{r['name']} (not cast)"
+            for r in bundle.roles if prop["id"] in r.get("starting_props", [])
+        ]
+        out.append({**prop, "starts": prop.get("placed_at") or ", ".join(holders) or "Not placed"})
+    return out
 
 
 def _readable_answer(answer, rooms):
@@ -213,6 +227,7 @@ def player_sheet(request, token):
         "victim": bundle.manifest.get("victim"),
         "role": role,
         "is_killer": role["id"] == bundle.solution["killer"],
+        "starting_props": [p for p in bundle.props if p["id"] in role.get("starting_props", [])],
         "cast": cast,
         "ended": game.status == Game.Status.ARCHIVED,
         "cfg": {

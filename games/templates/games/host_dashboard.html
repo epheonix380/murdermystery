@@ -27,13 +27,13 @@
   <p class="small">Print the clue cards and location labels, hide the cards in their rooms, and seal each sealed location's cards in an envelope.</p>
   <div class="row"><a class="btn" href="{% url 'host-print' %}?kind=cards">Clue cards</a><a class="btn" href="{% url 'host-print' %}?kind=labels">Location labels</a></div>
 </div>
-{% if bundle.props %}
+{% if props %}
 <div class="card">
   <h3>Props</h3>
   <table class="list">
     <tr><th>Prop</th><th>Where it starts</th></tr>
-    {% for prop in bundle.props %}
-    <tr><td><b>{{ prop.name }}</b><div class="small muted">{{ prop.description }}</div></td><td>{{ prop.placed_at|default:"With a player" }}</td></tr>
+    {% for prop in props %}
+    <tr><td><b>{{ prop.name }}</b><div class="small muted">{{ prop.description }}</div></td><td>{{ prop.starts }}</td></tr>
     {% endfor %}
   </table>
 </div>

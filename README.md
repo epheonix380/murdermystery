@@ -80,6 +80,8 @@ Each case is a folder in `cases/`:
 
 Only `public/` is ever served. The JSON files are read by the server and never sent as files.
 
+To write a new case with Claude Code, ask for one in a session opened in this repo: the `new-case` skill in `.claude/skills/new-case/` walks through designing the mystery, writing the files, and checking them. `catalog/tests/fixtures/minicase/` is a small complete example.
+
 To add or change a case, edit its files and run:
 
 ```
@@ -87,3 +89,12 @@ To add or change a case, edit its files and run:
 ```
 
 This checks every file against its schema in `catalog/schemas/`, checks the files against each other (the killer is a core role, puzzles unlock real sealed locations, clue rounds exist, and so on), and lists every problem it finds. Only a case with no problems is loaded. It then saves the title, player range, map link and the clue, puzzle and prop counts to the `Case` table for the case browser. Add `--draft` to hide a case from the browser or `--publish` to show it.
+
+Two more commands help when writing a case:
+
+```
+.venv/bin/python manage.py render_map <slug>      # draws public/map.svg from the floor plan in extras.json
+.venv/bin/python manage.py playtest_case <slug>   # plays a whole game automatically, then undoes it
+```
+
+`playtest_case` plays with the smallest and largest cast, solves each puzzle with its own answer, and fails if any phone is sent another character's secret, a puzzle answer or the solution before the reveal.

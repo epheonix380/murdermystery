@@ -1,0 +1,32 @@
+{
+  "slug": "minicase",
+  "title": "The Last Toast at Briar Hall",
+  "premise": [
+    "Lord Edmund Voss gathered his household at Briar Hall to announce a new will.",
+    "At 9:00 PM he raised a glass of his own vintage port, drank, and collapsed. He was dead before the doctor reached him.",
+    "Nobody has left the hall. One of you poisoned him."
+  ],
+  "rules": [
+    "Share, hide or lie about anything on your sheet. Only your secret goal must stay hidden.",
+    "Props change hands only when the holder hands them over.",
+    "At the end everyone votes in secret for the killer."
+  ],
+  "min_players": 3,
+  "max_players": 4,
+  "victim": { "name": "Lord Edmund Voss", "text": "The victim. Owner of Briar Hall, about to change his will." },
+  "map": "public/map.svg",
+  "run_of_show": [
+    "Read the premise aloud (5 min)",
+    "Search round 1 and discussion (20 min)",
+    "Start Round 2, open the Butler's Room envelope (15 min)",
+    "Open voting, reveal, then secret goals (10 min)"
+  ],
+  "files": {
+    "roles": "roles.json",
+    "clues": "clues.json",
+    "puzzles": "puzzles.json",
+    "props": "props.json",
+    "solution": "solution.json",
+    "extras": "extras.json"
+  }
+}
